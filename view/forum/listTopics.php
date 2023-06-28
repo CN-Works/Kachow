@@ -12,7 +12,7 @@ foreach($topics as $topic ){
     ?>
 
     <div class="topiclist-card">
-        <img class="topiclist-card-image" src="<?=$topic->getBanner()?>" alt="">
+        <img class="topiclist-card-image unselectable" src="<?=$topic->getBanner()?>" alt="">
         <h2 class="topiclist-card-title"><?=$topic->getTitle()?></h2>
         <p class='topiclist-card-description'>Auteur <?= $topic->getId() ?></p>
         <?=
