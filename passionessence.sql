@@ -39,17 +39,17 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `id_posts` int NOT NULL AUTO_INCREMENT,
   `content` text COLLATE utf8mb4_general_ci NOT NULL,
   `creationdate` datetime NOT NULL,
-  `user_id` int DEFAULT NULL,
-  `topic_id` int DEFAULT NULL,
+  `users_id` int DEFAULT NULL,
+  `topics_id` int DEFAULT NULL,
   PRIMARY KEY (`id_posts`) USING BTREE,
-  KEY `user_id` (`user_id`),
-  KEY `topic_id` (`topic_id`),
-  CONSTRAINT `topic_id` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`id_topics`)
+  KEY `user_id` (`users_id`) USING BTREE,
+  KEY `topic_id` (`topics_id`) USING BTREE,
+  CONSTRAINT `topic_id` FOREIGN KEY (`topics_id`) REFERENCES `topics` (`id_topics`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.posts : ~0 rows (environ)
-INSERT INTO `posts` (`id_posts`, `content`, `creationdate`, `user_id`, `topic_id`) VALUES
-	(1, 'J\'aime bien les clio 3 phase 2 d\'avant 2012', '2023-06-28 09:47:30', 2, 1),
+INSERT INTO `posts` (`id_posts`, `content`, `creationdate`, `users_id`, `topics_id`) VALUES
+	(1, 'J\'aime bien les clio 3 phase 2 d\'avant 2012, ça arrache sur l\'autoroute dans le 68', '2023-06-28 09:47:30', 2, 1),
 	(2, 'C\'est vrai qu\'elle sont bien celle là, surtout en diesel', '2023-06-28 09:51:45', 1, 1),
 	(3, 'J\'ai entendu quelqu\'un dire sur youtube qu\'on peut mettre de l\'eau dans l\'essence, je veux faire des économies', '2023-06-28 09:54:23', 3, 2),
 	(4, 'Je viens d\'en mettre dans le réservoir, je vais tester ça. A toute à l\'heure !', '2023-06-28 09:56:44', 3, 2),
@@ -59,21 +59,23 @@ INSERT INTO `posts` (`id_posts`, `content`, `creationdate`, `user_id`, `topic_id
 CREATE TABLE IF NOT EXISTS `topics` (
   `id_topics` int NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `banner` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` tinyint NOT NULL DEFAULT '0',
   `creationdate` datetime NOT NULL,
-  `user_id` int NOT NULL,
+  `users_id` int NOT NULL,
   `category_id` int NOT NULL,
   PRIMARY KEY (`id_topics`) USING BTREE,
-  KEY `user_id` (`user_id`),
   KEY `category_id` (`category_id`),
+  KEY `user_id` (`users_id`) USING BTREE,
   CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`id_category`),
-  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_users`)
+  CONSTRAINT `user_id` FOREIGN KEY (`users_id`) REFERENCES `users` (`id_users`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.topics : ~0 rows (environ)
-INSERT INTO `topics` (`id_topics`, `title`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
-	(1, 'Clio 3 Phase 2', 0, '2023-06-28 09:48:31', 2, 3),
-	(2, 'Mettre de l\'eau dans son moteur', 0, '2023-06-28 09:53:24', 3, 4);
+INSERT INTO `topics` (`id_topics`, `title`, `description`, `banner`, `status`, `creationdate`, `users_id`, `category_id`) VALUES
+	(1, 'Clio 3 Phase 2', 'J\'adore ma Clio', 'https://ag-cdn-production.azureedge.net/produits/images/2cd53a82-915b-4127-af63-cd262caea230_800.jpg', 0, '2023-06-28 09:48:31', 2, 3),
+	(2, 'Mettre de l\'eau dans son moteur', NULL, NULL, 0, '2023-06-28 09:53:24', 3, 4);
 
 -- Listage de la structure de table passionessence. users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -89,10 +91,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 -- Listage des données de la table passionessence.users : ~0 rows (environ)
 INSERT INTO `users` (`id_users`, `username`, `password`, `description`, `role`, `creationdate`, `profileimage`) VALUES
-	(1, 'Quentin12', '0', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', NULL),
+	(1, 'Quentin12', '123456', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', NULL),
 	(2, 'Maxoms68', '0', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', NULL),
 	(3, 'ArnodePHP', '0', 'Je fais du coivoiturage, mais attention c\'est pas gratuit', 'user', '2023-06-28 09:41:48', NULL),
-	(4, 'Madimax', '0', 'Je parle russe', 'user', '2023-06-28 09:42:55', NULL);
+	(4, 'Madimax', 'russia', 'Je parle russe', 'user', '2023-06-28 09:42:55', NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
