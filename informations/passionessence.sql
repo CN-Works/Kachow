@@ -27,17 +27,33 @@ CREATE TABLE IF NOT EXISTS `category` (
   PRIMARY KEY (`id_category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Les données exportées n'étaient pas sélectionnées.
+-- Listage des données de la table passionessence.category : ~4 rows (environ)
+INSERT INTO `category` (`id_category`, `label`, `image`) VALUES
+	(1, 'Essai', NULL),
+	(2, 'Pilotage', NULL),
+	(3, 'Retours / Avis', NULL),
+	(4, 'Questions', NULL);
 
--- Listage de la structure de table passionessence. comments
-CREATE TABLE IF NOT EXISTS `comments` (
-  `id_comment` int NOT NULL AUTO_INCREMENT,
+-- Listage de la structure de table passionessence. posts
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id_post` int NOT NULL AUTO_INCREMENT,
   `content` text COLLATE utf8mb4_general_ci NOT NULL,
   `creation_date` datetime NOT NULL,
-  PRIMARY KEY (`id_comment`)
+  `user_id` int DEFAULT NULL,
+  `topic_id` int DEFAULT NULL,
+  PRIMARY KEY (`id_post`) USING BTREE,
+  KEY `user_id` (`user_id`),
+  KEY `topic_id` (`topic_id`),
+  CONSTRAINT `topic_id` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`id_topic`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Les données exportées n'étaient pas sélectionnées.
+-- Listage des données de la table passionessence.posts : ~5 rows (environ)
+INSERT INTO `posts` (`id_post`, `content`, `creation_date`, `user_id`, `topic_id`) VALUES
+	(1, 'J\'aime bien les clio 3 phase 2 d\'avant 2012', '2023-06-28 09:47:30', 2, 1),
+	(2, 'C\'est vrai qu\'elle sont bien celle là, surtout en diesel', '2023-06-28 09:51:45', 1, 1),
+	(3, 'J\'ai entendu quelqu\'un dire sur youtube qu\'on peut mettre de l\'eau dans l\'essence, je veux faire des économies', '2023-06-28 09:54:23', 3, 2),
+	(4, 'Je viens d\'en mettre dans le réservoir, je vais tester ça. A toute à l\'heure !', '2023-06-28 09:56:44', 3, 2),
+	(5, 'Moi j\'aime pas, elle est blanche et le blanc c\'est oppressant.', '2023-06-28 09:57:32', 3, 1);
 
 -- Listage de la structure de table passionessence. topics
 CREATE TABLE IF NOT EXISTS `topics` (
@@ -54,7 +70,10 @@ CREATE TABLE IF NOT EXISTS `topics` (
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Les données exportées n'étaient pas sélectionnées.
+-- Listage des données de la table passionessence.topics : ~2 rows (environ)
+INSERT INTO `topics` (`id_topic`, `title`, `status`, `creation_date`, `user_id`, `category_id`) VALUES
+	(1, 'Clio 3 Phase 2', 0, '2023-06-28 09:48:31', 2, 3),
+	(2, 'Mettre de l\'eau dans son moteur', 0, '2023-06-28 09:53:24', 3, 4);
 
 -- Listage de la structure de table passionessence. users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -68,7 +87,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Les données exportées n'étaient pas sélectionnées.
+-- Listage des données de la table passionessence.users : ~4 rows (environ)
+INSERT INTO `users` (`id_user`, `username`, `password`, `description`, `role`, `registration_date`, `profile_image`) VALUES
+	(1, 'Quentin12', '0', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', NULL),
+	(2, 'Maxoms68', '0', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', NULL),
+	(3, 'ArnodePHP', '0', 'Je fais du coivoiturage, mais attention c\'est pas gratuit', 'user', '2023-06-28 09:41:48', NULL),
+	(4, 'Madimax', '0', 'Je parle russe', 'user', '2023-06-28 09:42:55', NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
