@@ -2,6 +2,7 @@
     namespace Model\Entities;
 
     use App\Entity;
+    use App\DAO;
 
     final class Topic extends Entity{
 
@@ -145,5 +146,13 @@
                 $this->banner = $banner;
 
                 return $this;
+        }
+
+        public function getTopicAuthor() {
+                $request = "SELECT username, description, role, creationdate, profileimage FROM users WHERE id_users = ?id";
+
+                $author = DAO::select($request, ['id' => $this->id], false);
+
+                return $author;
         }
     }
