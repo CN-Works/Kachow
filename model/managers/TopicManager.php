@@ -8,7 +8,7 @@
     class TopicManager extends Manager{
 
         protected $className = "Model\Entities\Topic";
-        protected $tableName = "topic";
+        protected $tableName = "topics";
 
 
         public function __construct(){
