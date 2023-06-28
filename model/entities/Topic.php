@@ -7,6 +7,8 @@
 
         private $id;
         private $title;
+        private $description;
+        private $banner;
         private $user;
         private $creationdate;
         private $closed;
@@ -101,6 +103,46 @@
         public function setClosed($closed)
         {
                 $this->closed = $closed;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of description
+         */ 
+        public function getDescription()
+        {
+                return $this->description;
+        }
+
+        /**
+         * Set the value of description
+         *
+         * @return  self
+         */ 
+        public function setDescription($description)
+        {
+                $this->description = $description;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of banner
+         */ 
+        public function getBanner()
+        {
+                return $this->banner;
+        }
+
+        /**
+         * Set the value of banner
+         *
+         * @return  self
+         */ 
+        public function setBanner($banner)
+        {
+                $this->banner = $banner;
 
                 return $this;
         }
