@@ -1,2 +1,2 @@
-# Kachow
+# PassionEssence
 An automobile forum made for school
