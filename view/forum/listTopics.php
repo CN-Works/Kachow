@@ -14,7 +14,7 @@ use App\DAO;
         <div class="topiclist-card">
             <img class="topiclist-card-image unselectable" src="<?=$topic->getBanner()?>" alt="">
             <h2 class="topiclist-card-title"><?=$topic->getTitle()?></h2>
-            <p class='topiclist-card-description'>Ouvert par <?= $topic->getTopicAuthor()[0]["username"] ?></p>
+            <p class='topiclist-card-description'>Ouvert par <?= var_dump($topic->getTopicAuthor()) ?></p>
             <?=
                 // Vérifie si la description existe et n'est pas nulle
                 $description = $topic->getDescription();
