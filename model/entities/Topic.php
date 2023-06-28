@@ -10,7 +10,7 @@
         private $title;
         private $description;
         private $banner;
-        private $user;
+        private $userid;
         private $creationdate;
         private $closed;
 
@@ -149,7 +149,7 @@
         }
 
         public function getTopicAuthor() {
-                $request = "SELECT username, 'description', 'role', creationdate, profileimage FROM users WHERE id_user = ".$this->user.";";
+                $request = "SELECT username, 'description', 'role', creationdate, profileimage FROM users WHERE id_user = ".$this->userid.";";
 
                 $author = DAO::select($request);
 
