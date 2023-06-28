@@ -36,19 +36,19 @@ INSERT INTO `category` (`id_category`, `label`, `image`) VALUES
 
 -- Listage de la structure de table passionessence. posts
 CREATE TABLE IF NOT EXISTS `posts` (
-  `id_post` int NOT NULL AUTO_INCREMENT,
+  `id_posts` int NOT NULL AUTO_INCREMENT,
   `content` text COLLATE utf8mb4_general_ci NOT NULL,
   `creationdate` datetime NOT NULL,
   `user_id` int DEFAULT NULL,
   `topic_id` int DEFAULT NULL,
-  PRIMARY KEY (`id_post`) USING BTREE,
+  PRIMARY KEY (`id_posts`) USING BTREE,
   KEY `user_id` (`user_id`),
   KEY `topic_id` (`topic_id`),
-  CONSTRAINT `topic_id` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`id_topic`)
+  CONSTRAINT `topic_id` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`id_topics`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.posts : ~0 rows (environ)
-INSERT INTO `posts` (`id_post`, `content`, `creationdate`, `user_id`, `topic_id`) VALUES
+INSERT INTO `posts` (`id_posts`, `content`, `creationdate`, `user_id`, `topic_id`) VALUES
 	(1, 'J\'aime bien les clio 3 phase 2 d\'avant 2012', '2023-06-28 09:47:30', 2, 1),
 	(2, 'C\'est vrai qu\'elle sont bien celle là, surtout en diesel', '2023-06-28 09:51:45', 1, 1),
 	(3, 'J\'ai entendu quelqu\'un dire sur youtube qu\'on peut mettre de l\'eau dans l\'essence, je veux faire des économies', '2023-06-28 09:54:23', 3, 2),
@@ -57,38 +57,38 @@ INSERT INTO `posts` (`id_post`, `content`, `creationdate`, `user_id`, `topic_id`
 
 -- Listage de la structure de table passionessence. topics
 CREATE TABLE IF NOT EXISTS `topics` (
-  `id_topic` int NOT NULL AUTO_INCREMENT,
+  `id_topics` int NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `status` tinyint NOT NULL DEFAULT '0',
   `creationdate` datetime NOT NULL,
   `user_id` int NOT NULL,
   `category_id` int NOT NULL,
-  PRIMARY KEY (`id_topic`),
+  PRIMARY KEY (`id_topics`) USING BTREE,
   KEY `user_id` (`user_id`),
   KEY `category_id` (`category_id`),
   CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`id_category`),
-  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`)
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_users`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.topics : ~0 rows (environ)
-INSERT INTO `topics` (`id_topic`, `title`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
+INSERT INTO `topics` (`id_topics`, `title`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
 	(1, 'Clio 3 Phase 2', 0, '2023-06-28 09:48:31', 2, 3),
 	(2, 'Mettre de l\'eau dans son moteur', 0, '2023-06-28 09:53:24', 3, 4);
 
 -- Listage de la structure de table passionessence. users
 CREATE TABLE IF NOT EXISTS `users` (
-  `id_user` int NOT NULL AUTO_INCREMENT,
+  `id_users` int NOT NULL AUTO_INCREMENT,
   `username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0',
   `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0',
   `description` text COLLATE utf8mb4_general_ci,
   `role` varchar(50) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'user',
   `creationdate` datetime NOT NULL,
   `profileimage` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`id_user`)
+  PRIMARY KEY (`id_users`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.users : ~0 rows (environ)
-INSERT INTO `users` (`id_user`, `username`, `password`, `description`, `role`, `creationdate`, `profileimage`) VALUES
+INSERT INTO `users` (`id_users`, `username`, `password`, `description`, `role`, `creationdate`, `profileimage`) VALUES
 	(1, 'Quentin12', '0', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', NULL),
 	(2, 'Maxoms68', '0', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', NULL),
 	(3, 'ArnodePHP', '0', 'Je fais du coivoiturage, mais attention c\'est pas gratuit', 'user', '2023-06-28 09:41:48', NULL),
