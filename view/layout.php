@@ -23,7 +23,7 @@
                         <?php
                         if(App\Session::isAdmin()){
                             ?>
-                            <a href="index.php?ctrl=home&action=users">Voir la liste des gens</a>
+                            <a href="index.php?ctrl=home&action=users">Utilisateurs actifs</a>
                           
                             <?php
                         }
@@ -31,7 +31,7 @@
                     </div>
                     <div id="nav-right">
                     <?php
-                        
+                        // Vérifie si l'utilisateur est connecté ou non
                         if(App\Session::getUser()){
                             ?>
                             <a href="/security/viewProfile.html"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser()?></a>
@@ -42,7 +42,7 @@
                             ?>
                             <a href="./view/security/login.php">Connexion</a>
                             <a href="/security/register.html">Inscription</a>
-                            <a href="index.php?ctrl=forum&action=listTopics">la liste des topics</a>
+                            <a href="index.php?ctrl=forum&action=listTopics">Tout les topics</a>
                         <?php
                         }
                    
