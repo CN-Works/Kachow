@@ -79,9 +79,14 @@
         }
 
         public function getCreationdate(){
-            $formattedDate = $this->creationdate->format("d/m/Y, H:i:s");
+            $formattedDate = $this->creationdate->format("d m Y");
             return $formattedDate;
         }
+
+        public function getFullCreationdate(){
+                $formattedDate = $this->creationdate->format("d/m/Y, H:i:s");
+                return $formattedDate;
+            }
 
         public function setCreationdate($date){
             $this->creationdate = new \DateTime($date);
