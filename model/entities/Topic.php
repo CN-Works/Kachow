@@ -149,9 +149,14 @@
         }
 
         public function getTopicAuthor() {
-                $request = "SELECT username, 'description', 'role', creationdate, profileimage FROM users WHERE id_user = ".$this->userid.";";
+                $request = "SELECT us.username, us.description, us.role, us.creationdate, us.profileimage FROM topics tp INNER JOIN user us ON tp.user_id = us.id_user AND tp.id_topics = ".$this->id.";";
 
-                $author = DAO::select($request);
+                $result = DAO::select($request);
+                $author = [];
+
+                foreach($result as $person) {
+                        $author = $person;
+                }
 
                 return $author;
         }
