@@ -79,7 +79,7 @@
         }
 
         public function getCreationdate(){
-            $formattedDate = $this->creationdate->format("d m Y");
+            $formattedDate = $this->creationdate->format("d F Y");
             return $formattedDate;
         }
 
