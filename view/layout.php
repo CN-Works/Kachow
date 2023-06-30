@@ -18,7 +18,7 @@
             <h3 class="message" style="color: red"><?= App\Session::getFlash("error") ?></h3>
             <h3 class="message" style="color: green"><?= App\Session::getFlash("success") ?></h3>
             <header>
-                <a class="header-logo unselectable" href="/"><img class="header-logo-image" src="./public/img/PassionEssenceLarger_light.png" alt="Passion Essence logo"></a>
+                <a class="header-logo unselectable" href="index.php"><img class="header-logo-image" src="./public/img/PassionEssenceLarger_light.png" alt="Passion Essence logo"></a>
 
                 <nav class="header-navbar">
 
