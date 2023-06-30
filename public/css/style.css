@@ -121,7 +121,7 @@ body:has(.header-loginicon:hover) .header-loginicon-image {
 
 footer {
     min-height: 150px;
-    height: 5svh;
+    height: 10svh;
     background-color: var(--dark);
 
     display: flex;
@@ -168,7 +168,7 @@ footer {
 /* All Topics */
 
 .topiclist-main {
-    min-height: 85svh;
+    min-height: 90svh;
 
     display: flex;
     flex-direction: column;
