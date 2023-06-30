@@ -15,6 +15,22 @@
     -ms-user-select: none;      /* IE 10+ */
 }
 
+/* All Topics */
+
+.topiclist-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.topiclist-allcards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .topiclist-card {
     display: flex;
     flex-direction: column;
@@ -23,10 +39,8 @@
     gap: 5px;
 
     background-color: #26292F;
-    border-radius: 10px;
-
-    max-width: 35%;
-    min-height: 400px;
+    width: 26%;
+    height: 400px;
     margin: 10px;
 
     color: #ffffff;
@@ -39,10 +53,16 @@
 }
 
 .topiclist-card-image {
-    max-height: 35%;
+    overflow: hidden;
+    aspect-ratio: 4/3;
     width: 100%;
+}
+
+.topiclist-card-title {
+    margin: 10px 0;
 }
 
 .topiclist-card-description {
     font-style: italic;
+    margin: 10px 0;
 }
