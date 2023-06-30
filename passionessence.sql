@@ -22,12 +22,12 @@ USE `passionessence`;
 -- Listage de la structure de table passionessence. category
 CREATE TABLE IF NOT EXISTS `category` (
   `id_category` int NOT NULL AUTO_INCREMENT,
-  `label` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `image` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `label` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `image` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_category`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.category : ~0 rows (environ)
+-- Listage des données de la table passionessence.category : ~4 rows (environ)
 INSERT INTO `category` (`id_category`, `label`, `image`) VALUES
 	(1, 'Essai', NULL),
 	(2, 'Pilotage', NULL),
@@ -37,7 +37,7 @@ INSERT INTO `category` (`id_category`, `label`, `image`) VALUES
 -- Listage de la structure de table passionessence. posts
 CREATE TABLE IF NOT EXISTS `posts` (
   `id_posts` int NOT NULL AUTO_INCREMENT,
-  `content` text COLLATE utf8mb4_general_ci NOT NULL,
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `creationdate` datetime NOT NULL,
   `user_id` int DEFAULT NULL,
   `topics_id` int DEFAULT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   CONSTRAINT `topic_id` FOREIGN KEY (`topics_id`) REFERENCES `topics` (`id_topics`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.posts : ~0 rows (environ)
+-- Listage des données de la table passionessence.posts : ~5 rows (environ)
 INSERT INTO `posts` (`id_posts`, `content`, `creationdate`, `user_id`, `topics_id`) VALUES
 	(1, 'J\'aime bien les clio 3 phase 2 d\'avant 2012, ça arrache sur l\'autoroute dans le 68', '2023-06-28 09:47:30', 2, 1),
 	(2, 'C\'est vrai qu\'elle sont bien celle là, surtout en diesel', '2023-06-28 09:51:45', 1, 1),
@@ -58,7 +58,7 @@ INSERT INTO `posts` (`id_posts`, `content`, `creationdate`, `user_id`, `topics_i
 -- Listage de la structure de table passionessence. topics
 CREATE TABLE IF NOT EXISTS `topics` (
   `id_topics` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `banner` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` tinyint NOT NULL DEFAULT '0',
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `topics` (
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.topics : ~0 rows (environ)
+-- Listage des données de la table passionessence.topics : ~2 rows (environ)
 INSERT INTO `topics` (`id_topics`, `title`, `description`, `banner`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
 	(1, 'Clio 3 Phase 2', 'J\'adore ma Clio', 'https://ag-cdn-production.azureedge.net/produits/images/2cd53a82-915b-4127-af63-cd262caea230_800.jpg', 0, '2023-06-28 09:48:31', 2, 3),
 	(2, 'Mettre de l\'eau dans son moteur', NULL, NULL, 0, '2023-06-28 09:53:24', 3, 4);
@@ -80,21 +80,22 @@ INSERT INTO `topics` (`id_topics`, `title`, `description`, `banner`, `status`, `
 -- Listage de la structure de table passionessence. user
 CREATE TABLE IF NOT EXISTS `user` (
   `id_user` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0',
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8mb4_general_ci,
-  `role` varchar(50) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'user',
+  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `role` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'user',
   `creationdate` datetime NOT NULL,
   `profileimage` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_user`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.user : ~4 rows (environ)
+-- Listage des données de la table passionessence.user : ~5 rows (environ)
 INSERT INTO `user` (`id_user`, `username`, `password`, `description`, `role`, `creationdate`, `profileimage`) VALUES
 	(1, 'Quentin12', '123456', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', NULL),
 	(2, 'Maxoms68', '0', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', NULL),
 	(3, 'ArnodePHP', '0', 'Je fais du coivoiturage, mais attention c\'est pas gratuit', 'user', '2023-06-28 09:41:48', NULL),
-	(4, 'Madimax', 'russia', 'Je parle russe', 'user', '2023-06-28 09:42:55', NULL);
+	(4, 'Madimax', 'russia', 'Je parle russe', 'user', '2023-06-28 09:42:55', NULL),
+	(5, 'Chernyy', '0', 'J\'aime bien les bmw, mais je préfère dacia.', 'admin', '2023-06-29 11:35:49', NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
