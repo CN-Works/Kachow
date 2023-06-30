@@ -7,12 +7,80 @@
 
 :root {
     --grey-white: #D8DADE;
+    --main-dark : #27292E;
 }
 
 .unselectable {
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
+}
+
+/* Header */
+header {
+    background-color: var(--main-dark);
+    min-height: 75px;
+    height: 10svh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 10px;
+}
+
+.header-logo {
+    max-height: 100%;
+    width: 250px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo-image {
+    width: 100%;
+    height: 100%;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 100%;
+}
+
+.header-navbar-element {
+    height: 100%;
+    color: var(--grey-white);
+    text-decoration: none;
+
+    text-transform: uppercase;
+    font-weight: 600;
+
+    margin: 0 5px;
+}
+
+.header-navbar-element:hover {
+    background-color: var(--grey-white);
+}
+
+.header-navbar-element:visited {
+    color: var(--grey-white);
+}
+
+.header-loginicon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 40%;
+}
+
+.header-loginicon-image {
+    height: 100%;
+    width: 100%;
 }
 
 /* All Topics */
