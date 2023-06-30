@@ -120,6 +120,7 @@ body:has(.header-loginicon:hover) .header-loginicon-image {
 /* Footer */
 
 footer {
+    min-height: 10svh;
     height: 200px;
     background-color: var(--dark);
 
@@ -135,7 +136,7 @@ footer {
 
 .footer-textzone {
     width: 30%;
-    
+
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -144,15 +145,31 @@ footer {
 .footer-text {
     color: var(--grey-white);
     text-decoration: none;
+
+    margin: 0 5px;
 }
 
-.footer-text:visited {
-    color: var(--grey-white);
+.footer-text:hover {
+    color: #fff;
+}
+
+
+.footer-networks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-socialnetwork {
+    width: 30px;
+    margin: 0 5px;
 }
 
 /* All Topics */
 
 .topiclist-main {
+    min-height: 75svh;
+
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -65,13 +65,13 @@
             <img class="footer-image" src="./public/img/PassionEssence_light.png" alt="Passion Essence logo">
 
             <div class="footer-textzone">
-                <a class="footer-text" href="">Contacts</a>
+                <p class="footer-text" href="">Contacts</p>
 
-                <a class="footer-text" href="">Réglement & CGU</a>
+                <p class="footer-text" href="">Réglement & CGU</p>
             
-                <a class="footer-text" href="">Mentions légales</a>
+                <p class="footer-text" href="">Mentions légales</p>
 
-                <a class="footer-text" href="">Données Personnelles</a>
+                <p class="footer-text" href="">Données Personnelles</p>
             </div>
 
             <div class="footer-networks">
