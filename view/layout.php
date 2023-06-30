@@ -22,7 +22,7 @@
 
                 <nav class="header-navbar">
 
-                    <a class="header-navbar-element" href="index.php?ctrl=home&action=users"><p class="header-navbar-element-text">Topics</p></a>
+                    <a class="header-navbar-element" href="index.php?ctrl=forum&action=listTopics"><p class="header-navbar-element-text">Topics</p></a>
 
                     <a class="header-navbar-element" href="index.php?ctrl=home&action=users"><p class="header-navbar-element-text">Catégories</p></a>
 
@@ -35,29 +35,28 @@
                             <?php
                         }
                     ?>
-                </nav>
-
-                <?php
-                    // Vérifie si l'utilisateur est connecté ou non
-                    if(App\Session::getUser()){
-                        ?>
-                        <!-- <a href="/security/viewProfile.html"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser()?></a>
-                        <a href="/security/logout.html">Déconnexion</a> -->
-                        <?php
-                    }
-                    else{
-                        ?>
-                        <a class="header-loginicon" href="./view/security/login.php">
-                            <img class="header-loginicon-image" src="./public/img/icon_user.png" alt="Person icon">
-                        </a>
-                        <!-- <a href="./view/security/login.php">Connexion</a>
-                        <a href="/security/register.html">Inscription</a>
-                        <a href="index.php?ctrl=forum&action=listTopics">Tout les topics</a> -->
                     <?php
-                    }
+                        // Vérifie si l'utilisateur est connecté ou non
+                        if(App\Session::getUser()){
+                            ?>
+                            <!-- <a href="/security/viewProfile.html"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser()?></a>
+                            <a href="/security/logout.html">Déconnexion</a> -->
+                            <?php
+                        }
+                            else {
+                            ?>
+                            <a class="header-loginicon header" href="./view/security/login.php">
+                                <img class="header-loginicon-image" src="./public/img/icon_user.png" alt="Person icon">
+                            </a>
+                            <!-- <a href="./view/security/login.php">Connexion</a>
+                            <a href="/security/register.html">Inscription</a>
+                            <a href="index.php?ctrl=forum&action=listTopics">Tout les topics</a> -->
+                            <?php
+                        }
                 
                     
-                ?>
+                    ?>
+                </nav>
             </header>
             
             <?= $page ?>
