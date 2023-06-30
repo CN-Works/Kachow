@@ -6,9 +6,14 @@
 }
 
 :root {
+    --dark : #27292E;
+    --dark-lighter : #3c3f47;
+    --light-blue:  #B6C8E0;
+    --cream: #CCA589;
     --grey-white: #D8DADE;
-    --main-dark : #27292E;
-    --main-dark-lighter : #3c3f47;
+    --grey-light: #A6A8AA;
+    --brown-red: #4B2423;
+    --brown-light: #857070;
 }
 
 .unselectable {
@@ -19,7 +24,7 @@
 
 /* Header */
 header {
-    background-color: var(--main-dark);
+    background-color: var(--dark);
     min-height: 75px;
     height: 10svh;
 
@@ -50,23 +55,25 @@ header {
     align-items: center;
 
     height: 100%;
-    min-width: 500px;
+    min-width: 600px;
     width: 30%;
 }
 
 .header-navbar-element {
     height: 100%;
-    width: 100%;
+    min-width: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
 
     padding: 0 5px;
+
+    transition: all, 0.5s;
 }
 
 .header-navbar-element:hover {
-    background-color: var(--main-dark-lighter);
+    background-color: var(--dark-lighter);
 }
 
 .header-navbar-element:visited {
@@ -86,12 +93,28 @@ header {
     justify-content: center;
     align-items: center;
 
-    height: 40%;
-}
-
-.header-loginicon-image {
     height: 100%;
     width: 100%;
+    min-width: 150px;
+}
+
+body:has(.header-loginicon:hover) .header-loginicon-image {
+    background-color: var(--dark-lighter);
+    padding: 15px;
+    max-width: 70px;
+}
+
+/* body:has(.header-loginicon:hover) .header-loginicon-image {
+    content: url("./public/img/icon_user_hovered.png");
+} */
+
+.header-loginicon-image {
+    width: 100%;
+    border-radius: 50%;
+
+    max-width: 40px;
+
+    transition: all, 0.5s;
 }
 
 /* All Topics */
@@ -132,9 +155,7 @@ header {
 }
 
 .topiclist-card:hover {
-    background-color: #363636;
-    color: #fff;
-    transform: translateY(-15px);
+    transform: translateY(-10px);
 }
 
 .topiclist-card-image {
