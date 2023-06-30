@@ -18,7 +18,7 @@
             <h3 class="message" style="color: red"><?= App\Session::getFlash("error") ?></h3>
             <h3 class="message" style="color: green"><?= App\Session::getFlash("success") ?></h3>
             <header>
-                <a class="header-logo" href="/"><img class="header-logo-image" src="./public/img/PassionEssenceLarger_light.png" alt="Passion Essence logo"></a>
+                <a class="header-logo unselectable" href="/"><img class="header-logo-image" src="./public/img/PassionEssenceLarger_light.png" alt="Passion Essence logo"></a>
 
                 <nav class="header-navbar">
 
@@ -46,7 +46,7 @@
                             else {
                             ?>
                             <a class="header-loginicon header" href="./view/security/login.php">
-                                <img class="header-loginicon-image" src="./public/img/icon_user.png" alt="Person icon">
+                                <img class="header-loginicon-image unselectable" src="./public/img/icon_user.png" alt="Person icon">
                             </a>
                             <!-- <a href="./view/security/login.php">Connexion</a>
                             <a href="/security/register.html">Inscription</a>
@@ -62,7 +62,7 @@
             <?= $page ?>
         </div>
         <footer>
-            <img class="footer-image" src="./public/img/PassionEssence_light.png" alt="Passion Essence logo">
+            <img class="footer-image unselectable" src="./public/img/PassionEssence_light.png" alt="Passion Essence logo">
 
             <div class="footer-textzone">
                 <p class="footer-text" href="">Contacts</p>
@@ -75,9 +75,9 @@
             </div>
 
             <div class="footer-networks">
-                <img class="footer-socialnetwork" src="./public/img/social_facebook.png" alt="facebook logo">
-                <img class="footer-socialnetwork" src="./public/img/social_instagram.png" alt="Instagram logo">
-                <img class="footer-socialnetwork" src="./public/img/social_twitter.png" alt="Twitter logo">
+                <img class="footer-socialnetwork unselectable" src="./public/img/social_facebook.png" alt="facebook logo">
+                <img class="footer-socialnetwork unselectable" src="./public/img/social_instagram.png" alt="Instagram logo">
+                <img class="footer-socialnetwork unselectable" src="./public/img/social_twitter.png" alt="Twitter logo">
             </div>
         </footer>
     </div>
