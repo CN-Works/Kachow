@@ -22,11 +22,11 @@
 
                 <nav class="header-navbar">
 
-                    <a class="header-navbar-element" href="index.php?ctrl=home&action=users">Topics</a>
+                    <a class="header-navbar-element" href="index.php?ctrl=home&action=users"><p class="header-navbar-element-text">Topics</p></a>
 
-                    <a class="header-navbar-element" href="index.php?ctrl=home&action=users">Catégories</a>
+                    <a class="header-navbar-element" href="index.php?ctrl=home&action=users"><p class="header-navbar-element-text">Catégories</p></a>
 
-                    <a class="header-navbar-element" href="index.php?ctrl=home&action=users">Rédiger</a>
+                    <a class="header-navbar-element" href="index.php?ctrl=home&action=users"><p class="header-navbar-element-text">Rédaction</p></a>
                     <?php
                         if(App\Session::isAdmin()){
                             ?>
@@ -34,9 +34,9 @@
                           
                             <?php
                         }
-                        ?>
+                    ?>
                 </nav>
-                
+
                 <?php
                     // Vérifie si l'utilisateur est connecté ou non
                     if(App\Session::getUser()){
