@@ -8,6 +8,7 @@
 :root {
     --grey-white: #D8DADE;
     --main-dark : #27292E;
+    --main-dark-lighter : #3c3f47;
 }
 
 .unselectable {
@@ -26,7 +27,7 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 .header-logo {
@@ -43,31 +44,41 @@ header {
     height: 100%;
 }
 
-.header-nav {
+.header-navbar {
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: center;
 
     height: 100%;
+    min-width: 500px;
+    width: 30%;
 }
 
 .header-navbar-element {
     height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    padding: 0 5px;
+}
+
+.header-navbar-element:hover {
+    background-color: var(--main-dark-lighter);
+}
+
+.header-navbar-element:visited {
+    color: var(--grey-white);
+}
+
+.header-navbar-element-text {
     color: var(--grey-white);
     text-decoration: none;
 
     text-transform: uppercase;
     font-weight: 600;
-
-    margin: 0 5px;
-}
-
-.header-navbar-element:hover {
-    background-color: var(--grey-white);
-}
-
-.header-navbar-element:visited {
-    color: var(--grey-white);
 }
 
 .header-loginicon {
