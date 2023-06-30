@@ -7,6 +7,7 @@
     <script src="https://cdn.tiny.cloud/1/zg3mwraazn1b2ezih16je1tc6z7gwp5yd4pod06ae5uai8pa/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
     <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="icon" href="./public/img/gearbox_light.png">
     <title>PassionEssence.com</title>
 </head>
 <body>
@@ -17,39 +18,46 @@
             <h3 class="message" style="color: red"><?= App\Session::getFlash("error") ?></h3>
             <h3 class="message" style="color: green"><?= App\Session::getFlash("success") ?></h3>
             <header>
-                <nav>
-                    <div id="nav-left">
-                        <a href="/">Accueil</a>
-                        <?php
+                <a class="header-logo" href="/"><img class="header-logo-image" src="./public/img/PassionEssenceLarger_light.png" alt=""></a>
+
+                <nav class="header-navbar">
+
+                    <a class="header-navbar-element" href="index.php?ctrl=home&action=users">Topics</a>
+
+                    <a class="header-navbar-element" href="index.php?ctrl=home&action=users">Catégories</a>
+
+                    <a class="header-navbar-element" href="index.php?ctrl=home&action=users">Rédiger</a>
+                    <?php
                         if(App\Session::isAdmin()){
                             ?>
-                            <a href="index.php?ctrl=home&action=users">Utilisateurs actifs</a>
+                            <a class="header-navbar-element" href="index.php?ctrl=home&action=users">Utilisateurs actifs</a>
                           
                             <?php
                         }
                         ?>
-                    </div>
-                    <div id="nav-right">
-                    <?php
-                        // Vérifie si l'utilisateur est connecté ou non
-                        if(App\Session::getUser()){
-                            ?>
-                            <a href="/security/viewProfile.html"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser()?></a>
-                            <a href="/security/logout.html">Déconnexion</a>
-                            <?php
-                        }
-                        else{
-                            ?>
-                            <a href="./view/security/login.php">Connexion</a>
-                            <a href="/security/register.html">Inscription</a>
-                            <a href="index.php?ctrl=forum&action=listTopics">Tout les topics</a>
-                        <?php
-                        }
-                   
-                        
-                    ?>
-                    </div>
                 </nav>
+                
+                <?php
+                    // Vérifie si l'utilisateur est connecté ou non
+                    if(App\Session::getUser()){
+                        ?>
+                        <!-- <a href="/security/viewProfile.html"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser()?></a>
+                        <a href="/security/logout.html">Déconnexion</a> -->
+                        <?php
+                    }
+                    else{
+                        ?>
+                        <a class="header-loginicon" href="./view/security/login.php">
+                            <img class="header-loginicon-image" src="./public/img/icon_user.png" alt="Person icon">
+                        </a>
+                        <!-- <a href="./view/security/login.php">Connexion</a>
+                        <a href="/security/register.html">Inscription</a>
+                        <a href="index.php?ctrl=forum&action=listTopics">Tout les topics</a> -->
+                    <?php
+                    }
+                
+                    
+                ?>
             </header>
             
             <?= $page ?>
