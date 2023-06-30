@@ -18,7 +18,7 @@
             <h3 class="message" style="color: red"><?= App\Session::getFlash("error") ?></h3>
             <h3 class="message" style="color: green"><?= App\Session::getFlash("success") ?></h3>
             <header>
-                <a class="header-logo" href="/"><img class="header-logo-image" src="./public/img/PassionEssenceLarger_light.png" alt=""></a>
+                <a class="header-logo" href="/"><img class="header-logo-image" src="./public/img/PassionEssenceLarger_light.png" alt="Passion Essence logo"></a>
 
                 <nav class="header-navbar">
 
@@ -62,8 +62,23 @@
             <?= $page ?>
         </div>
         <footer>
-            <p>&copy; 2023 - PassionEssence - <a href="/home/forumRules.html">Règlement du forum</a> - <a href="">Mentions légales</a></p>
-            <!--<button id="ajaxbtn">Surprise en Ajax !</button> -> cliqué <span id="nbajax">0</span> fois-->
+            <img class="footer-image" src="./public/img/PassionEssence_light.png" alt="Passion Essence logo">
+
+            <div class="footer-textzone">
+                <a class="footer-text" href="">Contacts</a>
+
+                <a class="footer-text" href="">Réglement & CGU</a>
+            
+                <a class="footer-text" href="">Mentions légales</a>
+
+                <a class="footer-text" href="">Données Personnelles</a>
+            </div>
+
+            <div class="footer-networks">
+                <img class="footer-socialnetwork" src="./public/img/social_facebook.png" alt="facebook logo">
+                <img class="footer-socialnetwork" src="./public/img/social_instagram.png" alt="Instagram logo">
+                <img class="footer-socialnetwork" src="./public/img/social_twitter.png" alt="Twitter logo">
+            </div>
         </footer>
     </div>
     <script

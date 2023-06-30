@@ -117,6 +117,39 @@ body:has(.header-loginicon:hover) .header-loginicon-image {
     transition: all, 0.5s;
 }
 
+/* Footer */
+
+footer {
+    height: 200px;
+    background-color: var(--dark);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-image {
+    height: 55%;
+    max-width: 30%;
+}
+
+.footer-textzone {
+    width: 30%;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-text {
+    color: var(--grey-white);
+    text-decoration: none;
+}
+
+.footer-text:visited {
+    color: var(--grey-white);
+}
+
 /* All Topics */
 
 .topiclist-main {
