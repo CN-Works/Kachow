@@ -38,18 +38,24 @@
     align-items: center;
     gap: 5px;
 
-    background-color: #26292F;
-    width: 26%;
+    outline: 1px solid #26292F;
+    border-radius: 2px;
+    background-color: #fff;
+
+
+    width: 19%;
     height: 400px;
     margin: 10px;
 
-    color: #ffffff;
+    color: #0c0c0c;
 
     transition: all, 0.5s;
 }
 
 .topiclist-card:hover {
-    background-color: #5E747F;
+    background-color: #363636;
+    color: #fff;
+    transform: translateY(-15px);
 }
 
 .topiclist-card-image {
