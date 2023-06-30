@@ -10,7 +10,7 @@
         private $title;
         private $description;
         private $banner;
-        private $userid;
+        private $user;
         private $creationdate;
         private $closed;
 
