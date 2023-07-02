@@ -5,7 +5,11 @@ use App\DAO;
     
 ?>
 <div class="topiclist-main">
-    <h1>liste topics</h1>
+    <div>
+        <h2>liste topics</h2>
+
+        <p>Tout les derniers articles rédigés par récemment, aucune catégorie spécifique.</p>
+    </div>
 
     <div class="topiclist-allcards">
         <?php
@@ -13,7 +17,9 @@ use App\DAO;
 
             ?>
             <div class="topiclist-card">
-                <img class="topiclist-card-image unselectable" src="<?=$topic->getBanner()?>" alt="">
+                <figure class="topiclist-card-figure">
+                    <img class="topiclist-card-image unselectable" src="<?=$topic->getBanner()?>" alt="">
+                </figure>
                 <!-- // if (isset($topic->getBanner())) {
                 //     echo "<img class='topiclist-card-image unselectable' src='".$topic->getBanner()."' alt=''>";
                 // } -->
