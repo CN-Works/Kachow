@@ -16,6 +16,11 @@
     --brown-light: #857070;
 }
 
+/* Scrollbar */
+body::-webkit-scrollbar {
+    display: none;
+}
+
 .unselectable {
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
@@ -24,6 +29,7 @@
 
 /* Header */
 header {
+    overflow: hidden;
     background-color: var(--dark);
     min-height: 75px;
     height: 10svh;
@@ -169,6 +175,7 @@ footer {
 
 .topiclist-main {
     min-height: 90svh;
+    background-color: #f4f4f4;
 
     display: flex;
     flex-direction: column;
@@ -187,16 +194,15 @@ footer {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 5px;
 
     outline: 1px solid #26292F;
-    border-radius: 2px;
+    border-radius: 3px;
     background-color: #fff;
 
-
-    width: 19%;
+    min-width: 350px;
+    width: 30%;
     height: 400px;
     margin: 10px;
 
@@ -206,12 +212,21 @@ footer {
 }
 
 .topiclist-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-2px);
+}
+
+.topiclist-card-figure {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0 0 15px 15px;
+    max-height: 80%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .topiclist-card-image {
-    overflow: hidden;
-    aspect-ratio: 4/3;
     width: 100%;
 }
 
@@ -225,3 +240,35 @@ footer {
     margin: 10px 0;
     text-align: center;
 }
+
+/* Homepage */
+
+.home-main {
+    min-height: 90svh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.home-pageone {
+    height: 90svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    background-color: #0000003f;
+    width: 100%;
+}
+
+.home-background {
+    overflow: hidden;
+    z-index: -1;
+    /* position: fixed;
+    right: 0;
+    bottom: 0; */
+    width: 100%;
+}
+  
