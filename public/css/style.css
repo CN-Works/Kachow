@@ -263,12 +263,37 @@ footer {
     width: 100%;
 }
 
-.home-background {
+.home-pageone-textzone {
+    font-family: "Dosis";
+    font-style: italic;
+    background-color: none;
+    color: #ffffff;
+    position:absolute;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-pageone-title {
+    font-size: 3.7rem;
+}
+
+.home-pageone-subtitle {
+    font-size: 1.3rem;
+}
+
+.home-pageone-background {
     overflow: hidden;
     z-index: -1;
-    /* position: fixed;
-    right: 0;
-    bottom: 0; */
+    position: fixed;
+    min-width: 100%; 
+    min-height: 100%;
+}
+
+.home-pageonebackground-video {
+    height: 100%;
     width: 100%;
 }
   
