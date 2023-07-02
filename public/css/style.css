@@ -11,7 +11,8 @@
     --light-blue:  #B6C8E0;
     --cream: #CCA589;
     --grey-white: #D8DADE;
-    --grey-light: #A6A8AA;
+    --grey-light: #AFB4BD;
+    --grey-background: #F5F4F4;
     --brown-red: #4B2423;
     --brown-light: #857070;
 }
@@ -175,17 +176,19 @@ footer {
 
 .topiclist-main {
     min-height: 90svh;
-    background-color: #f4f4f4;
+    background-color: var(--grey-background);
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+
+    padding: 0 5%;
 }
 
 .topiclist-allcards {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -197,12 +200,11 @@ footer {
     align-items: center;
     gap: 5px;
 
-    outline: 1px solid #26292F;
     border-radius: 3px;
-    background-color: #fff;
+    background-color: #ffffff;
 
     min-width: 350px;
-    width: 30%;
+    width: 27%;
     height: 400px;
     margin: 10px;
 
@@ -218,7 +220,6 @@ footer {
 .topiclist-card-figure {
     width: 100%;
     overflow: hidden;
-    border-radius: 0 0 15px 15px;
     max-height: 80%;
 
     display: flex;
@@ -233,12 +234,14 @@ footer {
 .topiclist-card-title {
     margin: 10px 0;
     text-align: center;
+    color: var(--dark);
 }
 
 .topiclist-card-description {
     font-style: italic;
     margin: 10px 0;
     text-align: center;
+    color: var(--dark-lighter);
 }
 
 /* Homepage */
@@ -259,7 +262,7 @@ footer {
     justify-content: center;
 
     overflow: hidden;
-    background-color: #0000003f;
+    background-color: #0000004d;
     width: 100%;
 }
 
