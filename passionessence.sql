@@ -23,16 +23,17 @@ USE `passionessence`;
 CREATE TABLE IF NOT EXISTS `category` (
   `id_category` int NOT NULL AUTO_INCREMENT,
   `label` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` varchar(1000) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `image` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_category`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.category : ~4 rows (environ)
-INSERT INTO `category` (`id_category`, `label`, `image`) VALUES
-	(1, 'Essai', NULL),
-	(2, 'Pilotage', NULL),
-	(3, 'Retours / Avis', NULL),
-	(4, 'Questions', NULL);
+INSERT INTO `category` (`id_category`, `label`, `description`, `image`) VALUES
+	(1, 'Essai', NULL, NULL),
+	(2, 'Pilotage', NULL, NULL),
+	(3, 'Retours / Avis', NULL, NULL),
+	(4, 'Questions', NULL, NULL);
 
 -- Listage de la structure de table passionessence. posts
 CREATE TABLE IF NOT EXISTS `posts` (
@@ -44,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   PRIMARY KEY (`id_posts`) USING BTREE,
   KEY `topic_id` (`topics_id`) USING BTREE,
   KEY `user_id` (`user_id`) USING BTREE,
-  CONSTRAINT `topic_id` FOREIGN KEY (`topics_id`) REFERENCES `topics` (`id_topics`)
+  CONSTRAINT `topic_id` FOREIGN KEY (`topics_id`) REFERENCES `topic` (`id_topic`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.posts : ~5 rows (environ)
@@ -55,9 +56,9 @@ INSERT INTO `posts` (`id_posts`, `content`, `creationdate`, `user_id`, `topics_i
 	(4, 'Je viens d\'en mettre dans le réservoir, je vais tester ça. A toute à l\'heure !', '2023-06-28 09:56:44', 3, 2),
 	(5, 'Moi j\'aime pas, elle est blanche et le blanc c\'est oppressant.', '2023-06-28 09:57:32', 3, 1);
 
--- Listage de la structure de table passionessence. topics
-CREATE TABLE IF NOT EXISTS `topics` (
-  `id_topics` int NOT NULL AUTO_INCREMENT,
+-- Listage de la structure de table passionessence. topic
+CREATE TABLE IF NOT EXISTS `topic` (
+  `id_topic` int NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `banner` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -65,17 +66,19 @@ CREATE TABLE IF NOT EXISTS `topics` (
   `creationdate` datetime NOT NULL,
   `user_id` int NOT NULL,
   `category_id` int NOT NULL,
-  PRIMARY KEY (`id_topics`) USING BTREE,
+  PRIMARY KEY (`id_topic`) USING BTREE,
   KEY `category_id` (`category_id`),
   KEY `user_id` (`user_id`) USING BTREE,
   CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`id_category`),
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.topics : ~2 rows (environ)
-INSERT INTO `topics` (`id_topics`, `title`, `description`, `banner`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
+-- Listage des données de la table passionessence.topic : ~3 rows (environ)
+INSERT INTO `topic` (`id_topic`, `title`, `description`, `banner`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
 	(1, 'Clio 3 Phase 2', 'J\'adore ma Clio', 'https://ag-cdn-production.azureedge.net/produits/images/2cd53a82-915b-4127-af63-cd262caea230_800.jpg', 0, '2023-06-28 09:48:31', 2, 3),
-	(2, 'Mettre de l\'eau dans son moteur', NULL, NULL, 0, '2023-06-28 09:53:24', 3, 4);
+	(2, 'Mettre de l\'eau dans son moteur', 'Mettre de l\'eau dans le réservoir', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7i5EkWDOVMefXn9v8PD3WyMjtq9ihlSkeZg', 0, '2023-06-28 09:53:24', 3, 4),
+	(3, 'Achat Mercedes CLS63 AMG', 'J\'aimerais acheter un cls63, avez vous des conseils ?', 'https://www.turbo.fr/sites/default/files/styles/article_690x405/public/migration/image_parse/4924690.jpg', 0, '2023-06-29 11:41:15', 5, 4),
+	(4, 'Ma climatisation ne marche pas !', 'Il fait chaud et ça ne refroidis pas.', 'https://www.iceshop.fr/guide/wp-content/uploads/2021/10/climatisations.jpeg', 0, '2023-06-30 09:11:24', 4, 3);
 
 -- Listage de la structure de table passionessence. user
 CREATE TABLE IF NOT EXISTS `user` (
@@ -89,13 +92,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id_user`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.user : ~5 rows (environ)
+-- Listage des données de la table passionessence.user : ~4 rows (environ)
 INSERT INTO `user` (`id_user`, `username`, `password`, `description`, `role`, `creationdate`, `profileimage`) VALUES
 	(1, 'Quentin12', '123456', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', NULL),
 	(2, 'Maxoms68', '0', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', NULL),
 	(3, 'ArnodePHP', '0', 'Je fais du coivoiturage, mais attention c\'est pas gratuit', 'user', '2023-06-28 09:41:48', NULL),
-	(4, 'Madimax', 'russia', 'Je parle russe', 'user', '2023-06-28 09:42:55', NULL),
-	(5, 'Chernyy', '0', 'J\'aime bien les bmw, mais je préfère dacia.', 'admin', '2023-06-29 11:35:49', NULL);
+	(4, 'Madinax', 'russia', 'Je parle russe', 'user', '2023-06-28 09:42:55', NULL),
+	(5, 'Vic-Thor', '0', 'J\'aime bien les bmw, mais je préfère dacia.', 'admin', '2023-06-29 11:35:49', NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
