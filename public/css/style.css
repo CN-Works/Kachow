@@ -10,6 +10,7 @@
     --dark-lighter : #3c3f47;
     --light-blue:  #B6C8E0;
     --cream: #CCA589;
+    --cream-dark: #b6947b;
     --grey-white: #D8DADE;
     --grey-light: #AFB4BD;
     --grey-background: #f2f2f2;
@@ -197,8 +198,10 @@ footer {
 
 .topiclist-title {
     color: var(--dark);
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     text-transform: uppercase;
+
+    font-weight: 800;
 }
 
 .topiclist-subtitle {
@@ -206,6 +209,8 @@ footer {
     font-size: 1.3rem;
     max-width: 700px;
     text-align: justify;
+
+    font-weight: 500;
 }
 
 .topiclist-allcards {
@@ -262,6 +267,8 @@ footer {
     overflow-y: auto;
 
     width: 95%;
+
+    font-weight: 600;
 }
 
 .topiclist-card-description {
@@ -273,7 +280,7 @@ footer {
 }
 
 .topiclist-card-description-author {
-    background-color:  var(--cream);
+    background-color:  var(--cream-dark);
     text-align: center;
     min-height: 30px;
     padding: 0 10px;
