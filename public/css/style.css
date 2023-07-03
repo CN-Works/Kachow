@@ -183,7 +183,28 @@ footer {
     align-items: center;
     justify-content: space-around;
 
-    padding: 0 5%;
+    padding: 30px 2.5%;
+}
+
+.topiclist-titletexts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 200px;
+    min-width: 100%;
+}
+
+.topiclist-title {
+    color: var(--dark);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.topiclist-subtitle {
+    color: var(--dark-lighter);
+    font-size: 1.3rem;
+    max-width: 600px;
 }
 
 .topiclist-allcards {
@@ -205,22 +226,19 @@ footer {
 
     min-width: 350px;
     width: 27%;
-    height: 400px;
-    margin: 10px;
+    height: 500px;
+
+    margin: 5px 0;
 
     color: #0c0c0c;
 
     transition: all, 0.5s;
 }
 
-.topiclist-card:hover {
-    transform: translateY(-2px);
-}
-
 .topiclist-card-figure {
     width: 100%;
     overflow: hidden;
-    max-height: 80%;
+    height: 80%;
 
     display: flex;
     justify-content: center;
@@ -232,16 +250,71 @@ footer {
 }
 
 .topiclist-card-title {
-    margin: 10px 0;
+    margin: 5px 0;
     text-align: center;
     color: var(--dark);
+
+    text-align: left;
+
+    min-height: 40px;
+
+    overflow-y: auto;
+
+    width: 95%;
 }
 
 .topiclist-card-description {
-    font-style: italic;
-    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 95%;
+}
+
+.topiclist-card-description-author {
+    background-color:  var(--cream);
     text-align: center;
-    color: var(--dark-lighter);
+    min-height: 30px;
+    padding: 0 10px;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.topiclist-card-description-authortext {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.topiclist-card-description-date {
+    font-style: italic;
+}
+
+.topiclist-card-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--dark);
+    width: 95%;
+    border-radius: 2px;
+    height: 50px;
+}
+
+.topiclist-card-detail:hover {
+    background-color: var(--dark-lighter);
+    text-decoration: none;
+}
+
+.topiclist-card-detail-text {
+    color: #ffffff;
+    /* text-transform: uppercase; */
+    font-size: 1.1rem;
+    text-decoration: none;
 }
 
 /* Homepage */
