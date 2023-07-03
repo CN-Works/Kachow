@@ -7,6 +7,7 @@
     use App\ControllerInterface;
     use Model\Managers\TopicManager;
     use Model\Managers\PostManager;
+    use Model\Managers\CategoryManager;
     
     class ForumController extends AbstractController implements ControllerInterface{
 
@@ -18,12 +19,22 @@
             return [
                 "view" => VIEW_DIR."forum/listTopics.php",
                 "data" => [
-                    "topics" => $topicManager->findAll(["title", "DESC"])
+                    "topics" => $topicManager->findAll()
                 ]
             ];
         
         }
 
-        
+        public function AllCategories() {
+
+            $categoryManager = new CategoryManager;
+
+            return [
+                "view" => VIEW_DIR."forum/listCategories.php",
+                "data" => [
+                    "categories" => $categoryManager->findAll()
+                ]
+            ];
+        }
 
     }
