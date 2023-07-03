@@ -81,7 +81,7 @@ header {
 }
 
 .header-navbar-element:hover {
-    background-color: var(--dark-lighter);
+    background-color: var(--cream-dark);
 }
 
 .header-navbar-element:visited {
@@ -107,7 +107,7 @@ header {
 }
 
 body:has(.header-loginicon:hover) .header-loginicon-image {
-    background-color: var(--dark-lighter);
+    background-color: var(--cream-dark);
     padding: 15px;
     max-width: 70px;
 }
@@ -382,5 +382,34 @@ footer {
 .home-pageonebackground-video {
     height: 100%;
     width: 100%;
+}
+
+/* All category */
+
+.allcategory-main {
+    min-height: 90svh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.allcategory-allcards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 95%;
+}
+
+.allcategory-card {
+    width: 50%;
+    min-width: 400px;
+    min-height: 25svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
   
