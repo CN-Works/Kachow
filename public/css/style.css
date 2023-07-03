@@ -12,7 +12,7 @@
     --cream: #CCA589;
     --grey-white: #D8DADE;
     --grey-light: #AFB4BD;
-    --grey-background: #F5F4F4;
+    --grey-background: #f2f2f2;
     --brown-red: #4B2423;
     --brown-light: #857070;
 }
@@ -204,7 +204,8 @@ footer {
 .topiclist-subtitle {
     color: var(--dark-lighter);
     font-size: 1.3rem;
-    max-width: 600px;
+    max-width: 700px;
+    text-align: justify;
 }
 
 .topiclist-allcards {
@@ -303,6 +304,8 @@ footer {
     width: 95%;
     border-radius: 2px;
     height: 50px;
+
+    margin: 5px 0;
 }
 
 .topiclist-card-detail:hover {
