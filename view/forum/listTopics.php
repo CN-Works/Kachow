@@ -20,9 +20,16 @@ use App\DAO;
 
             ?>
             <div class="topiclist-card">
-                <figure class="topiclist-card-figure">
-                    <img class="topiclist-card-image unselectable" src="<?=$topic->getBanner()?>" alt="">
-                </figure>
+                <?php
+                $banner = $topic->getBanner();
+
+                if (isset($banner)) {
+                    echo "<figure class='topiclist-card-figure'>
+                    <img class='topiclist-card-image unselectable' src='$banner' alt=''>
+                    </figure>";
+                }
+
+                ?>
 
                 <h2 class="topiclist-card-title"><?=$topic->getTitle()?></h2>
                 <div class="topiclist-card-description">
