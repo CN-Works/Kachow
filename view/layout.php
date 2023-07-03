@@ -24,7 +24,7 @@
 
                     <a class="header-navbar-element" href="index.php?ctrl=forum&action=listTopics"><p class="header-navbar-element-text">Topics</p></a>
 
-                    <a class="header-navbar-element" href="index.php?ctrl=home&action=users"><p class="header-navbar-element-text">Catégories</p></a>
+                    <a class="header-navbar-element" href="index.php?ctrl=forum&action=AllCategories"><p class="header-navbar-element-text">Catégories</p></a>
 
                     <a class="header-navbar-element" href="index.php?ctrl=home&action=users"><p class="header-navbar-element-text">Rédaction</p></a>
                     <?php
