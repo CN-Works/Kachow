@@ -206,7 +206,7 @@ footer {
 
 .topiclist-subtitle {
     color: var(--dark-lighter);
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     max-width: 700px;
     text-align: justify;
 
@@ -224,7 +224,7 @@ footer {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     gap: 5px;
 
@@ -235,7 +235,7 @@ footer {
     width: 27%;
     height: 500px;
 
-    margin: 5px 0;
+    margin: 15px 0;
 
     color: #0c0c0c;
 
@@ -392,6 +392,8 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    background-color: var(--grey-background);
 }
 
 .allcategory-allcards {
@@ -400,16 +402,58 @@ footer {
     align-items: center;
     flex-wrap: wrap;
 
+    gap: 15px;
+
     width: 95%;
 }
 
 .allcategory-card {
-    width: 50%;
+    width: 45%;
     min-width: 400px;
-    min-height: 25svh;
+    height: 25svh;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    background: #ffffff;
+
+    margin: 15px 0;
+}
+
+.allcategory-card-bannerfig {
+    height: 100%;
+    width: 60%;
+
+    overflow: hidden;
+}
+
+.allcategory-card-banner {
+    width: 100%;
+}
+
+.allcategory-card-textside {
+    width: 40%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+}
+
+.allcategory-card-title {
+    text-align: center;
+    color: var(--cream-dark);
+    font-weight: 800;
+    font-size: 1.45rem;
+}
+
+.allcategory-card-subtitle {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--dark-lighter);
 }
   
