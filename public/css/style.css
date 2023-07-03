@@ -408,6 +408,7 @@ footer {
 }
 
 .allcategory-card {
+    overflow: hidden;
     width: 45%;
     min-width: 400px;
     height: 25svh;
