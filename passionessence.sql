@@ -41,15 +41,15 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `creationdate` datetime NOT NULL,
   `user_id` int DEFAULT NULL,
-  `topics_id` int DEFAULT NULL,
+  `topic_id` int DEFAULT NULL,
   PRIMARY KEY (`id_posts`) USING BTREE,
-  KEY `topic_id` (`topics_id`) USING BTREE,
   KEY `user_id` (`user_id`) USING BTREE,
-  CONSTRAINT `topic_id` FOREIGN KEY (`topics_id`) REFERENCES `topic` (`id_topic`)
+  KEY `topic_id` (`topic_id`) USING BTREE,
+  CONSTRAINT `topic_id` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id_topic`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.posts : ~5 rows (environ)
-INSERT INTO `posts` (`id_posts`, `content`, `creationdate`, `user_id`, `topics_id`) VALUES
+INSERT INTO `posts` (`id_posts`, `content`, `creationdate`, `user_id`, `topic_id`) VALUES
 	(1, 'J\'aime bien les clio 3 phase 2 d\'avant 2012, ça arrache sur l\'autoroute dans le 68', '2023-06-28 09:47:30', 2, 1),
 	(2, 'C\'est vrai qu\'elle sont bien celle là, surtout en diesel', '2023-06-28 09:51:45', 1, 1),
 	(3, 'J\'ai entendu quelqu\'un dire sur youtube qu\'on peut mettre de l\'eau dans l\'essence, je veux faire des économies', '2023-06-28 09:54:23', 3, 2),
