@@ -561,7 +561,7 @@ video {
 }
 
 .topicdetails-topicinfos-author-username {
-    color: var(--dark-lighter);
+    color: var(--cream-dark);
 
     font-size: 1.9rem;
 }
