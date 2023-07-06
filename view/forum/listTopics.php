@@ -5,10 +5,10 @@ use App\DAO;
     
 ?>
 <div class="topiclist-main">
-    <div class="topiclist-titletexts">
-        <h2 class="topiclist-title">liste des topics</h2>
+    <div class="general-toppage-titletexts">
+        <h2 class="general-toppage-title">Topics</h2>
 
-        <p class="topiclist-subtitle">
+        <p class="general-toppage-subtitle">
             Tout les derniers articles rédigés par récemment, aucune catégorie spécifique.
             Ils ont été écrit récemment par les membres de la communauté PassionEssence.
         </p>
