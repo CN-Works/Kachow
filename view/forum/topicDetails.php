@@ -10,19 +10,19 @@ use App\DAO;
     <div class="topicdetails-topicinfos">
 
         <div class="topicdetails-topicinfos-left">
-            <div>
-                <figure>
-                    <img src="<?= $topic->getUser()->getProfileimage()?>" alt="Photo de profile de <?= $topic->getUser()->getUsername()?>">
+            <div class="topicdetails-topicinfos-authorpart">
+                <figure class="topicdetails-topicinfos-authorfig">
+                    <img class="topicdetails-topicinfos-authorimage" src="<?= $topic->getUser()->getProfileimage()?>" alt="Photo de profile de <?= $topic->getUser()->getUsername()?>">
                 </figure>
 
-                <h3><?= $topic->getUser()->getUsername()?></h3>
+                <h3 class="topicdetails-topicinfos-author-username"><?= $topic->getUser()->getUsername()?></h3>
             </div>
 
-            <p><?= $topic->getDescription()?></p>
+            <p class="topicdetails-topicinfos-description"><?= $topic->getDescription()?></p>
         </div>
 
         <figure class="topicdetails-topicinfos-bannerfig" >
-            <img class="topicdetails-topicinfos-banner" src="<?= $topic->getBanner()?>" alt="Bannière du topic '<?= $topic->getTitle()?>' de <?= $topic->getUser()->getUsername()?>" style="width: 500px;">
+            <img class="topicdetails-topicinfos-banner" src="<?= $topic->getBanner()?>" alt="Bannière du topic '<?= $topic->getTitle()?>' de <?= $topic->getUser()->getUsername()?>">
         </figure>
     </div>
 
