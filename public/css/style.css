@@ -224,7 +224,7 @@ footer {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     gap: 5px;
 
@@ -233,7 +233,7 @@ footer {
 
     min-width: 350px;
     width: 27%;
-    height: 500px;
+    height: 400px;
 
     margin: 15px 0;
 
@@ -243,9 +243,10 @@ footer {
 }
 
 .topiclist-card-figure {
+    vertical-align: top;
     width: 100%;
     overflow: hidden;
-    height: 80%;
+    height: 50%;
 
     display: flex;
     justify-content: center;
@@ -254,12 +255,14 @@ footer {
 
 .topiclist-card-image {
     width: 100%;
+    min-height: 100%;
 }
 
 .topiclist-card-title {
     margin: 5px 0;
     text-align: center;
     color: var(--dark);
+    font-size: 1.4rem;
 
     text-align: left;
 
