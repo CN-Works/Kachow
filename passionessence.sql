@@ -96,12 +96,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 -- Listage des données de la table passionessence.user : ~6 rows (environ)
 INSERT INTO `user` (`id_user`, `username`, `password`, `description`, `role`, `creationdate`, `profileimage`) VALUES
-	(1, 'Quentin12', '123456', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', NULL),
-	(2, 'Maxoms68', '0', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', NULL),
-	(3, 'ArnodePHP', '0', 'Je fais du coivoiturage, mais attention c\'est pas gratuit', 'user', '2023-06-28 09:41:48', NULL),
-	(4, 'Madinax', 'russia', 'Je parle russe', 'user', '2023-06-28 09:42:55', NULL),
-	(5, 'Vic-Thor', '0', 'J\'aime bien les bmw, mais je préfère dacia.', 'admin', '2023-06-29 11:35:49', NULL),
-	(6, 'ClydeRSLambo', '0', 'J\'aime bien Lamborghini mais si tu parles mal je te..', 'user', '2023-07-06 09:38:37', NULL);
+	(1, 'Quentin12', '0', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', 'https://avatars.githubusercontent.com/u/68738931'),
+	(2, 'Maxoms68', '0', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', 'https://avatars.githubusercontent.com/u/120190748'),
+	(3, 'ArnodePHP', '0', 'Je fais du coivoiturage, mais attention c\'est pas gratuit', 'user', '2023-06-28 09:41:48', 'https://media.licdn.com/dms/image/D4D03AQErVCoqVYpyhQ/profile-displayphoto-shrink_400_400/0/1678805462857?e=1694044800&v=beta&t=JzRc_v8x9I576BA-oLBVdk9w6D2YfSKMyKc2HUeuHWw'),
+	(4, 'Madinax', '0', 'Je parle russe', 'user', '2023-06-28 09:42:55', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Vladimir_Putin_September_5%2C_2022_%28cropped%29.jpg/330px-Vladimir_Putin_September_5%2C_2022_%28cropped%29.jpg'),
+	(5, 'Vic-Thor', '0', 'J\'aime bien les bmw, mais je préfère dacia.', 'admin', '2023-06-29 11:35:49', 'https://avatars.githubusercontent.com/u/92865037'),
+	(6, 'ClydeRSLambo', '0', 'J\'aime bien Lamborghini mais si tu parles mal je te..', 'user', '2023-07-06 09:38:37', 'https://media.licdn.com/dms/image/D4E03AQFE9QZ8RDbjzA/profile-displayphoto-shrink_400_400/0/1686556306140?e=1694044800&v=beta&t=R-cFjjsE1xJIutrFW0D4-SPIEYAdheUsAdvmy0VpgZ8');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
