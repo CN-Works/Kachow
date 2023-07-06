@@ -67,7 +67,7 @@
             <div class="footer-textzone">
                 <p class="footer-text" href="">Contacts</p>
 
-                <p class="footer-text" href="">Réglement & CGU</p>
+                <p class="footer-text" href="">Réglement</p>
             
                 <p class="footer-text" href="">Mentions légales</p>
 

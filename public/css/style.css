@@ -143,11 +143,13 @@ footer {
 }
 
 .footer-textzone {
-    width: 30%;
+    width: 35%;
 
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    gap: 10px;
 }
 
 .footer-text {
@@ -332,6 +334,10 @@ footer {
 }
 
 /* Homepage */
+
+video {
+    object-fit: fill;
+}
 
 .home-main {
     min-height: 90svh;
