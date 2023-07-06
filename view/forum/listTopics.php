@@ -39,7 +39,7 @@ use App\DAO;
                     <p>le <?= $topic->getCreationdate()?></p>
                 </div>
 
-                <a class="topiclist-card-detail" href="">
+                <a class="topiclist-card-detail" href="index.php?ctrl=forum&action=topicDetails&id=<?=$topic->getId()?>">
                     <p class="topiclist-card-detail-text">Lire</p>
                 </a>
             </div>
