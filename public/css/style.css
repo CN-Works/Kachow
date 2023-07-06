@@ -426,7 +426,7 @@ video {
     align-items: center;
     justify-content: space-between;
 
-    background: #ffffff;
+    background-color: #ffffff;
 
     margin: 15px 0;
 }
@@ -492,6 +492,8 @@ video {
 
 .topicdetails-topicinfos-bannerfig {
     height: 100%;
+
+    border-radius: 10px;
 }
 
 .topicdetails-topicinfos-banner {
@@ -510,7 +512,7 @@ video {
 }
 
 .topicdetails-topicinfos-authorpart {
-    min-width: 300px;
+    min-width: 150px;
     min-height: 100px;
 
     display: flex;
@@ -533,6 +535,13 @@ video {
     background-color: var(--cream);
 
     transition: all, 0.5s;
+}
+
+.topicdetails-topicinfos-authorfig:hover {
+    width: 90px;
+    height: 90px;
+    transform: scale(1.1);
+    margin: 10px;
 }
 
 .topicdetails-topicinfos-authorimage {
