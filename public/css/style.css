@@ -319,10 +319,15 @@ footer {
     height: 50px;
 
     margin: 5px 0;
+    text-decoration: none;
 }
 
 .topiclist-card-detail:hover {
     background-color: var(--dark-lighter);
+    text-decoration: none;
+}
+
+.topiclist-card-detail:visited {
     text-decoration: none;
 }
 
@@ -514,13 +519,19 @@ video {
 .topicdetails-topicinfos-authorpart {
     min-width: 150px;
     min-height: 100px;
+    padding: 0 10px;
 
     display: flex;
     align-items: center;
     gap: 10px;
+
+    border-radius: 5px;
+
+    background-color: var(--dark);
 }
 
 .topicdetails-topicinfos-authorfig {
+    margin: 0 5px;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -537,12 +548,12 @@ video {
     transition: all, 0.5s;
 }
 
-.topicdetails-topicinfos-authorfig:hover {
+/* .topicdetails-topicinfos-authorfig:hover {
     width: 90px;
     height: 90px;
     transform: scale(1.1);
     margin: 10px;
-}
+} */
 
 .topicdetails-topicinfos-authorimage {
     height: 100%;
