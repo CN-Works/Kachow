@@ -80,7 +80,7 @@ INSERT INTO `topic` (`id_topic`, `title`, `description`, `banner`, `status`, `cr
 	(3, 'Achat Mercedes CLS63 AMG', 'J\'aimerais acheter un cls63, avez vous des conseils ?', 'https://www.turbo.fr/sites/default/files/styles/article_690x405/public/migration/image_parse/4924690.jpg', 0, '2023-06-29 11:41:15', 5, 4),
 	(4, 'Ma climatisation ne marche pas !', 'Il fait chaud et ça ne refroidis pas.', 'https://www.iceshop.fr/guide/wp-content/uploads/2021/10/climatisations.jpeg', 0, '2023-06-30 09:11:24', 4, 3),
 	(5, 'Camion ! (Pouet pouet)', 'J\'aime bien les camion et je trouve ça cool parce ce que ça crache du mazout', 'https://cdnb.artstation.com/p/assets/images/images/042/735/085/large/viraj-shinde-optimus-prime-front-1.jpg?1635304942', 0, '2023-07-06 09:32:35', 1, 3),
-	(6, 'Je conduis rs3', 'J\'ai pas le permis mais j\'ai le couilles', 'https://cdn.motor1.com/images/mgl/PzRxX/s1/1x1/audi-rs3-sportback-top-speed-video.webp', 0, '2023-07-06 09:43:23', 6, 1);
+	(6, 'Je conduis rs3', 'J\'ai pas le permis mais j\'ai le danger', 'https://cdn.motor1.com/images/mgl/PzRxX/s1/1x1/audi-rs3-sportback-top-speed-video.webp', 0, '2023-07-06 09:43:23', 6, 1);
 
 -- Listage de la structure de table passionessence. user
 CREATE TABLE IF NOT EXISTS `user` (
@@ -101,7 +101,7 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `description`, `role`, `c
 	(3, 'ArnodePHP', '0', 'Je fais du coivoiturage, mais attention c\'est pas gratuit', 'user', '2023-06-28 09:41:48', 'https://media.licdn.com/dms/image/D4D03AQErVCoqVYpyhQ/profile-displayphoto-shrink_400_400/0/1678805462857?e=1694044800&v=beta&t=JzRc_v8x9I576BA-oLBVdk9w6D2YfSKMyKc2HUeuHWw'),
 	(4, 'Madinax', '0', 'Je parle russe', 'user', '2023-06-28 09:42:55', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Vladimir_Putin_September_5%2C_2022_%28cropped%29.jpg/330px-Vladimir_Putin_September_5%2C_2022_%28cropped%29.jpg'),
 	(5, 'Vic-Thor', '0', 'J\'aime bien les bmw, mais je préfère dacia.', 'admin', '2023-06-29 11:35:49', 'https://avatars.githubusercontent.com/u/92865037'),
-	(6, 'ClydeRSLambo', '0', 'J\'aime bien Lamborghini mais si tu parles mal je te..', 'user', '2023-07-06 09:38:37', 'https://media.licdn.com/dms/image/D4E03AQFE9QZ8RDbjzA/profile-displayphoto-shrink_400_400/0/1686556306140?e=1694044800&v=beta&t=R-cFjjsE1xJIutrFW0D4-SPIEYAdheUsAdvmy0VpgZ8');
+	(6, 'ClydeRSLambo', '0', 'J\'aime bien Lamborghini mais si tu dis dus mal, attention', 'user', '2023-07-06 09:38:37', 'https://media.licdn.com/dms/image/D4E03AQFE9QZ8RDbjzA/profile-displayphoto-shrink_400_400/0/1686556306140?e=1694044800&v=beta&t=R-cFjjsE1xJIutrFW0D4-SPIEYAdheUsAdvmy0VpgZ8');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
