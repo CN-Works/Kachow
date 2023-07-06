@@ -28,7 +28,7 @@ $card_count = 1;
                     $banner = $category->getImage();
 
                     if (isset($banner)) {
-                        echo "<figure class='allcategory-card-bannerfig'><img class='allcategory-card-banner' src='$banner' alt='Bannière de la catégorie ".$category->getLabel()."'></figure>";
+                        echo "<figure class='allcategory-card-bannerfig'><img class='allcategory-card-banner unselectable' src='$banner' alt='Bannière de la catégorie ".$category->getLabel()."'></figure>";
                     }
                 ?>
                 <div class="allcategory-card-textside">
