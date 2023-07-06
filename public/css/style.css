@@ -466,4 +466,25 @@ video {
     font-size: 0.95rem;
     color: var(--dark-lighter);
 }
-  
+
+/* Topic Details */
+
+.topicdetails-main {
+    min-height: 90svh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--grey-background);
+}
+
+.topicdetails-topicinfos {
+    width: 100%;
+    height: 30svh;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin: 10px 0;
+}
