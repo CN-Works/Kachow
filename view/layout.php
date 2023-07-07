@@ -22,15 +22,15 @@
 
                 <nav class="header-navbar">
 
-                    <a class="header-navbar-element" href="index.php?ctrl=forum&action=listTopics"><p class="header-navbar-element-text">Topics</p></a>
+                    <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=listTopics"><p class="header-navbar-element-text">Topics</p></a>
 
-                    <a class="header-navbar-element" href="index.php?ctrl=forum&action=AllCategories"><p class="header-navbar-element-text">Catégories</p></a>
+                    <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=AllCategories"><p class="header-navbar-element-text">Catégories</p></a>
 
-                    <a class="header-navbar-element" href="index.php?ctrl=home&action=users"><p class="header-navbar-element-text">Rédaction</p></a>
+                    <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=ListRedactions"><p class="header-navbar-element-text">Rédaction</p></a>
                     <?php
                         if(App\Session::isAdmin()){
                             ?>
-                            <a class="header-navbar-element" href="index.php?ctrl=home&action=users">Utilisateurs actifs</a>
+                            <a class="header-navbar-element unselectable" href="index.php?ctrl=home&action=users">Utilisateurs actifs</a>
                           
                             <?php
                         }
