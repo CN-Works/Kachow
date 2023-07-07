@@ -25,6 +25,10 @@
         
         }
 
+        public function CreateTopicForm() {
+
+        }
+
         public function TopicDetails($topicId){
             // J'utilise le &er paramère en Id comme expliqué dans l'index, on doit donc utiliser le filter_var
             $topicId = filter_var($topicId,FILTER_VALIDATE_INT);
@@ -53,4 +57,44 @@
             ];
         }
 
+        public function ListRedactions() {
+            return [
+                "view" => VIEW_DIR."forum/listRedactions.php",
+            ];
+        }
+
+        public function CreateCategoryForm() {
+            $categoryManager = new CategoryManager;
+
+            return [
+                "view" => VIEW_DIR."forum/createCategories.php",
+            ];
+        }
+
+        public function CreateCategory() {
+            $categoryManager = new categoryManager();
+
+            $categoryName = filter_input(INPUT_POST, 'category-name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $categoryDescription = filter_input(INPUT_POST, 'category-description', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            // Ici le l'image est un lien
+            $categoryImage = filter_input(INPUT_POST,"category-image",FILTER_VALIDATE_URL);
+
+            // Redirection vers la liste des catégories
+            header('Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=AllCategories');
+
+            // Integration des valeurs dans un tableau pour l'exporter dans la fonction du manager
+            $newCategory = array(
+                "label" => $categoryName, 
+                "description" => $categoryDescription, 
+                "image" => $categoryImage,
+            );
+
+            return [
+                "view" => VIEW_DIR."forum/listCategories.php",
+                "data" => [
+                    "newcategory" => $categoryManager->add($newCategory),
+                    "categories" => $categoryManager->findAll()
+                    ]
+            ];
+        }
     }

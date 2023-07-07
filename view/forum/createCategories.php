@@ -1,6 +1,5 @@
 <?php
 
-$categories = $result["data"]['allcategories'];
 use App\DAO;
     
 ?>

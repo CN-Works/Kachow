@@ -8,16 +8,15 @@ $card_count = 1;
 ?>
 
 <div class="allcategory-main">
+    <div class="general-toppage-titletexts">
+        <h2 class="general-toppage-title">Catégories</h2>
 
+        <p class="general-toppage-subtitle">
+            Toutes les différentes catégories de topics disponible sur forum.
+            Choissisez-en une pour découvrir le thème que vous voulez !
+        </p>
+    </div>
     <div class="allcategory-allcards">
-        <div class="general-toppage-titletexts">
-            <h2 class="general-toppage-title">Catégories</h2>
-
-            <p class="general-toppage-subtitle">
-                Toutes les différentes catégories de topics disponible sur forum.
-                Choissisez-en une pour découvrir le thème que vous voulez !
-            </p>
-        </div>
 
         <?php
 
