@@ -13,7 +13,7 @@
     --cream-dark: #b6947b;
     --grey-white: #D8DADE;
     --grey-light: #AFB4BD;
-    --grey-background: #f2f2f2;
+    --grey-background: #fdfdfd;
     --brown-red: #4B2423;
     --brown-light: #857070;
 }
@@ -408,6 +408,8 @@ video {
     align-items: center;
 
     background-color: var(--grey-background);
+
+    padding: 30px 2.5%;
 }
 
 .allcategory-allcards {
@@ -418,7 +420,7 @@ video {
 
     gap: 15px;
 
-    width: 95%;
+    /* width: 95%; */
 }
 
 .allcategory-card {
