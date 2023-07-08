@@ -215,6 +215,25 @@ footer {
     font-weight: 500;
 }
 
+.general-toppage-redactionlink {
+    background-color: var(--dark);
+    color: #ffffff;
+    font-size: 1.2rem;
+
+    padding: 5px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.general-toppage-redactionlink:hover {
+    background-color: var(--cream);
+}
+
+.general-toppage-redactionlink:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
 .topiclist-allcards {
     display: flex;
     justify-content: space-between;
