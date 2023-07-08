@@ -11,6 +11,9 @@ use App\DAO;
         <p class="general-toppage-subtitle">
             Tout les derniers articles rédigés par récemment, aucune catégorie spécifique.
             Ils ont été écrit récemment par les membres de la communauté PassionEssence.
+            <br>
+            <br>
+            <a class="general-toppage-redactionlink" href="index.php?ctrl=forum&action=CreateCategoryForm">Rédigez le vôtre !</a>
         </p>
     </div>
 

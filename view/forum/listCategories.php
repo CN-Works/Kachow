@@ -14,6 +14,9 @@ $card_count = 1;
         <p class="general-toppage-subtitle">
             Toutes les différentes catégories de topics disponible sur forum.
             Choissisez-en une pour découvrir le thème que vous voulez !
+            <br>
+            <br>
+            <a class="general-toppage-redactionlink" href="index.php?ctrl=forum&action=CreateCategoryForm">Créer la vôtre !</a>
         </p>
     </div>
     <div class="allcategory-allcards">
