@@ -10,8 +10,9 @@ use App\DAO;
         <h2 class="general-toppage-title"><?= $categoryInfo->getLabel() ?></h2>
 
         <p class="general-toppage-subtitle">
-            Tout les derniers articles rédigés par récemment, aucune catégorie spécifique.
-            Ils ont été écrit récemment par les membres de la communauté PassionEssence.
+            Tout les derniers articles rédigés par récemment, écrit par les membres de la communauté.
+            <br>
+            <?= $categoryInfo->getDescription() ?>
             <!-- <br>
             <br>
             <a class="general-toppage-redactionlink" href="index.php?ctrl=forum&action=CreateCategoryForm">Rédigez le vôtre !</a> -->
