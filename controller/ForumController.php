@@ -25,12 +25,23 @@
         
         }
 
-        public function CreateTopicForm() {
+        public function TopicsByCategory($idCategory) {
+            // Vérification de l'id
+            $idCategory = filter_var($idCategory,FILTER_VALIDATE_INT);
 
+            $topicManager = new TopicManager();
+
+            // On récupère les derniers topics par date
+            return [
+                "view" => VIEW_DIR."forum/listTopicsByCategory.php",
+                "data" => [
+                    "topicsbycategory" => $topicManager->findAllTopicsByCategory($idCategory,["creationdate", "DESC"])
+                ]
+            ];
         }
 
         public function TopicDetails($topicId){
-            // J'utilise le &er paramère en Id comme expliqué dans l'index, on doit donc utiliser le filter_var
+            // J'utilise le 1er paramère en Id comme expliqué dans l'index, on doit donc utiliser le filter_var
             $topicId = filter_var($topicId,FILTER_VALIDATE_INT);
 
 
