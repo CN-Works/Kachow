@@ -26,7 +26,7 @@
 
                     <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=AllCategories"><p class="header-navbar-element-text">Catégories</p></a>
 
-                    <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=ListRedactions"><p class="header-navbar-element-text">Rédaction</p></a>
+                    <!-- <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=ListRedactions"><p class="header-navbar-element-text">Rédaction</p></a> -->
                     <?php
                         if(App\Session::isAdmin()){
                             ?>
