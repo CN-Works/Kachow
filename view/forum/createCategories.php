@@ -12,16 +12,16 @@ use App\DAO;
         <form class="creation-form" action="index.php?ctrl=forum&action=CreateCategory" method="post">
             <h2 class="creation-form-title">Créer une catégorie</h2>
 
-            <p>Nom de catégorie</p>
-            <input type="text" name="category-name">
+            <p class="creation-form-inputname">Nom de catégorie</p>
+            <input class="creation-form-inputtext" type="text" name="category-name">
 
-            <p>Image</p>
-            <input type="text" name="category-image">
+            <p class="creation-form-inputname">Image</p>
+            <input class="creation-form-inputtext" type="text" name="category-image">
 
-            <p>Description</p>
-            <input type="text" name="category-description">
+            <p class="creation-form-inputname">Description</p>
+            <input class="creation-form-inputtext" type="text" name="category-description">
 
-            <input type="submit" value="Créer">
+            <input class="creation-form-submitbutton" type="submit" value="Créer">
         </form>
     </div>
 </div>

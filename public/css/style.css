@@ -86,11 +86,11 @@ header {
 }
 
 .header-navbar-element:visited {
-    color: var(--grey-white);
+    color: #ffffff;
 }
 
 .header-navbar-element-text {
-    color: var(--grey-white);
+    color: #ffffff;
     text-decoration: none;
 
     text-transform: uppercase;
@@ -628,6 +628,8 @@ video {
 }
 
 .creation-form-right {
+    background-color: var(--grey-background);
+
     width: 45%;
     display: flex;
     align-items: center;
@@ -635,8 +637,10 @@ video {
 }
 
 .creation-form {
-    outline: 2px solid red;
+    /* outline: 1px solid red; */
     min-width: 425px;
+
+    border-radius: 10px;
 
     display: flex;
     flex-direction: column;
@@ -645,5 +649,49 @@ video {
 }
 
 .creation-form-title {
-    color: var(--dark);
+    width: 100%;
+    text-align: left;
+    color: var(--dark-lighter);
+    font-size: 2rem;
+    margin: 15px 0;
+}
+
+.creation-form-inputname {
+    width: 100%;
+    text-align: left;
+    color: var(--dark-lighter);
+
+    margin: 2px 0 ;
+}
+
+.creation-form-inputtext {
+    background-color: #ffffff;
+    border: none;
+    outline: 2px solid var(--grey-light);
+
+    min-height: 25px;
+    width: 100%;
+    border-radius: 3px;
+
+    margin: 5px 0;
+    padding: 0 3px;
+}
+
+.creation-form-submitbutton {
+    width: 100%;
+    height: 40px;
+
+    background-color: var(--dark);
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.05rem;
+
+    margin: 5px 0;
+    
+    transition: all, 0.5s;
+}
+
+.creation-form-submitbutton:hover {
+    background-color: #44CF6C;
 }
