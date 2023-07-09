@@ -1,12 +1,13 @@
 <?php
 
 $topicsfromcategory = $result["data"]["topicsbycategory"];
+$categoryInfo = $result["data"]["categoryname"];
 use App\DAO;
 
 ?>
 <div class="topiclist-main">
     <div class="general-toppage-titletexts">
-        <h2 class="general-toppage-title"></h2>
+        <h2 class="general-toppage-title"><?= $categoryInfo->getLabel() ?></h2>
 
         <p class="general-toppage-subtitle">
             Tout les derniers articles rédigés par récemment, aucune catégorie spécifique.

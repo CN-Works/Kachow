@@ -37,7 +37,7 @@
                 "view" => VIEW_DIR."forum/listTopicsByCategory.php",
                 "data" => [
                     "topicsbycategory" => $topicManager->findAllTopicsByCategory($idCategory,["creationdate", "DESC"]),
-                    // "categoryname" => 
+                    "categoryname" => $categoryManager->findOneById($idCategory),
                 ]
             ];
         }
