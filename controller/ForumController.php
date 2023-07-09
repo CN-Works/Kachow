@@ -30,12 +30,14 @@
             $idCategory = filter_var($idCategory,FILTER_VALIDATE_INT);
 
             $topicManager = new TopicManager();
+            $categoryManager = new CategoryManager();
 
             // On récupère les derniers topics par date
             return [
                 "view" => VIEW_DIR."forum/listTopicsByCategory.php",
                 "data" => [
-                    "topicsbycategory" => $topicManager->findAllTopicsByCategory($idCategory,["creationdate", "DESC"])
+                    "topicsbycategory" => $topicManager->findAllTopicsByCategory($idCategory,["creationdate", "DESC"]),
+                    // "categoryname" => 
                 ]
             ];
         }
@@ -58,7 +60,7 @@
 
         public function AllCategories() {
 
-            $categoryManager = new CategoryManager;
+            $categoryManager = new CategoryManager();
 
             return [
                 "view" => VIEW_DIR."forum/listCategories.php",
@@ -75,7 +77,7 @@
         }
 
         public function CreateCategoryForm() {
-            $categoryManager = new CategoryManager;
+            $categoryManager = new CategoryManager();
 
             return [
                 "view" => VIEW_DIR."forum/createCategories.php",
