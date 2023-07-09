@@ -16,7 +16,7 @@ $card_count = 1;
             Choissisez-en une pour découvrir le thème que vous voulez !
             <br>
             <br>
-            <a class="general-toppage-redactionlink" href="index.php?ctrl=forum&action=CreateCategoryForm">Créer la vôtre !</a>
+            <a class="general-toppage-redactionlink unselectable" href="index.php?ctrl=forum&action=CreateCategoryForm">Créer la vôtre !</a>
         </p>
     </div>
     <div class="allcategory-allcards">
@@ -25,7 +25,7 @@ $card_count = 1;
 
         foreach($categories as $category) {
             ?>
-            <div class="allcategory-card">
+            <a class="allcategory-card" href="index.php?ctrl=forum&action=TopicsByCategory&id=<?= $category->getId()?>">
                 <?php
                     $banner = $category->getImage();
 
@@ -37,7 +37,7 @@ $card_count = 1;
                     <h2 class="allcategory-card-title"><?= $category->getLabel() ?></h2>
                     <p class="allcategory-card-subtitle"><?= $category->getDescription() ?></p>
                 </div>
-            </div>
+            </a>
             <?php
         }
 
