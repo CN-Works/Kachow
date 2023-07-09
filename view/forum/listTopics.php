@@ -43,7 +43,7 @@ use App\DAO;
                 </div>
 
                 <a class="topiclist-card-detail" href="index.php?ctrl=forum&action=topicDetails&id=<?=$topic->getId()?>">
-                    <p class="topiclist-card-detail-text">Lire</p>
+                    <p class="topiclist-card-detail-text unselectable">Lire</p>
                 </a>
             </div>
         <?php
