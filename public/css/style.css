@@ -604,3 +604,46 @@ video {
 
     padding: 30px 2.5%;
 }
+
+/* Creation Category form */
+.creation-form-main {
+    height: 90svh;
+    overflow: hidden;
+
+    display: flex;
+}
+
+.creation-form-imagefig {
+    overflow: hidden;
+    height: 100%;
+    width: 55%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.creation-form-image {
+    height: 100%;
+}
+
+.creation-form-right {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.creation-form {
+    outline: 2px solid red;
+    min-width: 425px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.creation-form-title {
+    color: var(--dark);
+}
