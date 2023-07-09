@@ -13,6 +13,7 @@
         private $user;
         private $creationdate;
         private $closed;
+        private $category;
 
         public function __construct($data){         
             $this->hydrate($data);        
@@ -164,5 +165,18 @@
                 }
 
                 return $author;
+        }
+
+        
+        public function getCategory()
+        {
+                return $this->category;
+        }
+
+        public function setCategory($category)
+        {
+                $this->category = $category;
+
+                return $this;
         }
     }
