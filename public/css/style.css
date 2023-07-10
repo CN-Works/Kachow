@@ -17,6 +17,7 @@
     --grey-background: #fdfdfd;
     --brown-red: #4B2423;
     --brown-light: #857070;
+    --green-validate: #44CF6C;
 }
 
 /* Scrollbar */
@@ -715,6 +716,42 @@ video {
     color: var(--dark-lighter);
 }
 
+.topicdetails-postpart-writer {
+    width: 50%;
+    height: 120px;
+
+    margin-bottom: 30px;
+}
+
+.topicdetails-postpart-writer-text {
+    resize: none;
+    height: 70%;
+    width: 100%;
+    outline: none;
+
+    padding: 5px;
+}
+
+.topicdetails-postpart-writer-submit {
+    background-color: #ffffff;
+    height: 30%;
+    width: 100%;
+
+    outline: none;
+    border: none;
+
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    color: var(--dark-blue);
+}
+
+.topicdetails-postpart-writer-submit:hover {
+    background-color: var(--green-validate);
+    color: #ffffff;
+}
+
 /* Topics By Category */
 
 .topicsbycat-main {
@@ -821,5 +858,5 @@ video {
 }
 
 .creation-form-submitbutton:hover {
-    background-color: #44CF6C;
+    background-color: var(--green-validate);
 }
