@@ -604,6 +604,10 @@ video {
     font-size: 1.5rem;
 }
 
+.topicdetails-postbox-authorcheck {
+    font-size: 1.1rem;
+}
+
 .topicdetails-topicinfos-description {
     margin: 15px 5px;
     font-size: 1.3rem;

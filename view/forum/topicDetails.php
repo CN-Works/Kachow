@@ -55,6 +55,15 @@ use App\DAO;
                             <img class="topicdetails-postbox-profileimage unselectable" src="<?= $post->getUser()->getProfileimage()?>" alt="<?= $post->getUser()->getUsername()?>'s profile picture">
                         </figure>
                         <p class="topicdetails-postbox-username"><?= $post->getUser()->getUsername()?></p>
+
+                        <?php
+                            // On vérifie si le l'auteur du topic est l'auteur du post/commentaire, pour ajouter une badge
+                            if ($post->getUser()->getId() == $topic->getUser()->getId()) {
+                                ?>
+                                <p class="topicdetails-postbox-authorcheck">(Auteur)</p>
+                                <?php
+                            }
+                        ?>
                     </div>
                     <p class="topicdetails-postbox-text"><?= $post->getContent()?></p>
                 </div>
