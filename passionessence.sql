@@ -35,8 +35,8 @@ INSERT INTO `category` (`id_category`, `label`, `description`, `image`) VALUES
 	(3, 'Retours & avis', 'Conseils et avis concernant des modèles automobile', 'https://www.rejoindre-plus-que-pro.fr/wp-content/uploads/2020/10/shutterstock_259169738-scaled-1.jpg'),
 	(4, 'Questions', 'Posez diverses questions au membres du forum', 'https://sommeilenfant.reseau-morphee.fr/wp-content/uploads/sites/5/2018/10/questions-ados.jpg');
 
--- Listage de la structure de table passionessence. posts
-CREATE TABLE IF NOT EXISTS `posts` (
+-- Listage de la structure de table passionessence. post
+CREATE TABLE IF NOT EXISTS `post` (
   `id_posts` int NOT NULL AUTO_INCREMENT,
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `creationdate` datetime NOT NULL,
@@ -45,17 +45,19 @@ CREATE TABLE IF NOT EXISTS `posts` (
   PRIMARY KEY (`id_posts`) USING BTREE,
   KEY `topic_id` (`topic_id`) USING BTREE,
   KEY `user_id` (`user_id`) USING BTREE,
-  CONSTRAINT `topic_id` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id_topic`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `topic_id` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id_topic`),
+  CONSTRAINT `users_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.posts : ~6 rows (environ)
-INSERT INTO `posts` (`id_posts`, `content`, `creationdate`, `user_id`, `topic_id`) VALUES
+-- Listage des données de la table passionessence.post : ~7 rows (environ)
+INSERT INTO `post` (`id_posts`, `content`, `creationdate`, `user_id`, `topic_id`) VALUES
 	(1, 'J\'aime bien les clio 3 phase 2 d\'avant 2012, ça arrache sur l\'autoroute dans le 68', '2023-06-28 09:47:30', 2, 1),
 	(2, 'C\'est vrai qu\'elle sont bien celle là, surtout en diesel', '2023-06-28 09:51:45', 1, 1),
 	(3, 'J\'ai entendu quelqu\'un dire sur youtube qu\'on peut mettre de l\'eau dans l\'essence, je veux faire des économies', '2023-06-28 09:54:23', 3, 2),
 	(4, 'Je viens d\'en mettre dans le réservoir, je vais tester ça. A toute à l\'heure !', '2023-06-28 09:56:44', 3, 2),
 	(5, 'Moi j\'aime pas, elle est blanche et le blanc c\'est oppressant.', '2023-06-28 09:57:32', 3, 1),
-	(6, 'BMW blyat', '2023-07-10 21:07:41', 3, 6);
+	(6, 'BMW blyat', '2023-07-10 21:07:41', 5, 6),
+	(7, 'J\'adore les formule 1 !', '2023-07-10 22:57:24', 4, 9);
 
 -- Listage de la structure de table passionessence. topic
 CREATE TABLE IF NOT EXISTS `topic` (
