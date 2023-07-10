@@ -75,7 +75,7 @@
                 // Récupère la date
                 "creationdate" => date('Y-m-d H:i:s'),
                 // Pour l'instant, l'utilisateur par défaut (qui écrit les commentaire) sera l'utilisateur "Vic-Thor".
-                "user_id" => 5,
+                "user_id" => filter_input(INPUT_POST, "comment-user", FILTER_VALIDATE_INT),
             );
 
             // Redirection vers le topic

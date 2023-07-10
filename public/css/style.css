@@ -728,7 +728,7 @@ video {
 
 .topicdetails-postpart-writer-select {
     width: 100%;
-    height: 25px;
+    height: 30px;
 
     outline: none;
     border-radius: 0;
@@ -736,6 +736,10 @@ video {
 
 .topicdetails-postpart-writer-selectoption {
     border-radius: 0;
+}
+
+.topicdetails-postpart-writer-selectoption:hover {
+    background-color: var(--dark-blue);
 }
 
 .topicdetails-postpart-writer-text {
