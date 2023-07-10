@@ -36,7 +36,7 @@
             return [
                 "view" => VIEW_DIR."forum/listTopicsByCategory.php",
                 "data" => [
-                    "topicsbycategory" => $topicManager->findAllTopicsByCategory($idCategory,["creationdate", "DESC"]),
+                    "topicsbycategory" => $topicManager->findAllByTableAndId($idCategory,"category_id",["creationdate", "DESC"]),
                     "categoryname" => $categoryManager->findOneById($idCategory),
                 ]
             ];
