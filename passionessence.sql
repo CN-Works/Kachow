@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `category` (
 INSERT INTO `category` (`id_category`, `label`, `description`, `image`) VALUES
 	(1, 'Essai', 'Essais de véhicules par les membres initiés', 'https://d1gymyavdvyjgt.cloudfront.net/drive/images/uploads/headers/ws_cropper/1_0x0_790x520_0x520_become_a_better_driver.jpg'),
 	(2, 'Pilotage', 'Conseils et partage d\'expérience autour du pilotage', 'https://agorasports.fr/wp-content/uploads/2022/03/devenir-pilote-automobile.jpg'),
-	(3, 'Retours & Avis', 'Conseils et avis concernant des modèles automobile', 'https://www.rejoindre-plus-que-pro.fr/wp-content/uploads/2020/10/shutterstock_259169738-scaled-1.jpg'),
+	(3, 'Retours & avis', 'Conseils et avis concernant des modèles automobile', 'https://www.rejoindre-plus-que-pro.fr/wp-content/uploads/2020/10/shutterstock_259169738-scaled-1.jpg'),
 	(4, 'Questions', 'Posez diverses questions au membres du forum', 'https://sommeilenfant.reseau-morphee.fr/wp-content/uploads/sites/5/2018/10/questions-ados.jpg');
 
 -- Listage de la structure de table passionessence. posts
@@ -43,18 +43,19 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `user_id` int DEFAULT NULL,
   `topic_id` int DEFAULT NULL,
   PRIMARY KEY (`id_posts`) USING BTREE,
-  KEY `user_id` (`user_id`) USING BTREE,
   KEY `topic_id` (`topic_id`) USING BTREE,
+  KEY `user_id` (`user_id`) USING BTREE,
   CONSTRAINT `topic_id` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id_topic`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.posts : ~5 rows (environ)
+-- Listage des données de la table passionessence.posts : ~6 rows (environ)
 INSERT INTO `posts` (`id_posts`, `content`, `creationdate`, `user_id`, `topic_id`) VALUES
 	(1, 'J\'aime bien les clio 3 phase 2 d\'avant 2012, ça arrache sur l\'autoroute dans le 68', '2023-06-28 09:47:30', 2, 1),
 	(2, 'C\'est vrai qu\'elle sont bien celle là, surtout en diesel', '2023-06-28 09:51:45', 1, 1),
 	(3, 'J\'ai entendu quelqu\'un dire sur youtube qu\'on peut mettre de l\'eau dans l\'essence, je veux faire des économies', '2023-06-28 09:54:23', 3, 2),
 	(4, 'Je viens d\'en mettre dans le réservoir, je vais tester ça. A toute à l\'heure !', '2023-06-28 09:56:44', 3, 2),
-	(5, 'Moi j\'aime pas, elle est blanche et le blanc c\'est oppressant.', '2023-06-28 09:57:32', 3, 1);
+	(5, 'Moi j\'aime pas, elle est blanche et le blanc c\'est oppressant.', '2023-06-28 09:57:32', 3, 1),
+	(6, 'BMW blyat', '2023-07-10 21:07:41', 3, 6);
 
 -- Listage de la structure de table passionessence. topic
 CREATE TABLE IF NOT EXISTS `topic` (
@@ -71,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `topic` (
   KEY `user_id` (`user_id`) USING BTREE,
   CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`id_category`),
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.topic : ~9 rows (environ)
 INSERT INTO `topic` (`id_topic`, `title`, `description`, `banner`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
