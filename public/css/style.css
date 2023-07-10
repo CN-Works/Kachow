@@ -505,15 +505,18 @@ video {
 
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 
     background-color: var(--grey-background);
 }
 
 .topicdetails-topicinfos-bannerfig {
+    vertical-align: top;
     overflow: hidden;
+    height: 100%;
     width: 100%;
-    height: 350px;
+    height: 40svh;
 
     display: flex;
     align-items: center;
@@ -521,6 +524,7 @@ video {
 }
 
 .topicdetails-topicinfos-banner {
+    object-fit : fill;
     width: 100%;
     background-color: #000000;
     aspect-ratio: 16/9;
@@ -534,12 +538,13 @@ video {
 
 .topicdetails-topicinfos {
     width: 100%;
-    padding: 0 5px;
+    height: 50svh;
+    padding: 10px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .topicdetails-topdata-head {
@@ -605,6 +610,31 @@ video {
     text-align: center;
 
     width: clamp(350px, 75%,700px);
+}
+
+.topicdetails-topdata-downpage {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+}
+
+.topicdetails-topdata-category {
+    color: var(--dark-lighter);
+    font-size: 1.2rem;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+    font-style: none;
+    text-align: center;
+    
+    transition: all, 0.5s;
+    padding: 5px;
+}
+
+.topicdetails-topdata-category:hover {
+    background-color: var(--brown-red);
+    color: #ffffff;
 }
 
 /* Topics By Category */
