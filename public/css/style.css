@@ -294,7 +294,7 @@ footer {
 
     overflow-y: auto;
 
-    width: 95%;
+    width: 100%;
 
     font-weight: 600;
 }
@@ -304,7 +304,7 @@ footer {
     align-items: center;
     justify-content: space-between;
 
-    width: 95%;
+    width: 100%;
 }
 
 .topiclist-card-description-author {
@@ -336,7 +336,7 @@ footer {
     justify-content: center;
 
     background: var(--dark);
-    width: 95%;
+    width: 100%;
     border-radius: 2px;
     height: 50px;
 
