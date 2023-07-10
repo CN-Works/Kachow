@@ -8,6 +8,7 @@
 :root {
     --dark : #27292E;
     --dark-lighter : #3c3f47;
+    --dark-blue : #2e333e;
     --light-blue:  #B6C8E0;
     --cream: #CCA589;
     --cream-dark: #b6947b;
@@ -557,7 +558,7 @@ video {
 }
 
 .topicdetails-topdata-head-title {
-    background-color: var(--dark);
+    background-color: var(--dark-lighter);
     color: #ffffff;
     padding: 5px 10px;
     margin: 10px 0;
@@ -573,9 +574,9 @@ video {
     display: flex;
     align-items: center;
 
-    background-color: var(--cream-dark);
+    background-color: var(--cream);
     color: #ffffff;
-    padding: 5px 10px;
+    padding: 10px;
     border-radius: 5px;
     gap: 5px;
 }
@@ -633,15 +634,81 @@ video {
 }
 
 .topicdetails-topdata-category:hover {
-    background-color: var(--brown-red);
+    background-color: #B15E6C;
     color: #ffffff;
 }
 
 .topicdetails-postpart {
+    background-color: var(--dark-blue);
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+
+    width: 100%;
+}
+
+.topicdetails-postpart-headtitle {
+    color: #ffffff;
+    font-size: 2.3rem;
+    text-transform: uppercase;
+
+    margin: 30px 0;
+
+    text-align: center;
+}
+
+.topicdetails-postbox {
+    background-color: #ffffff;
+    border-radius: 10px;
+
+    max-width: 90%;
+
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin: 20px;
+
+    gap: 10px;
+}
+
+.topicdetails-postbox-author {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    border-radius: 5px;
+}
+
+.topicdetails-postbox-profilefig {
+    overflow: hidden;
+    height: 45px;
+    width: 45px;
+
+    outline: 2px solid var(--dark-blue);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topicdetails-postbox-profileimage {
+    height: 100%;
+}
+
+.topicdetails-postbox-username {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+.topicdetails-postbox-text {
+    color: var(--dark-lighter);
 }
 
 /* Topics By Category */
