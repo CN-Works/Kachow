@@ -56,9 +56,37 @@
                      "topicDetails" => $topicManager->findOneById($topicId),
                      "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "ASC"]),
                  ]
-             ];
+            ];
          
-         }
+        }
+
+        public function CreatePost($topicId) {
+            $topicManager = new TopicManager();
+            $postManager = new PostManager();
+
+            $newPost = array(
+                // On vérifie l'id du topic
+                "topic_id" => filter_var($topicId,FILTER_VALIDATE_INT),
+                // On vérifie que le texte est correcte.
+                "content" => filter_input(INPUT_POST, "comment-text", FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                // Récupère la date
+                "creationdate" => date('Y-m-d H:i:s'),
+                // Pour l'instant, l'utilisateur par défaut (qui écrit les commentaire) sera l'utilisateur "Vic-Thor".
+                "user_id" => 5,
+            );
+
+            // Redirection vers le topic
+            header('Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=topicDetails&id='.$topicId);
+
+            return [
+                "view" => VIEW_DIR."forum/topicDetails.php",
+                "data" => [
+                    "creationPost" => $postManager->add($newPost),
+                    "topicDetails" => $topicManager->findOneById($topicId),
+                    "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "ASC"]),
+                ]
+           ];
+        }
 
         public function AllCategories() {
 
