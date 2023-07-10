@@ -41,12 +41,23 @@ use App\DAO;
     </div>
 
     <div class="topicdetails-postpart">
+
+        <h3 class="topicdetails-postpart-headtitle">Commentaires</h3>
+
         <?php
         
         if (isset($posts)) {
             foreach($posts as $post) {
                 ?>
-                <p><?= $post->getUser()->getUsername()?> a écrit "<?= $post->getContent()?>"</p>
+                <div class="topicdetails-postbox">
+                    <div class="topicdetails-postbox-author">
+                        <figure class="topicdetails-postbox-profilefig">
+                            <img class="topicdetails-postbox-profileimage unselectable" src="<?= $post->getUser()->getProfileimage()?>" alt="<?= $post->getUser()->getUsername()?>'s profile picture">
+                        </figure>
+                        <p class="topicdetails-postbox-username"><?= $post->getUser()->getUsername()?></p>
+                    </div>
+                    <p class="topicdetails-postbox-text"><?= $post->getContent()?></p>
+                </div>
                 <?php
             }
         }
