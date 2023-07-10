@@ -44,6 +44,12 @@ use App\DAO;
 
         <h3 class="topicdetails-postpart-headtitle">Commentaires</h3>
 
+        <form class="topicdetails-postpart-writer" action="index.php?ctrl=forum&action=CreatePost&id=<?= $topic->getId()?>" method="post">
+            <textarea class="topicdetails-postpart-writer-text" name="comment-text" cols="10" rows="4" placeholder="écrivez un commentaire ici.."></textarea>
+
+            <button class="topicdetails-postpart-writer-submit">Poster</button>
+        </form>
+
         <?php
         
         if (isset($posts)) {
