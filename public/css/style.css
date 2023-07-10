@@ -652,8 +652,12 @@ video {
     width: 100%;
     text-align: left;
     color: var(--dark-lighter);
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin: 15px 0;
+
+    padding: 3px;
+
+    text-transform: uppercase;
 }
 
 .creation-form-inputname {
@@ -687,7 +691,7 @@ video {
     border-radius: 3px;
     font-size: 1.05rem;
 
-    margin: 5px 0;
+    margin: 10px 0;
     
     transition: all, 0.5s;
 }
