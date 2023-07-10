@@ -29,6 +29,14 @@ use App\DAO;
         </div>
 
         <p class="topicdetails-topicinfos-description">"<?= $topic->getDescription()?>"</p>
+
+        <div class="topicdetails-topdata-downpage">
+            <a class="topicdetails-topdata-category" href="index.php?ctrl=forum&action=TopicsByCategory&id=<?= $topic->getCategory()->getId()?>">
+                <?= $topic->getCategory()->getLabel()?>
+            </a>
+
+            <p>, crée le <?= $topic->getCreationdate()?></p>
+        </div>
     </div>
 
 </div>
