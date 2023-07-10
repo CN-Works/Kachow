@@ -48,11 +48,13 @@
 
 
             $topicManager = new TopicManager();
+            $postManager = new PostManager();
  
             return [
                  "view" => VIEW_DIR."forum/topicDetails.php",
                  "data" => [
-                     "topicDetails" => $topicManager->findOneById($topicId)
+                     "topicDetails" => $topicManager->findOneById($topicId),
+                     "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "DESC"]),
                  ]
              ];
          
