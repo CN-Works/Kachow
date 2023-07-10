@@ -73,15 +73,17 @@ CREATE TABLE IF NOT EXISTS `topic` (
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.topic : ~7 rows (environ)
+-- Listage des données de la table passionessence.topic : ~9 rows (environ)
 INSERT INTO `topic` (`id_topic`, `title`, `description`, `banner`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
 	(1, 'Clio 3 Phase 2', 'J\'adore ma Clio', 'https://ag-cdn-production.azureedge.net/produits/images/2cd53a82-915b-4127-af63-cd262caea230_800.jpg', 0, '2023-06-28 09:48:31', 2, 3),
-	(2, 'Mettre de l\'eau dans son moteur', 'Mettre de l\'eau dans le réservoir', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7i5EkWDOVMefXn9v8PD3WyMjtq9ihlSkeZg', 0, '2023-06-28 09:53:24', 3, 4),
+	(2, 'Mettre de l\'eau dans son moteur', 'Mettre de l\'eau dans le réservoir', 'https://www.ekurhuleni.gov.za/wp-content/uploads/2021/10/drinking-glass-water.jpg', 0, '2023-06-28 09:53:24', 3, 4),
 	(3, 'Achat Mercedes CLS63 AMG', 'J\'aimerais acheter un cls63, avez vous des conseils ?', 'https://wallpapercave.com/wp/wp10422056.jpg', 0, '2023-06-29 11:41:15', 5, 4),
-	(4, 'Ma climatisation ne marche pas !', 'Il fait chaud et ça ne refroidis pas.', 'https://www.iceshop.fr/guide/wp-content/uploads/2021/10/climatisations.jpeg', 0, '2023-06-30 09:11:24', 4, 4),
+	(4, 'Ma climatisation ne marche pas !', 'Il fait chaud et ça ne refroidis pas.', 'https://static.cotemaison.fr/medias_8904/w_1024,h_445,c_crop,x_0,y_167/w_640,h_360,c_fill,g_north/v1474535381/climatisation-nos-astuces-pour-une-maison-fraiche_4559310.jpg', 0, '2023-06-30 09:11:24', 4, 4),
 	(5, 'Camion ! (Pouet pouet)', 'J\'aime bien les camion et je trouve ça cool parce ce que ça crache du mazout', 'https://cdnb.artstation.com/p/assets/images/images/042/735/085/large/viraj-shinde-optimus-prime-front-1.jpg?1635304942', 0, '2023-07-06 09:32:35', 1, 3),
-	(6, 'Je conduis rs3', 'J\'ai pas le permis mais j\'ai le danger', 'https://cdn.motor1.com/images/mgl/PzRxX/s1/1x1/audi-rs3-sportback-top-speed-video.webp', 0, '2023-07-06 09:43:23', 6, 1),
-	(7, 'Comment freiner efficacement ?', 'J\'aimerais apprendre à freiner plus "fort" sur distance plus courte, avez vous des conseils ?', 'https://grimmermotors.co.nz/wp-content/uploads/2018/03/braking.jpg', 0, '2023-07-09 16:38:00', 5, 2);
+	(6, 'Je conduis rs3', 'J\'ai pas le permis mais j\'ai le danger', 'https://auto-live.fr/wp-content/uploads/2021/07/Nouvelle-Audi-RS-3-6.jpeg', 0, '2023-07-06 09:43:23', 6, 1),
+	(7, 'Comment freiner efficacement ?', 'J\'aimerais apprendre à freiner plus "fort" sur distance plus courte, avez vous des conseils ?', 'https://grimmermotors.co.nz/wp-content/uploads/2018/03/braking.jpg', 0, '2023-07-09 16:38:00', 5, 2),
+	(8, 'Conduite C3 Picasso', 'J\'ai conduis cette voiture pour me balader et aller faire les courses. C\'était bien et j\'ai de l\'espace à l\'intérieur et dans le coffre.', 'https://www.tuningblog.eu/wp-content/uploads/2014/12/Sondermodell-Citroen-C3-Picasso-Carlsson-Tuning-1.jpg', 0, '2023-07-10 16:46:32', 4, 1),
+	(9, 'Conseils Formule Renault 2.0', 'J\'ai conduit une formule renault 2L récemment et je vais vous donner quelques conseils à propos de la maniabilité de la voiture !', 'https://www.guillaumedarding.fr/images/DSC_0109.jpg', 0, '2023-07-10 16:51:46', 5, 2);
 
 -- Listage de la structure de table passionessence. user
 CREATE TABLE IF NOT EXISTS `user` (
@@ -98,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Listage des données de la table passionessence.user : ~6 rows (environ)
 INSERT INTO `user` (`id_user`, `username`, `password`, `description`, `role`, `creationdate`, `profileimage`) VALUES
 	(1, 'Quentin12', '0', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', 'https://avatars.githubusercontent.com/u/68738931'),
-	(2, 'Maxoms68', '0', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', 'https://avatars.githubusercontent.com/u/120190748'),
+	(2, 'Maxoms68', '0', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', 'https://media.discordapp.net/attachments/891954403861491713/1127945550692622377/image.png'),
 	(3, 'ArnodePHP', '0', 'Je fais du coivoiturage, mais attention c\'est pas gratuit', 'user', '2023-06-28 09:41:48', 'https://media.licdn.com/dms/image/D4D03AQErVCoqVYpyhQ/profile-displayphoto-shrink_400_400/0/1678805462857?e=1694044800&v=beta&t=JzRc_v8x9I576BA-oLBVdk9w6D2YfSKMyKc2HUeuHWw'),
 	(4, 'Madinax', '0', 'Je parle russe', 'user', '2023-06-28 09:42:55', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Vladimir_Putin_September_5%2C_2022_%28cropped%29.jpg/330px-Vladimir_Putin_September_5%2C_2022_%28cropped%29.jpg'),
 	(5, 'Vic-Thor', '0', 'J\'aime bien les bmw, mais je préfère dacia.', 'admin', '2023-06-29 11:35:49', 'https://avatars.githubusercontent.com/u/92865037'),
