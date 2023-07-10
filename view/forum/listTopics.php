@@ -13,7 +13,7 @@ use App\DAO;
             Ils ont été écrit récemment par les membres de la communauté PassionEssence.
             <br>
             <br>
-            <a class="general-toppage-redactionlink" href="index.php?ctrl=forum&action=CreateCategoryForm">Rédigez le vôtre !</a>
+            <a class="general-toppage-redactionlink unselectable" href="index.php?ctrl=forum&action=CreateCategoryForm">Rédigez le vôtre !</a>
         </p>
     </div>
 
