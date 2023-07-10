@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `description` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `image` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_category`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.category : ~4 rows (environ)
 INSERT INTO `category` (`id_category`, `label`, `description`, `image`) VALUES
@@ -71,16 +71,17 @@ CREATE TABLE IF NOT EXISTS `topic` (
   KEY `user_id` (`user_id`) USING BTREE,
   CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`id_category`),
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.topic : ~6 rows (environ)
+-- Listage des données de la table passionessence.topic : ~7 rows (environ)
 INSERT INTO `topic` (`id_topic`, `title`, `description`, `banner`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
 	(1, 'Clio 3 Phase 2', 'J\'adore ma Clio', 'https://ag-cdn-production.azureedge.net/produits/images/2cd53a82-915b-4127-af63-cd262caea230_800.jpg', 0, '2023-06-28 09:48:31', 2, 3),
 	(2, 'Mettre de l\'eau dans son moteur', 'Mettre de l\'eau dans le réservoir', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7i5EkWDOVMefXn9v8PD3WyMjtq9ihlSkeZg', 0, '2023-06-28 09:53:24', 3, 4),
-	(3, 'Achat Mercedes CLS63 AMG', 'J\'aimerais acheter un cls63, avez vous des conseils ?', 'https://www.turbo.fr/sites/default/files/styles/article_690x405/public/migration/image_parse/4924690.jpg', 0, '2023-06-29 11:41:15', 5, 4),
-	(4, 'Ma climatisation ne marche pas !', 'Il fait chaud et ça ne refroidis pas.', 'https://www.iceshop.fr/guide/wp-content/uploads/2021/10/climatisations.jpeg', 0, '2023-06-30 09:11:24', 4, 3),
+	(3, 'Achat Mercedes CLS63 AMG', 'J\'aimerais acheter un cls63, avez vous des conseils ?', 'https://wallpapercave.com/wp/wp10422056.jpg', 0, '2023-06-29 11:41:15', 5, 4),
+	(4, 'Ma climatisation ne marche pas !', 'Il fait chaud et ça ne refroidis pas.', 'https://www.iceshop.fr/guide/wp-content/uploads/2021/10/climatisations.jpeg', 0, '2023-06-30 09:11:24', 4, 4),
 	(5, 'Camion ! (Pouet pouet)', 'J\'aime bien les camion et je trouve ça cool parce ce que ça crache du mazout', 'https://cdnb.artstation.com/p/assets/images/images/042/735/085/large/viraj-shinde-optimus-prime-front-1.jpg?1635304942', 0, '2023-07-06 09:32:35', 1, 3),
-	(6, 'Je conduis rs3', 'J\'ai pas le permis mais j\'ai le danger', 'https://cdn.motor1.com/images/mgl/PzRxX/s1/1x1/audi-rs3-sportback-top-speed-video.webp', 0, '2023-07-06 09:43:23', 6, 1);
+	(6, 'Je conduis rs3', 'J\'ai pas le permis mais j\'ai le danger', 'https://cdn.motor1.com/images/mgl/PzRxX/s1/1x1/audi-rs3-sportback-top-speed-video.webp', 0, '2023-07-06 09:43:23', 6, 1),
+	(7, 'Comment freiner efficacement ?', 'J\'aimerais apprendre à freiner plus "fort" sur distance plus courte, avez vous des conseils ?', 'https://grimmermotors.co.nz/wp-content/uploads/2018/03/braking.jpg', 0, '2023-07-09 16:38:00', 5, 2);
 
 -- Listage de la structure de table passionessence. user
 CREATE TABLE IF NOT EXISTS `user` (
@@ -92,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `creationdate` datetime NOT NULL,
   `profileimage` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_user`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.user : ~6 rows (environ)
 INSERT INTO `user` (`id_user`, `username`, `password`, `description`, `role`, `creationdate`, `profileimage`) VALUES
