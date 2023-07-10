@@ -717,7 +717,14 @@ video {
 }
 
 .topicdetails-postbox-text {
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.topicdetails-postbox-date {
     color: var(--dark-lighter);
+    font-size: 0.9rem;
+    font-weight: 300;
 }
 
 .topicdetails-postpart-writer {
