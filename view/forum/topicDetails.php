@@ -83,6 +83,8 @@ use App\DAO;
                         ?>
                     </div>
                     <p class="topicdetails-postbox-text"><?= $post->getContent()?></p>
+
+                    <p class="topicdetails-postbox-text">le <?= $post->getReadableCreationdate() ?></p>
                 </div>
                 <?php
             }

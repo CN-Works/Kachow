@@ -57,12 +57,16 @@
                 return $this;
         }
 
+        public function getReadableCreationdate() {
+                return date_format(date_create($this->creationdate),"d F Y");
+        }
+
         /**
          * Get the value of creationdate
          */ 
         public function getCreationdate()
         {
-                return $this->creationdate;
+                return date_create($this->creationdate);
         }
 
         /**
