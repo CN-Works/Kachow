@@ -42,11 +42,13 @@ use App\DAO;
 
     <div class="topicdetails-postpart">
         <?php
-
-        foreach($posts as $post) {
-            ?>
-            <p><?= $post->getUser()->getUsername()?> a écrit "<?= $post->getContent()?>"</p>
-            <?php
+        
+        if (isset($posts)) {
+            foreach($posts as $post) {
+                ?>
+                <p><?= $post->getUser()->getUsername()?> a écrit "<?= $post->getContent()?>"</p>
+                <?php
+            }
         }
 
         ?>
