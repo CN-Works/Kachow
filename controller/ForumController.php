@@ -8,6 +8,7 @@
     use Model\Managers\TopicManager;
     use Model\Managers\PostManager;
     use Model\Managers\CategoryManager;
+    use Model\Managers\UserManager;
     
     class ForumController extends AbstractController implements ControllerInterface{
 
@@ -49,11 +50,13 @@
 
             $topicManager = new TopicManager();
             $postManager = new PostManager();
+            $userManager = new UserManager();
  
             return [
                  "view" => VIEW_DIR."forum/topicDetails.php",
                  "data" => [
                      "topicDetails" => $topicManager->findOneById($topicId),
+                     "allUsers" => $userManager->findAll(["creationdate", "ASC"]),
                      "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "ASC"]),
                  ]
             ];
@@ -115,7 +118,7 @@
         }
 
         public function CreateCategory() {
-            $categoryManager = new categoryManager();
+            $categoryManager = new CategoryManager();
 
             $categoryName = filter_input(INPUT_POST, 'category-name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $categoryDescription = filter_input(INPUT_POST, 'category-description', FILTER_SANITIZE_FULL_SPECIAL_CHARS);

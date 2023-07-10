@@ -1,7 +1,8 @@
 <?php
 
 $topic = $result["data"]['topicDetails'];
-$posts = $result["data"]['topicPosts'] ;
+$posts = $result["data"]['topicPosts'];
+$users = $result["data"]['allUsers'];
 use App\DAO;
 
 ?>
@@ -45,6 +46,16 @@ use App\DAO;
         <h3 class="topicdetails-postpart-headtitle">Commentaires</h3>
 
         <form class="topicdetails-postpart-writer" action="index.php?ctrl=forum&action=CreatePost&id=<?= $topic->getId()?>" method="post">
+            <select class="topicdetails-postpart-writer-select" name="comment-user">
+                <?php
+                foreach($users as $user) {
+                ?>
+                    <option class="topicdetails-postpart-writer-selectoption" value="<?= $user->getId()?>"><?= $user->getUsername()?></option>
+                <?php
+                }
+                ?>
+            </select>
+
             <textarea class="topicdetails-postpart-writer-text" name="comment-text" cols="10" rows="4" placeholder="écrivez un commentaire ici.."></textarea>
 
             <button class="topicdetails-postpart-writer-submit">Poster</button>
