@@ -54,7 +54,7 @@
                  "view" => VIEW_DIR."forum/topicDetails.php",
                  "data" => [
                      "topicDetails" => $topicManager->findOneById($topicId),
-                     "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "DESC"]),
+                     "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "ASC"]),
                  ]
              ];
          
