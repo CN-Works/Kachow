@@ -587,8 +587,8 @@ video {
 
     overflow: hidden;
 
-    height: 60px;
-    width: 60px;
+    height: 65px;
+    width: 65px;
     border-radius: 50%;
 
     margin: 0 5px;
@@ -635,6 +635,13 @@ video {
 .topicdetails-topdata-category:hover {
     background-color: var(--brown-red);
     color: #ffffff;
+}
+
+.topicdetails-postpart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 /* Topics By Category */

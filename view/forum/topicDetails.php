@@ -1,6 +1,7 @@
 <?php
 
 $topic = $result["data"]['topicDetails'];
+$posts = $result["data"]['topicPosts'] ;
 use App\DAO;
 
 ?>
@@ -37,6 +38,18 @@ use App\DAO;
 
             <p>, crée le <?= $topic->getCreationdate()?></p>
         </div>
+    </div>
+
+    <div class="topicdetails-postpart">
+        <?php
+
+        foreach($posts as $post) {
+            ?>
+            <p><?= $post->getUser()->getUsername()?> a écrit "<?= $post->getContent()?>"</p>
+            <?php
+        }
+
+        ?>
     </div>
 
 </div>
