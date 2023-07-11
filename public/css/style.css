@@ -237,6 +237,25 @@ footer {
     text-decoration: none;
 }
 
+.general-toppage-delete {
+    background-color: red;
+    color: #ffffff;
+    font-size: 1.2rem;
+
+    padding: 5px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.general-toppage-delete:hover {
+    background-color: darkred;
+}
+
+.general-toppage-delete:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
 .topiclist-allcards {
     display: flex;
     justify-content: center;
