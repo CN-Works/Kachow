@@ -16,7 +16,7 @@ $card_count = 1;
             Choissisez-en une pour découvrir le thème que vous voulez !
             <br>
             <br>
-            <a class="general-toppage-redactionlink unselectable" href="index.php?ctrl=forum&action=CreateCategoryForm">Créer la vôtre !</a>
+            <a class="general-toppage-redactionlink unselectable" href="index.php?ctrl=forum&action=CreateCategoryForm">Nouvelle catégorie</a>
         </p>
     </div>
     <div class="allcategory-allcards">

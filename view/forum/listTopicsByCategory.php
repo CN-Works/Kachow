@@ -15,7 +15,7 @@ use App\DAO;
             <?= $categoryInfo->getDescription() ?>
             <br>
             <br>
-            <a class="general-toppage-redactionlink unselectable" href="index.php?ctrl=forum&action=CreateCategoryForm">Rédigez le vôtre !</a>
+            <a class="general-toppage-redactionlink unselectable" href="index.php?ctrl=forum&action=CreateCategoryForm">Nouveau topic</a>
             <br>
             <br>
             <a class="general-toppage-delete unselectable" href="index.php?ctrl=forum&action=DeleteCategory&id=<?= $categoryInfo->getId() ?>">Supprimer</a>
