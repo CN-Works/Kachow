@@ -68,19 +68,23 @@ use App\DAO;
                 ?>
                 <div class="topicdetails-postbox">
                     <div class="topicdetails-postbox-author">
-                        <figure class="topicdetails-postbox-profilefig">
-                            <img class="topicdetails-postbox-profileimage unselectable" src="<?= $post->getUser()->getProfileimage()?>" alt="<?= $post->getUser()->getUsername()?>'s profile picture">
-                        </figure>
-                        <p class="topicdetails-postbox-username"><?= $post->getUser()->getUsername()?></p>
+                        <div class="topicdetails-postbox-author-left">
+                            <figure class="topicdetails-postbox-profilefig">
+                                <img class="topicdetails-postbox-profileimage unselectable" src="<?= $post->getUser()->getProfileimage()?>" alt="<?= $post->getUser()->getUsername()?>'s profile picture">
+                            </figure>
+                            <p class="topicdetails-postbox-username"><?= $post->getUser()->getUsername()?></p>
 
-                        <?php
-                            // On vérifie si le l'auteur du topic est l'auteur du post/commentaire, pour ajouter une badge
-                            if ($post->getUser()->getId() == $topic->getUser()->getId()) {
-                                ?>
-                                <p class="topicdetails-postbox-authorcheck">(Auteur)</p>
-                                <?php
-                            }
-                        ?>
+                            <?php
+                                // On vérifie si le l'auteur du topic est l'auteur du post/commentaire, pour ajouter une badge
+                                if ($post->getUser()->getId() == $topic->getUser()->getId()) {
+                                    ?>
+                                    <p class="topicdetails-postbox-authorcheck">(Auteur)</p>
+                                    <?php
+                                }
+                            ?>
+                        </div>
+
+                        <a class="topicdetails-postbox-deletebutton" href=""><img class="topicdetails-postbox-deletebuttonimage" src="./public/img/delete.png" alt="Delete icon"></a>
                     </div>
                     <p class="topicdetails-postbox-text"><?= $post->getContent()?></p>
 
