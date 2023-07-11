@@ -85,13 +85,17 @@
 
         // Create
 
-        public function CreateTopicForm() {
+        public function CreateTopicForm($wantedCategory) {
             $userManager = new UserManager();
+
+            // L'id étant l'id_category, aucune demande de catégorie sera nécessaire puisque déjà mentionné.
+            $wantedCategory = filter_var($topicId,FILTER_VALIDATE_INT);
 
             return [
                 "view" => VIEW_DIR."forum/createTopic.php",
                 "data" => [
                     "allUsers" => $userManager->findAll(["creationdate", "ASC"]),
+                    "category" => $categoryManager->findOneById($wantedCategory),
                 ]
             ];
         }
