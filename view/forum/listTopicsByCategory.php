@@ -15,7 +15,8 @@ use App\DAO;
             <?= $categoryInfo->getDescription() ?>
             <br>
             <br>
-            <a class="general-toppage-redactionlink unselectable" href="index.php?ctrl=forum&action=CreateCategoryForm">Nouveau topic</a>
+            <!-- On va chercher le formulaire de création de topic en insérant l'id de catégorie actuelle, pour automatiser la création du topic en fonction de celle-ci. -->
+            <a class="general-toppage-redactionlink unselectable" href="index.php?ctrl=forum&action=CreateTopicForm&category=<?= $categoryInfo->getId() ?>">Nouveau topic</a>
             <br>
             <br>
             <a class="general-toppage-delete unselectable" href="index.php?ctrl=forum&action=DeleteCategory&id=<?= $categoryInfo->getId() ?>">Supprimer</a>
