@@ -91,6 +91,28 @@
            ];
         }
 
+        public function DeletePost($postId) {
+            $topicManager = new TopicManager();
+            $postManager = new PostManager();
+
+            // Ici on va supprimer un post/commentaire de topic via son Id, donc on vérifie que l'id est bien un entier
+            $postId = filter_var($postId,FILTER_VALIDATE_INT);
+
+            $topicId = filter_input(INPUT_GET, "wantedtopic", FILTER_VALIDATE_INT);
+
+            // Redirection vers le topic original
+            header('Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=topicDetails&id='.$topicId);
+
+            return [
+                "view" => VIEW_DIR."forum/topicDetails.php",
+                "data" => [
+                    "deletePost" => $postManager->delete($postId),
+                    "topicDetails" => $topicManager->findOneById($topicId),
+                    "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "ASC"]),
+                ]
+           ];
+        }
+
         public function AllCategories() {
 
             $categoryManager = new CategoryManager();

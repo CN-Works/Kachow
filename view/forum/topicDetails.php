@@ -84,7 +84,7 @@ use App\DAO;
                             ?>
                         </div>
 
-                        <a class="topicdetails-postbox-deletebutton" href=""><img class="topicdetails-postbox-deletebuttonimage" src="./public/img/delete.png" alt="Delete icon"></a>
+                        <a class="topicdetails-postbox-deletebutton" href="index.php?ctrl=forum&action=DeletePost&id=<?= $post->getId()?>&wantedtopic=<?= $topic->getId()?>"><img class="topicdetails-postbox-deletebuttonimage" src="./public/img/delete.png" alt="Delete icon"></a>
                     </div>
                     <p class="topicdetails-postbox-text"><?= $post->getContent()?></p>
 
