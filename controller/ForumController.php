@@ -165,4 +165,22 @@
                     ]
             ];
         }
+
+        public function DeleteCategory($categoryId) {
+            $categoryManager = new CategoryManager();
+
+            // On vérifie si l'id de la catégorie est bien un entier
+            $categoryId = filter_var($categoryId,FILTER_VALIDATE_INT);
+
+            // Redirection vers la list des catégories
+            header("Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=AllCategories");
+
+            return [
+                "view" => VIEW_DIR."forum/listCategories.php",
+                "data" => [
+                    "DeleteCategory" => $categoryManager->delete($categoryId),
+                    "categories" => $categoryManager->findAll()
+                ]
+            ];
+        }
     }
