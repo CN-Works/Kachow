@@ -23,22 +23,24 @@ $card_count = 1;
 
         <?php
 
-        foreach($categories as $category) {
-            ?>
-            <a class="allcategory-card" href="index.php?ctrl=forum&action=TopicsByCategory&id=<?= $category->getId()?>">
-                <?php
-                    $banner = $category->getImage();
-
-                    if (isset($banner)) {
-                        echo "<figure class='allcategory-card-bannerfig'><img class='allcategory-card-banner unselectable' src='$banner' alt='Bannière de la catégorie ".$category->getLabel()."'></figure>";
-                    }
+        if (isset($categories)) {
+            foreach($categories as $category) {
                 ?>
-                <div class="allcategory-card-textside">
-                    <h2 class="allcategory-card-title"><?= $category->getLabel() ?></h2>
-                    <p class="allcategory-card-subtitle"><?= $category->getDescription() ?></p>
-                </div>
-            </a>
-            <?php
+                <a class="allcategory-card" href="index.php?ctrl=forum&action=TopicsByCategory&id=<?= $category->getId()?>">
+                    <?php
+                        $banner = $category->getImage();
+    
+                        if (isset($banner)) {
+                            echo "<figure class='allcategory-card-bannerfig'><img class='allcategory-card-banner unselectable' src='$banner' alt='Bannière de la catégorie ".$category->getLabel()."'></figure>";
+                        }
+                    ?>
+                    <div class="allcategory-card-textside">
+                        <h2 class="allcategory-card-title"><?= $category->getLabel() ?></h2>
+                        <p class="allcategory-card-subtitle"><?= $category->getDescription() ?></p>
+                    </div>
+                </a>
+                <?php
+            }
         }
 
         ?>
