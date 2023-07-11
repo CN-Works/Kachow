@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   CONSTRAINT `users_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.post : ~7 rows (environ)
+-- Listage des données de la table passionessence.post : ~38 rows (environ)
 INSERT INTO `post` (`id_posts`, `content`, `creationdate`, `user_id`, `topic_id`) VALUES
 	(1, 'J\'aime bien les clio 3 phase 2 d\'avant 2012, ça arrache sur l\'autoroute dans le 68', '2023-06-28 09:47:30', 2, 1),
 	(2, 'C\'est vrai qu\'elle sont bien celle là, surtout en diesel', '2023-06-28 09:51:45', 1, 1),
@@ -57,7 +57,38 @@ INSERT INTO `post` (`id_posts`, `content`, `creationdate`, `user_id`, `topic_id`
 	(4, 'Je viens d\'en mettre dans le réservoir, je vais tester ça. A toute à l\'heure !', '2023-06-28 09:56:44', 3, 2),
 	(5, 'Moi j\'aime pas, elle est blanche et le blanc c\'est oppressant.', '2023-06-28 09:57:32', 3, 1),
 	(6, 'BMW blyat', '2023-07-10 21:07:41', 5, 6),
-	(7, 'J\'adore les formule 1 !', '2023-07-10 22:57:24', 4, 9);
+	(7, 'J\'adore les formule 1 !', '2023-07-10 22:57:24', 4, 9),
+	(8, 'Bravo Victor, tu es trop fort !', '2023-07-10 23:00:22', 6, 9),
+	(9, 'C\'est gentil, merci Clyde !', '2023-07-10 23:00:51', 5, 9),
+	(13, 'Salut Arnode !\r\nJe suis pas certains que &ccedil;a soit une tr&egrave;s bonne id&eacute;e, l&#039;eau est incompressible et dispos&eacute; dans ton moteur peux le faire &quot;exploser&quot;.\r\nDonc retire &ccedil;a vite de ton r&eacute;servoir avant que &ccedil;a brise tes bielles et tes pistons !', '2023-07-10 22:16:28', 5, 2),
+	(14, 'Arnode ?', '2023-07-10 22:16:55', 5, 2),
+	(15, 'Tu vas bien ? rien de cass&eacute; ?', '2023-07-10 22:17:20', 5, 2),
+	(16, 'J&#039;adore cette voiture !\r\nElle est puissante, &eacute;l&eacute;gante, spacieuse et luxueuse.\r\nLe bruit du V8 qui ronronne est un bonheur pour les oreilles et j&#039;aimerais vraiment pouvoir l&#039;entendre tout les matins.', '2023-07-10 22:20:51', 5, 3),
+	(17, 'Elle est magnifique cette voiture !', '2023-07-10 22:49:34', 2, 3),
+	(18, 'Wow trop styl&eacute; le voiture !', '2023-07-10 22:51:44', 6, 3),
+	(19, 'Appuie fort et &ccedil;a devrait marcher, sur ma polo &ccedil;a marche comme &ccedil;&agrave;.', '2023-07-10 22:52:22', 1, 7),
+	(20, 'Je fais pareil sur ma picasso et &ccedil;a marche bien', '2023-07-10 22:52:38', 4, 7),
+	(21, 'Je crois que c&#039;est fini pour le moteur', '2023-07-10 22:54:16', 6, 2),
+	(22, 'Oui c&#039;est vrai que BMW c&#039;est bonne voiture mais je pr&eacute;f&egrave;re Audi et Lamborghini', '2023-07-10 22:55:02', 6, 6),
+	(23, 'Moi j&#039;aime bien les clio 3 phase 2, je sais pas si je l&#039;ai d&eacute;j&agrave; dit ?', '2023-07-10 22:55:26', 2, 6),
+	(24, 'Frimeur !', '2023-07-10 22:56:02', 3, 6),
+	(25, 'Pouet pouet !', '2023-07-10 23:18:10', 4, 5),
+	(26, 'Toi quentin tu aimes camions hein ?', '2023-07-10 23:18:28', 6, 5),
+	(27, 'Oui Arnode, j&#039;aime le voiture puissance ! #albanie', '2023-07-10 23:21:01', 6, 6),
+	(28, 'Tu as essay&eacute; de d&eacute;brancher et rebrancher la batterie ? Sur un coup de chance &ccedil;a peut marcher, qui sait !', '2023-07-10 23:44:20', 3, 10),
+	(29, 'Oui effectivement j&#039;ai d&eacute;j&agrave; essay&eacute; mais &ccedil;a a re-grill&eacute; de nouveau.', '2023-07-10 23:44:52', 7, 10),
+	(30, 'C&#039;est pour dormir l&agrave;-dedans ? je connais pas le concept', '2023-07-10 23:45:49', 6, 10),
+	(31, 'Oui Clyde c&#039;est comme une maison dans une camionnette, tu peux l&#039;am&eacute;nager et y vivre plus ou moins longtemps. Les fran&ccedil;ais partent g&eacute;n&eacute;ralement en vacance avec pendant la p&eacute;riode d&#039;&eacute;t&eacute;.', '2023-07-10 23:46:55', 4, 10),
+	(32, 'J&#039;adore les camions c&#039;est ma passion depuis que je suis petit, j&#039;ai &eacute;tudi&eacute; la m&eacute;canique poids lourd au coll&egrave;ge.', '2023-07-10 23:48:31', 1, 5),
+	(33, 'Bonsoir Madinax ! Pense &agrave; aller voir un garagiste pour qu&#039;il te change le gaz de ta climatisation. Cela va te permettre de profiter de la clim&#039; de nouveau !', '2023-07-10 23:50:32', 5, 4),
+	(34, 'J&#039;ai fait &ccedil;a sur mon camping car et &ccedil;a fonctionne tr&egrave;s bien, je te le confirme Madinax !', '2023-07-10 23:50:58', 7, 4),
+	(35, 'Moi j&#039;habite en montagne et je vais bien, pense &agrave; te rafraichir naturellement si tu le peux.', '2023-07-10 23:51:41', 3, 4),
+	(36, 'Elle est trop belle ma voiture !', '2023-07-11 00:00:13', 4, 8),
+	(37, 'J&#039;aime pas trop la couleur, le blanc c&#039;est oppressant.', '2023-07-11 00:00:38', 3, 8),
+	(38, 'Pour une voiture de ville, c&#039;est largement suffisant. Les enfants doivent avoir de la place derri&egrave;re quand ils sont &agrave; plusieurs.', '2023-07-11 00:01:34', 7, 8),
+	(39, 'Moi avec ma clio, je trouve que c&#039;est bien comme voiture mais je pr&eacute;f&egrave;re encore et toujours ma clio 3 phase 2 diesel.', '2023-07-11 00:02:21', 2, 8),
+	(40, 'Audi RS3 c&#039;est plus rapide sur l&#039;autoroute, si tu veux on fait la course apr&egrave;s les cours en pr&eacute;sentiel !', '2023-07-11 00:03:31', 6, 1),
+	(41, 'C&#039;est interdit sur route ouverte Clyde, si tu le fais et que je te vois.. je vais devoir appeler les autorit&eacute;s locales.', '2023-07-11 00:04:19', 3, 1);
 
 -- Listage de la structure de table passionessence. topic
 CREATE TABLE IF NOT EXISTS `topic` (
@@ -76,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `topic` (
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.topic : ~9 rows (environ)
+-- Listage des données de la table passionessence.topic : ~10 rows (environ)
 INSERT INTO `topic` (`id_topic`, `title`, `description`, `banner`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
 	(1, 'Clio 3 Phase 2', 'J\'adore ma Clio', 'https://ag-cdn-production.azureedge.net/produits/images/2cd53a82-915b-4127-af63-cd262caea230_800.jpg', 0, '2023-06-28 09:48:31', 2, 3),
 	(2, 'Mettre de l\'eau dans son moteur', 'Mettre de l\'eau dans le réservoir', 'https://www.ekurhuleni.gov.za/wp-content/uploads/2021/10/drinking-glass-water.jpg', 0, '2023-06-28 09:53:24', 3, 4),
@@ -86,7 +117,8 @@ INSERT INTO `topic` (`id_topic`, `title`, `description`, `banner`, `status`, `cr
 	(6, 'Je conduis rs3', 'J\'ai pas le permis mais j\'ai le danger', 'https://auto-live.fr/wp-content/uploads/2021/07/Nouvelle-Audi-RS-3-6.jpeg', 0, '2023-07-06 09:43:23', 6, 1),
 	(7, 'Comment freiner efficacement ?', 'J\'aimerais apprendre à freiner plus "fort" sur distance plus courte, avez vous des conseils ?', 'https://grimmermotors.co.nz/wp-content/uploads/2018/03/braking.jpg', 0, '2023-07-09 16:38:00', 5, 2),
 	(8, 'Conduite C3 Picasso', 'J\'ai conduis cette voiture pour me balader et aller faire les courses. C\'était bien et j\'ai de l\'espace à l\'intérieur et dans le coffre.', 'https://www.tuningblog.eu/wp-content/uploads/2014/12/Sondermodell-Citroen-C3-Picasso-Carlsson-Tuning-1.jpg', 0, '2023-07-10 16:46:32', 4, 1),
-	(9, 'Conseils Formule Renault 2.0', 'J\'ai conduit une formule renault 2L récemment et je vais vous donner quelques conseils à propos de la maniabilité de la voiture !', 'https://www.guillaumedarding.fr/images/DSC_0109.jpg', 0, '2023-07-10 16:51:46', 5, 2);
+	(9, 'Conseils Formule Renault 2.0', 'J\'ai conduit une formule renault 2L récemment et je vais vous donner quelques conseils à propos de la maniabilité de la voiture !', 'https://www.guillaumedarding.fr/images/DSC_0109.jpg', 0, '2023-07-10 16:51:46', 5, 2),
+	(10, 'Aide Camping-car', 'Bonjour jai un problème électronique avec mon véhicule et j\'aimerais le résoudre. J\'ai un mini chauffe-eau qui grille quand je le branche sur la batterie 12v du camping car, des solutions ?', 'https://projets.cotemaison.fr/uploads/projects/5651/project_3401045937119fe524e_pic_1.JPG', 0, '2023-07-11 01:42:52', 7, 4);
 
 -- Listage de la structure de table passionessence. user
 CREATE TABLE IF NOT EXISTS `user` (
@@ -100,14 +132,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id_user`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.user : ~6 rows (environ)
+-- Listage des données de la table passionessence.user : ~7 rows (environ)
 INSERT INTO `user` (`id_user`, `username`, `password`, `description`, `role`, `creationdate`, `profileimage`) VALUES
 	(1, 'Quentin12', '0', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', 'https://avatars.githubusercontent.com/u/68738931'),
 	(2, 'Maxoms68', '0', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', 'https://media.discordapp.net/attachments/891954403861491713/1127945550692622377/image.png'),
 	(3, 'ArnodePHP', '0', 'Je fais du coivoiturage, mais attention c\'est pas gratuit', 'user', '2023-06-28 09:41:48', 'https://media.licdn.com/dms/image/D4D03AQErVCoqVYpyhQ/profile-displayphoto-shrink_400_400/0/1678805462857?e=1694044800&v=beta&t=JzRc_v8x9I576BA-oLBVdk9w6D2YfSKMyKc2HUeuHWw'),
 	(4, 'Madinax', '0', 'Je parle russe', 'user', '2023-06-28 09:42:55', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Vladimir_Putin_September_5%2C_2022_%28cropped%29.jpg/330px-Vladimir_Putin_September_5%2C_2022_%28cropped%29.jpg'),
 	(5, 'Vic-Thor', '0', 'J\'aime bien les bmw, mais je préfère dacia.', 'admin', '2023-06-29 11:35:49', 'https://avatars.githubusercontent.com/u/92865037'),
-	(6, 'ClydeRSLambo', '0', 'J\'aime bien Lamborghini mais si tu dis dus mal, attention', 'user', '2023-07-06 09:38:37', 'https://media.licdn.com/dms/image/D4E03AQFE9QZ8RDbjzA/profile-displayphoto-shrink_400_400/0/1686556306140?e=1694044800&v=beta&t=R-cFjjsE1xJIutrFW0D4-SPIEYAdheUsAdvmy0VpgZ8');
+	(6, 'ClydeRSLambo', '0', 'J\'aime bien Lamborghini mais si tu dis dus mal, attention', 'user', '2023-07-06 09:38:37', 'https://media.licdn.com/dms/image/D4E03AQFE9QZ8RDbjzA/profile-displayphoto-shrink_400_400/0/1686556306140?e=1694044800&v=beta&t=R-cFjjsE1xJIutrFW0D4-SPIEYAdheUsAdvmy0VpgZ8'),
+	(7, 'Benjy', '0', 'J\'aime cuisiner de bons plats pour mes amis.', 'user', '2023-07-11 01:39:53', 'https://media.licdn.com/dms/image/D4E35AQFANSWVJHvNUw/profile-framedphoto-shrink_400_400/0/1678800995662?e=1689638400&v=beta&t=BBK6CyYrEsBgC0qLMzIqck5Exp2tOZqK1Qpqv7VLGNc');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
