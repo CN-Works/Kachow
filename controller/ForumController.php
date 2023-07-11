@@ -87,9 +87,10 @@
 
         public function CreateTopicForm($wantedCategory) {
             $userManager = new UserManager();
+            $categoryManager = new CategoryManager();
 
             // L'id étant l'id_category, aucune demande de catégorie sera nécessaire puisque déjà mentionné.
-            $wantedCategory = filter_var($topicId,FILTER_VALIDATE_INT);
+            $wantedCategory = filter_var($wantedCategory,FILTER_VALIDATE_INT);
 
             return [
                 "view" => VIEW_DIR."forum/createTopic.php",
