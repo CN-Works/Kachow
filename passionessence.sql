@@ -37,20 +37,20 @@ INSERT INTO `category` (`id_category`, `label`, `description`, `image`) VALUES
 
 -- Listage de la structure de table passionessence. post
 CREATE TABLE IF NOT EXISTS `post` (
-  `id_posts` int NOT NULL AUTO_INCREMENT,
+  `id_post` int NOT NULL AUTO_INCREMENT,
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `creationdate` datetime NOT NULL,
   `user_id` int DEFAULT NULL,
   `topic_id` int DEFAULT NULL,
-  PRIMARY KEY (`id_posts`) USING BTREE,
+  PRIMARY KEY (`id_post`) USING BTREE,
   KEY `topic_id` (`topic_id`) USING BTREE,
   KEY `user_id` (`user_id`) USING BTREE,
   CONSTRAINT `topic_id` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id_topic`),
   CONSTRAINT `users_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.post : ~38 rows (environ)
-INSERT INTO `post` (`id_posts`, `content`, `creationdate`, `user_id`, `topic_id`) VALUES
+-- Listage des données de la table passionessence.post : ~37 rows (environ)
+INSERT INTO `post` (`id_post`, `content`, `creationdate`, `user_id`, `topic_id`) VALUES
 	(1, 'J\'aime bien les clio 3 phase 2 d\'avant 2012, ça arrache sur l\'autoroute dans le 68', '2023-06-28 09:47:30', 2, 1),
 	(2, 'C\'est vrai qu\'elle sont bien celle là, surtout en diesel', '2023-06-28 09:51:45', 1, 1),
 	(3, 'J\'ai entendu quelqu\'un dire sur youtube qu\'on peut mettre de l\'eau dans l\'essence, je veux faire des économies', '2023-06-28 09:54:23', 3, 2),
@@ -88,7 +88,8 @@ INSERT INTO `post` (`id_posts`, `content`, `creationdate`, `user_id`, `topic_id`
 	(38, 'Pour une voiture de ville, c&#039;est largement suffisant. Les enfants doivent avoir de la place derri&egrave;re quand ils sont &agrave; plusieurs.', '2023-07-11 00:01:34', 7, 8),
 	(39, 'Moi avec ma clio, je trouve que c&#039;est bien comme voiture mais je pr&eacute;f&egrave;re encore et toujours ma clio 3 phase 2 diesel.', '2023-07-11 00:02:21', 2, 8),
 	(40, 'Audi RS3 c&#039;est plus rapide sur l&#039;autoroute, si tu veux on fait la course apr&egrave;s les cours en pr&eacute;sentiel !', '2023-07-11 00:03:31', 6, 1),
-	(41, 'C&#039;est interdit sur route ouverte Clyde, si tu le fais et que je te vois.. je vais devoir appeler les autorit&eacute;s locales.', '2023-07-11 00:04:19', 3, 1);
+	(41, 'C&#039;est interdit sur route ouverte Clyde, si tu le fais et que je te vois.. je vais devoir appeler les autorit&eacute;s locales.', '2023-07-11 00:04:19', 3, 1),
+	(42, 'Oui alors c&#039;est un petit peu plus compliqu&eacute; que &ccedil;a...', '2023-07-11 21:56:08', 5, 7);
 
 -- Listage de la structure de table passionessence. topic
 CREATE TABLE IF NOT EXISTS `topic` (
@@ -105,9 +106,9 @@ CREATE TABLE IF NOT EXISTS `topic` (
   KEY `user_id` (`user_id`) USING BTREE,
   CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`id_category`),
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.topic : ~10 rows (environ)
+-- Listage des données de la table passionessence.topic : ~9 rows (environ)
 INSERT INTO `topic` (`id_topic`, `title`, `description`, `banner`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
 	(1, 'Clio 3 Phase 2', 'J\'adore ma Clio', 'https://ag-cdn-production.azureedge.net/produits/images/2cd53a82-915b-4127-af63-cd262caea230_800.jpg', 0, '2023-06-28 09:48:31', 2, 3),
 	(2, 'Mettre de l\'eau dans son moteur', 'Mettre de l\'eau dans le réservoir', 'https://www.ekurhuleni.gov.za/wp-content/uploads/2021/10/drinking-glass-water.jpg', 0, '2023-06-28 09:53:24', 3, 4),
@@ -130,9 +131,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `creationdate` datetime NOT NULL,
   `profileimage` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_user`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.user : ~7 rows (environ)
+-- Listage des données de la table passionessence.user : ~6 rows (environ)
 INSERT INTO `user` (`id_user`, `username`, `password`, `description`, `role`, `creationdate`, `profileimage`) VALUES
 	(1, 'Quentin12', '0', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', 'https://avatars.githubusercontent.com/u/68738931'),
 	(2, 'Maxoms68', '0', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', 'https://media.discordapp.net/attachments/891954403861491713/1127945550692622377/image.png'),
