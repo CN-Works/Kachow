@@ -63,6 +63,43 @@
          
         }
 
+        // List
+
+        public function AllCategories() {
+
+            $categoryManager = new CategoryManager();
+
+            return [
+                "view" => VIEW_DIR."forum/listCategories.php",
+                "data" => [
+                    "categories" => $categoryManager->findAll()
+                ]
+            ];
+        }
+
+        public function ListRedactions() {
+            return [
+                "view" => VIEW_DIR."forum/listRedactions.php",
+            ];
+        }
+
+        // Create
+
+        public function CreateTopicForm() {
+            $userManager = new UserManager();
+
+            return [
+                "view" => VIEW_DIR."forum/createTopic.php",
+                "data" => [
+                    "allUsers" => $userManager->findAll(["creationdate", "ASC"]),
+                ]
+            ];
+        }
+
+        public function CreateTopic() {
+
+        }
+
         public function CreatePost($topicId) {
             $topicManager = new TopicManager();
             $postManager = new PostManager();
@@ -89,46 +126,6 @@
                     "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "ASC"]),
                 ]
            ];
-        }
-
-        public function DeletePost($postId) {
-            $topicManager = new TopicManager();
-            $postManager = new PostManager();
-
-            // Ici on va supprimer un post/commentaire de topic via son Id, donc on vérifie que l'id est bien un entier
-            $postId = filter_var($postId,FILTER_VALIDATE_INT);
-
-            $topicId = filter_input(INPUT_GET, "wantedtopic", FILTER_VALIDATE_INT);
-
-            // Redirection vers le topic original
-            header('Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=topicDetails&id='.$topicId);
-
-            return [
-                "view" => VIEW_DIR."forum/topicDetails.php",
-                "data" => [
-                    "deletePost" => $postManager->delete($postId),
-                    "topicDetails" => $topicManager->findOneById($topicId),
-                    "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "ASC"]),
-                ]
-           ];
-        }
-
-        public function AllCategories() {
-
-            $categoryManager = new CategoryManager();
-
-            return [
-                "view" => VIEW_DIR."forum/listCategories.php",
-                "data" => [
-                    "categories" => $categoryManager->findAll()
-                ]
-            ];
-        }
-
-        public function ListRedactions() {
-            return [
-                "view" => VIEW_DIR."forum/listRedactions.php",
-            ];
         }
 
         public function CreateCategoryForm() {
@@ -164,6 +161,30 @@
                     "categories" => $categoryManager->findAll()
                     ]
             ];
+        }
+
+        // Delete
+
+        public function DeletePost($postId) {
+            $topicManager = new TopicManager();
+            $postManager = new PostManager();
+
+            // Ici on va supprimer un post/commentaire de topic via son Id, donc on vérifie que l'id est bien un entier
+            $postId = filter_var($postId,FILTER_VALIDATE_INT);
+
+            $topicId = filter_input(INPUT_GET, "wantedtopic", FILTER_VALIDATE_INT);
+
+            // Redirection vers le topic original
+            header('Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=topicDetails&id='.$topicId);
+
+            return [
+                "view" => VIEW_DIR."forum/topicDetails.php",
+                "data" => [
+                    "deletePost" => $postManager->delete($postId),
+                    "topicDetails" => $topicManager->findOneById($topicId),
+                    "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "ASC"]),
+                ]
+           ];
         }
 
         public function DeleteCategory($categoryId) {
