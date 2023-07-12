@@ -119,7 +119,7 @@
             $idCategory = filter_var($idCategory,FILTER_VALIDATE_INT);;
 
 
-            header("Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=TopicsByCategory&id=".$idCategory);
+            header("Location: index.php?ctrl=forum&action=TopicsByCategory&id=".$idCategory);
 
             // On récupère les derniers topics par date
             return [
@@ -148,7 +148,7 @@
             );
 
             // Redirection vers le topic
-            header('Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=topicDetails&id='.$topicId);
+            header('Location: index.php?ctrl=forum&action=topicDetails&id='.$topicId);
 
             return [
                 "view" => VIEW_DIR."forum/topicDetails.php",
@@ -177,7 +177,7 @@
             $categoryImage = filter_input(INPUT_POST,"category-image",FILTER_VALIDATE_URL);
 
             // Redirection vers la liste des catégories
-            header('Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=AllCategories');
+            header('Location: index.php?ctrl=forum&action=AllCategories');
 
             // Integration des valeurs dans un tableau pour l'exporter dans la fonction du manager
             $newCategory = array(
@@ -204,7 +204,7 @@
 
 
             //Redirection vers la liste des topics
-            header("Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=listTopics");
+            header("Location: index.php?ctrl=forum&action=listTopics");
 
             return [
                 "view" => VIEW_DIR."forum/listTopics.php",
@@ -226,7 +226,7 @@
             $topicId = filter_input(INPUT_GET, "wantedtopic", FILTER_VALIDATE_INT);
 
             // Redirection vers le topic original
-            header('Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=topicDetails&id='.$topicId);
+            header('Location: index.php?ctrl=forum&action=topicDetails&id='.$topicId);
 
             return [
                 "view" => VIEW_DIR."forum/topicDetails.php",
@@ -245,7 +245,7 @@
             $categoryId = filter_var($categoryId,FILTER_VALIDATE_INT);
 
             // Redirection vers la list des catégories
-            header("Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=AllCategories");
+            header("Location: index.php?ctrl=forum&action=AllCategories");
 
             return [
                 "view" => VIEW_DIR."forum/listCategories.php",
