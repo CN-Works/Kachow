@@ -6,7 +6,7 @@
         <form class="creation-form" action="index.php?ctrl=forum&action=RegisterUser" method="post">
             <h2 class="creation-form-title">Créer un compte</h2>
             
-            <p class="creation-form-inputname">Utilisateur</p>
+            <p class="creation-form-inputname">Nom d'utilisateur</p>
             <input class="creation-form-inputtext" type="text" name="newuser-username">
 
             <p class="creation-form-inputname">Mot de passe</p>
@@ -16,6 +16,8 @@
             <input class="creation-form-inputtext" type="password" name="newuser-password-repeat">
 
             <input class="creation-form-submitbutton" type="submit" value="Créer">
+
+            <a class="connectpage-button"  href="index.php?ctrl=security&action=ConnectUserForm">Se connecter</a>
         </form>
     </div>
 </div>
