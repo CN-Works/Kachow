@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `category` (
   `description` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `image` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_category`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.category : ~4 rows (environ)
+-- Listage des données de la table passionessence.category : ~5 rows (environ)
 INSERT INTO `category` (`id_category`, `label`, `description`, `image`) VALUES
 	(1, 'Essai', 'Essais de véhicules par les membres initiés', 'https://d1gymyavdvyjgt.cloudfront.net/drive/images/uploads/headers/ws_cropper/1_0x0_790x520_0x520_become_a_better_driver.jpg'),
 	(2, 'Pilotage', 'Conseils et partage d\'expérience autour du pilotage', 'https://agorasports.fr/wp-content/uploads/2022/03/devenir-pilote-automobile.jpg'),
@@ -48,9 +48,9 @@ CREATE TABLE IF NOT EXISTS `post` (
   KEY `user_id` (`user_id`) USING BTREE,
   CONSTRAINT `topic_id` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id_topic`),
   CONSTRAINT `users_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.post : ~39 rows (environ)
+-- Listage des données de la table passionessence.post : ~44 rows (environ)
 INSERT INTO `post` (`id_post`, `content`, `creationdate`, `user_id`, `topic_id`) VALUES
 	(1, 'J\'aime bien les clio 3 phase 2 d\'avant 2012, ça arrache sur l\'autoroute dans le 68', '2023-06-28 09:47:30', 2, 1),
 	(2, 'C\'est vrai qu\'elle sont bien celle là, surtout en diesel', '2023-06-28 09:51:45', 1, 1),
@@ -90,13 +90,18 @@ INSERT INTO `post` (`id_post`, `content`, `creationdate`, `user_id`, `topic_id`)
 	(39, 'Moi avec ma clio, je trouve que c&#039;est bien comme voiture mais je pr&eacute;f&egrave;re encore et toujours ma clio 3 phase 2 diesel.', '2023-07-11 00:02:21', 2, 8),
 	(40, 'Audi RS3 c&#039;est plus rapide sur l&#039;autoroute, si tu veux on fait la course apr&egrave;s les cours en pr&eacute;sentiel !', '2023-07-11 00:03:31', 6, 1),
 	(41, 'C&#039;est interdit sur route ouverte Clyde, si tu le fais et que je te vois.. je vais devoir appeler les autorit&eacute;s locales.', '2023-07-11 00:04:19', 3, 1),
-	(42, 'Oui alors c&#039;est un petit peu plus compliqu&eacute; que &ccedil;a...', '2023-07-11 21:56:08', 5, 7);
+	(42, 'Oui alors c&#039;est un petit peu plus compliqu&eacute; que &ccedil;a...', '2023-07-11 21:56:08', 5, 7),
+	(48, 'Effectivement, c&#039;est joli le design !', '2023-07-12 00:07:04', 2, 12),
+	(49, 'Je suis d&#039;accord, c&#039;est tr&egrave;s important sur tout sur un site internet !\r\nPassionEssence est une r&eacute;f&eacute;rence dans le milieu. #L&egrave;cheBottes', '2023-07-12 00:08:24', 5, 12),
+	(50, 'Malgr&eacute; ce que l&#039;on pourrait croire, la vitesse de pointe n&#039;est absolument pas impact&eacute; par le nouveau kit a&eacute;ro&#039; cr&eacute;e par le constructeur. C&#039;est bluffant en terme de puissance.', '2023-07-12 07:00:44', 5, 14),
+	(51, 'C&#039;est le voiture avec DRS ?', '2023-07-12 07:00:59', 6, 14),
+	(52, 'C&#039;est &ccedil;a, elle a un syst&egrave;me de DRS sur l&#039;aileron arri&egrave;re qui peut &ecirc;tre activ&eacute; en ligne droite pour gagner en performance en ligne droite.', '2023-07-12 07:02:00', 5, 14);
 
 -- Listage de la structure de table passionessence. topic
 CREATE TABLE IF NOT EXISTS `topic` (
   `id_topic` int NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `banner` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` tinyint NOT NULL DEFAULT '0',
   `creationdate` datetime NOT NULL,
@@ -107,9 +112,9 @@ CREATE TABLE IF NOT EXISTS `topic` (
   KEY `user_id` (`user_id`) USING BTREE,
   CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`id_category`),
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.topic : ~10 rows (environ)
+-- Listage des données de la table passionessence.topic : ~12 rows (environ)
 INSERT INTO `topic` (`id_topic`, `title`, `description`, `banner`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
 	(1, 'Clio 3 Phase 2', 'J\'adore ma Clio', 'https://ag-cdn-production.azureedge.net/produits/images/2cd53a82-915b-4127-af63-cd262caea230_800.jpg', 0, '2023-06-28 09:48:31', 2, 3),
 	(2, 'Mettre de l\'eau dans son moteur', 'Mettre de l\'eau dans le réservoir', 'https://www.ekurhuleni.gov.za/wp-content/uploads/2021/10/drinking-glass-water.jpg', 0, '2023-06-28 09:53:24', 3, 4),
@@ -120,7 +125,9 @@ INSERT INTO `topic` (`id_topic`, `title`, `description`, `banner`, `status`, `cr
 	(7, 'Comment freiner efficacement ?', 'J\'aimerais apprendre à freiner plus "fort" sur distance plus courte, avez vous des conseils ?', 'https://grimmermotors.co.nz/wp-content/uploads/2018/03/braking.jpg', 0, '2023-07-09 16:38:00', 5, 2),
 	(8, 'Conduite C3 Picasso', 'J\'ai conduis cette voiture pour me balader et aller faire les courses. C\'était bien et j\'ai de l\'espace à l\'intérieur et dans le coffre.', 'https://www.tuningblog.eu/wp-content/uploads/2014/12/Sondermodell-Citroen-C3-Picasso-Carlsson-Tuning-1.jpg', 0, '2023-07-10 16:46:32', 4, 1),
 	(9, 'Conseils Formule Renault 2.0', 'J\'ai conduit une formule renault 2L récemment et je vais vous donner quelques conseils à propos de la maniabilité de la voiture !', 'https://www.guillaumedarding.fr/images/DSC_0109.jpg', 0, '2023-07-10 16:51:46', 5, 2),
-	(10, 'Aide Camping-car', 'Bonjour jai un problème électronique avec mon véhicule et j\'aimerais le résoudre. J\'ai un mini chauffe-eau qui grille quand je le branche sur la batterie 12v du camping car, des solutions ?', 'https://projets.cotemaison.fr/uploads/projects/5651/project_3401045937119fe524e_pic_1.JPG', 0, '2023-07-11 01:42:52', 7, 4);
+	(10, 'Aide Camping-car', 'Bonjour jai un problème électronique avec mon véhicule et j\'aimerais le résoudre. J\'ai un mini chauffe-eau qui grille quand je le branche sur la batterie 12v du camping car, des solutions ?', 'https://projets.cotemaison.fr/uploads/projects/5651/project_3401045937119fe524e_pic_1.JPG', 0, '2023-07-11 01:42:52', 7, 4),
+	(12, 'J&#039;aime le design', 'Je trouve &ccedil;a inspirant et beau, mais le blanc c&#039;est une couleur oppressante !', 'https://macquebec.com/wp-content/uploads/2017/08/Screen-Shot-2017-08-31-at-8.58.10-AM.png', 0, '2023-07-12 00:06:18', 3, 8),
+	(14, 'Test de la GT3 RS 2023', 'Essai sur route et piste de la derni&egrave;re Porsche 911 GT3 RS, elle a beaucoup d&#039;appui a&eacute;rodynamique en virage lent et rapide.', 'https://media.ed.edmunds-media.com/porsche/911/2023/ns/2023_porsche_911_r34_ns_621224_1600.jpg', 0, '2023-07-12 06:56:37', 5, 1);
 
 -- Listage de la structure de table passionessence. user
 CREATE TABLE IF NOT EXISTS `user` (
@@ -132,9 +139,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `creationdate` datetime NOT NULL,
   `profileimage` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_user`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table passionessence.user : ~7 rows (environ)
+-- Listage des données de la table passionessence.user : ~8 rows (environ)
 INSERT INTO `user` (`id_user`, `username`, `password`, `description`, `role`, `creationdate`, `profileimage`) VALUES
 	(1, 'Quentin12', '0', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', 'https://avatars.githubusercontent.com/u/68738931'),
 	(2, 'Maxoms68', '0', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', 'https://media.discordapp.net/attachments/891954403861491713/1127945550692622377/image.png'),
@@ -142,7 +149,8 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `description`, `role`, `c
 	(4, 'Madinax', '0', 'Je parle russe', 'user', '2023-06-28 09:42:55', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Vladimir_Putin_September_5%2C_2022_%28cropped%29.jpg/330px-Vladimir_Putin_September_5%2C_2022_%28cropped%29.jpg'),
 	(5, 'Vic-Thor', '0', 'J\'aime bien les bmw, mais je préfère dacia.', 'admin', '2023-06-29 11:35:49', 'https://avatars.githubusercontent.com/u/92865037'),
 	(6, 'ClydeRSLambo', '0', 'J\'aime bien Lamborghini mais si tu dis dus mal, attention', 'user', '2023-07-06 09:38:37', 'https://media.licdn.com/dms/image/D4E03AQFE9QZ8RDbjzA/profile-displayphoto-shrink_400_400/0/1686556306140?e=1694044800&v=beta&t=R-cFjjsE1xJIutrFW0D4-SPIEYAdheUsAdvmy0VpgZ8'),
-	(7, 'Benjy', '0', 'J\'aime cuisiner de bons plats pour mes amis.', 'user', '2023-07-11 01:39:53', 'https://media.licdn.com/dms/image/D4E35AQFANSWVJHvNUw/profile-framedphoto-shrink_400_400/0/1678800995662?e=1689638400&v=beta&t=BBK6CyYrEsBgC0qLMzIqck5Exp2tOZqK1Qpqv7VLGNc');
+	(7, 'Benjy', '0', 'J\'aime cuisiner de bons plats pour mes amis.', 'user', '2023-07-11 01:39:53', 'https://media.licdn.com/dms/image/D4E35AQFANSWVJHvNUw/profile-framedphoto-shrink_400_400/0/1678800995662?e=1689638400&v=beta&t=BBK6CyYrEsBgC0qLMzIqck5Exp2tOZqK1Qpqv7VLGNc'),
+	(8, 'Kevon', '$2y$10$gjAKSCN5AmWpXBh6hoJeIOFTn.uWoxV37kmTkw3Ar9RCA4CeuvPti', 'Pas de description', 'user', '2023-07-12 14:44:00', 'https://avatars.githubusercontent.com/u/127909706');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
