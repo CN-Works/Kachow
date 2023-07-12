@@ -959,3 +959,27 @@ video {
 .creation-form-submitbutton:hover {
     background-color: var(--green-validate);
 }
+
+/* Connect page */
+.connectpage-main {
+    width: 400px;
+    height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.connectpage-button {
+    color: var(--dark-blue);
+    font-size: 1rem;
+
+    margin: 5px;
+    text-decoration: none;
+}
+
+.connectpage-button:visited {
+    text-decoration: none;
+    color: var(--dark-blue);
+}
