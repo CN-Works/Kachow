@@ -45,7 +45,7 @@
                         }
                             else {
                             ?>
-                            <a class="header-loginicon header" href="./view/security/login.php">
+                            <a class="header-loginicon header" href="index.php?ctrl=security&action=ConnectUserForm">
                                 <img class="header-loginicon-image unselectable" src="./public/img/icon_user.png" alt="Person icon">
                             </a>
                             <!-- <a href="./view/security/login.php">Connexion</a>
