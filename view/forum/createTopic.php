@@ -20,7 +20,7 @@ $category = $result["data"]['category'];
             </div>
             
             <p class="creation-form-inputname">Utilisateur</p>
-            <select class="topicdetails-postpart-writer-select" name="comment-user" style="margin: 5px 0;">
+            <select class="topicdetails-postpart-writer-select" name="newtopic-user" style="margin: 5px 0;">
                 <?php
                 foreach($users as $user) {
                 ?>

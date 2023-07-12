@@ -77,12 +77,6 @@
             ];
         }
 
-        public function ListRedactions() {
-            return [
-                "view" => VIEW_DIR."forum/listRedactions.php",
-            ];
-        }
-
         // Create
 
         public function CreateTopicForm($wantedCategory) {
@@ -101,8 +95,41 @@
             ];
         }
 
-        public function CreateTopic() {
+        public function CreateTopic($idCategory) {
+            $topicManager = new TopicManager();
+            $categoryManager = new CategoryManager();
 
+            $newPost = array(
+                // Le titre du topic
+                "title" => filter_input(INPUT_POST, "newtopic-title", FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                // On vérifie que le texte de description est correcte.
+                "description" => filter_input(INPUT_POST, "newtopic-description", FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                // On vérifie si l'image est bien un lien
+                "banner" => filter_input(INPUT_POST,"newtopic-image",FILTER_VALIDATE_URL),
+                // Status par défaut
+                "status" => 0,
+                // Récupère la date
+                "creationdate" => date('Y-m-d H:i:s'),
+                // On vérifie l'id de l'auteur du Topic
+                "user_id" => filter_input(INPUT_POST, "newtopic-user", FILTER_VALIDATE_INT),
+                // On renseigne la catégorie
+                "category_id" => filter_var($idCategory,FILTER_VALIDATE_INT),
+            );
+
+            $idCategory = filter_var($idCategory,FILTER_VALIDATE_INT);;
+
+
+            header("Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=TopicsByCategory&id=".$idCategory);
+
+            // On récupère les derniers topics par date
+            return [
+                "view" => VIEW_DIR."forum/listTopicsByCategory.php",
+                "data" => [
+                    "newTopic" => $topicManager->add($newPost),
+                    "topicsbycategory" => $topicManager->findAllByTableAndId($idCategory,"category_id",["creationdate", "DESC"]),
+                    "categoryname" => $categoryManager->findOneById($idCategory),
+                ]
+            ];
         }
 
         public function CreatePost($topicId) {
