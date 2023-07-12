@@ -642,9 +642,30 @@ video {
 }
 
 .topicdetails-topdata-downpage {
-    align-self: flex-start;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.topicdetails-topdata-downpage-left {
+    display: flex;
+    align-items: center;
+}
+
+.topicdetails-topdata-downpage-deletebutton {
+    justify-self: flex-end;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    text-decoration: none;
 }
 
 .topicdetails-topdata-category {

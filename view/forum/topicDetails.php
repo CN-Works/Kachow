@@ -33,11 +33,17 @@ use App\DAO;
         <p class="topicdetails-topicinfos-description">"<?= $topic->getDescription()?>"</p>
 
         <div class="topicdetails-topdata-downpage">
-            <a class="topicdetails-topdata-category" href="index.php?ctrl=forum&action=TopicsByCategory&id=<?= $topic->getCategory()->getId()?>">
-                <?= $topic->getCategory()->getLabel()?>
-            </a>
+            <div class="topicdetails-topdata-downpage-left">
+                <a class="topicdetails-topdata-category" href="index.php?ctrl=forum&action=TopicsByCategory&id=<?= $topic->getCategory()->getId()?>">
+                    <?= $topic->getCategory()->getLabel()?>
+                </a>
 
-            <p>, crée le <?= $topic->getCreationdate()?></p>
+                <p>, crée le <?= $topic->getCreationdate()?></p>
+            </div>
+
+            <div class="topicdetails-topdata-downpage-left">
+                <a class="topicdetails-topdata-downpage-deletebutton" href="index.php?ctrl=forum&action=DeleteTopic&id=<?= $topic->getId()?>"><img class="topicdetails-postbox-deletebuttonimage" src="./public/img/delete-2.png" alt="Delete icon"></a>
+            </div>
         </div>
     </div>
 
