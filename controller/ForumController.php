@@ -37,7 +37,7 @@
             return [
                 "view" => VIEW_DIR."forum/listTopicsByCategory.php",
                 "data" => [
-                    "topicsbycategory" => $topicManager->findAllByTableAndId($idCategory,"category_id",["creationdate", "DESC"]),
+                    "topicsbycategory" => $topicManager->findAllByColumnAndValue($idCategory,"category_id",["creationdate", "DESC"]),
                     "categoryname" => $categoryManager->findOneById($idCategory),
                 ]
             ];
@@ -57,7 +57,7 @@
                  "data" => [
                      "topicDetails" => $topicManager->findOneById($topicId),
                      "allUsers" => $userManager->findAll(["creationdate", "ASC"]),
-                     "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "ASC"]),
+                     "topicPosts" =>  $postManager->findAllByColumnAndValue($topicId,"topic_id",["creationdate", "ASC"]),
                  ]
             ];
          
@@ -126,7 +126,7 @@
                 "view" => VIEW_DIR."forum/listTopicsByCategory.php",
                 "data" => [
                     "newTopic" => $topicManager->add($newPost),
-                    "topicsbycategory" => $topicManager->findAllByTableAndId($idCategory,"category_id",["creationdate", "DESC"]),
+                    "topicsbycategory" => $topicManager->findAllByColumnAndValue($idCategory,"category_id",["creationdate", "DESC"]),
                     "categoryname" => $categoryManager->findOneById($idCategory),
                 ]
             ];
@@ -155,7 +155,7 @@
                 "data" => [
                     "creationPost" => $postManager->add($newPost),
                     "topicDetails" => $topicManager->findOneById($topicId),
-                    "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "ASC"]),
+                    "topicPosts" =>  $postManager->findAllByColumnAndValue($topicId,"topic_id",["creationdate", "ASC"]),
                 ]
            ];
         }
@@ -233,7 +233,7 @@
                 "data" => [
                     "deletePost" => $postManager->delete($postId),
                     "topicDetails" => $topicManager->findOneById($topicId),
-                    "topicPosts" =>  $postManager->findAllByTableAndId($topicId,"topic_id",["creationdate", "ASC"]),
+                    "topicPosts" =>  $postManager->findAllByColumnAndValue($topicId,"topic_id",["creationdate", "ASC"]),
                 ]
            ];
         }

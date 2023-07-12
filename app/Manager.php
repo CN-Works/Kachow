@@ -108,16 +108,16 @@
 
         // Un select classique mais avec un argument "id" et "table" pour la table voulue
         // Le but principale étant d'aller chercher de la data avec l'id des clés étrangères.
-        public function findAllByTableAndId($id,$table, $order = null){
+        public function findAllByColumnAndValue($value,$column, $order = null){
             $orderQuery = ($order) ? "ORDER BY ".$order[0]. " ".$order[1] : "";
 
             $sql = "SELECT *
                     FROM ".$this->tableName." t
-                    WHERE t.".$table." = :id
+                    WHERE t.".$column." = :value
                     ".$orderQuery;
 
             return $this->getMultipleResults(
-                DAO::select($sql, ['id' => $id]),
+                DAO::select($sql, ['value' => $value]),
                 $this->className
             );
         }
