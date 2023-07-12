@@ -3,7 +3,7 @@
         <img class="creation-form-image" src="https://www.automobilesreview.com/img/2023-bmw-m3-touring/2023-bmw-m3-touring-07.jpg" alt="A cool Ferrari image">
     </figure>
     <div class="creation-form-right">
-        <form class="creation-form" action="index.php?ctrl=forum&action=ConnectUser" method="post">
+        <form class="creation-form" action="index.php?ctrl=security&action=ConnectUser" method="post">
             <h2 class="creation-form-title">Se connecter</h2>
             
             <p class="creation-form-inputname">Nom d'utilisateur</p>
