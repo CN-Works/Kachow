@@ -197,6 +197,25 @@
 
         // Delete
 
+        public function DeleteTopic($topicId) {
+            $topicManager = new TopicManager();
+
+            $topicId = filter_var($topicId,FILTER_VALIDATE_INT);
+
+
+            //Redirection vers la liste des topics
+            header("Location: http://localhost/PassionEssence/index.php?ctrl=forum&action=listTopics");
+
+            return [
+                "view" => VIEW_DIR."forum/listTopics.php",
+                "data" => [
+                    "deleteTopic" =>$topicManager->delete($topicId),
+                    "topics" => $topicManager->findAll(["creationdate", "DESC"])
+                ]
+            ];
+        }
+
+
         public function DeletePost($postId) {
             $topicManager = new TopicManager();
             $postManager = new PostManager();
