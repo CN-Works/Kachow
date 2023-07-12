@@ -13,6 +13,13 @@ class SecurityController extends AbstractController implements ControllerInterfa
 
     }
 
+    public function ConnectUserForm() {
+        // Par défaut on présente la page de connection, mais on peut être redirigé vers la page de création d'utilisateur et vice versa.
+        return [
+            "view" => VIEW_DIR."security/connectUserForm.php"
+        ];
+    }
+
     public function RegisterUserForm() {
 
         return [
