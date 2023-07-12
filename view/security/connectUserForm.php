@@ -1,6 +1,6 @@
 <div class="creation-form-main">
     <figure class="creation-form-imagefig">
-        <img class="creation-form-image" src="https://www.audi.com/content/dam/gbp2/experience-audi/audi-sport/audi-racing-models/landingpage/1920x1080_A215400_large.jpg" alt="A cool Ferrari image">
+        <img class="creation-form-image" src="https://www.automobilesreview.com/img/2023-bmw-m3-touring/2023-bmw-m3-touring-07.jpg" alt="A cool Ferrari image">
     </figure>
     <div class="creation-form-right">
         <form class="creation-form" action="index.php?ctrl=forum&action=ConnectUser" method="post">
