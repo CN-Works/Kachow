@@ -42,6 +42,12 @@ class SecurityController extends AbstractController implements ControllerInterfa
         $session = new Session();
         $userManager = new UserManager();
 
+        // Si l'utilisateur est connecté, il ne peut pas se connecter à un autre compte
+        if (isset($_SESSION["user"])) {
+            header("location: index.php?ctrl=security&action=ConnectUserForm");
+            exit;
+        }
+
         // On filtre les entrées
         $password = filter_input(INPUT_POST,"connect-password",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $username = filter_input(INPUT_POST,"connect-username",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -84,6 +90,12 @@ class SecurityController extends AbstractController implements ControllerInterfa
 
     public function RegisterUser() {
         $userManager = new UserManager();
+
+        // Si l'utilisateur est connecté, il ne peut pas créer un autre compte
+        if (isset($_SESSION["user"])) {
+            header("location: index.php?ctrl=security&action=ConnectUserForm");
+            exit;
+        }
 
         // On vérifie que les mots de passes & nom d'utilisateur sont sains.
         $password = filter_input(INPUT_POST, "newuser-password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
