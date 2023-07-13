@@ -28,19 +28,15 @@
 
                     <!-- <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=ListRedactions"><p class="header-navbar-element-text">Rédaction</p></a> -->
                     <?php
-                        if(App\Session::isAdmin()){
-                            ?>
-                            <a class="header-navbar-element unselectable" href="index.php?ctrl=home&action=users">Utilisateurs actifs</a>
-                          
-                            <?php
-                        }
-                    ?>
-                    <?php
                         // Vérifie si l'utilisateur est connecté ou non
-                        if(App\Session::getUser()){
+                        if($_SESSION["user"]){
                             ?>
-                            <!-- <a href="/security/viewProfile.html"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser()?></a>
-                            <a href="/security/logout.html">Déconnexion</a> -->
+                            <a class="header-loginicon header" href="index.php?ctrl=security&action=ConnectUserForm">
+                                <img class="header-loginicon-image unselectable" src="./public/img/icon_user.png" alt="Person icon">
+                            </a>
+                            <!-- <a href="./view/security/login.php">Connexion</a>
+                            <a href="/security/register.html">Inscription</a>
+                            <a href="index.php?ctrl=forum&action=listTopics">Tout les topics</a> -->
                             <?php
                         }
                             else {

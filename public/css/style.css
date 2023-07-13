@@ -983,3 +983,15 @@ video {
     text-decoration: none;
     color: var(--dark-blue);
 }
+
+.connection-userfig {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.connection-userimg {
+    height: 100%;
+}

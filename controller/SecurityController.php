@@ -25,7 +25,7 @@ class SecurityController extends AbstractController implements ControllerInterfa
     }
 
     public function ConnectUser() {
-        $session = new Session();;
+        $session = new Session();
         $userManager = new UserManager();
 
         // On filtre les entrées
@@ -44,8 +44,8 @@ class SecurityController extends AbstractController implements ControllerInterfa
                 // On sauvegarde l'objet de l'utilisateur dans la session pour pouvoir manipuler le site par la suite
                 $_SESSION["user"] = $selectedUser;
 
-                echo "mot de passe validé, bienvenue $username !";
-                die;
+                header("location: index.php?ctrl=security&action=ConnectUserForm");
+                exit;
             } else {
                 // Ici le mot de passe est incorrecte
                 // On redirige l'utilisateur vers la page de connection pour une nouvelle chance
