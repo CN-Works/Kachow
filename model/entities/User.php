@@ -8,6 +8,7 @@
         private $id;
         private $username;
         private $description;
+        private $password;
         private $creationdate;
         private $role;
         private $profileimage;
@@ -22,24 +23,10 @@
                 return $this->id;
         }
 
-        public function setId($id)
-        {
-                $this->id = $id;
-
-                return $this;
-        }
-
 
         public function getUsername()
         {
                 return $this->username;
-        }
-
-        public function setUsername($username)
-        {
-                $this->username = $username;
-
-                return $this;
         }
 
 
@@ -48,21 +35,9 @@
                 return $this->description;
         }
 
-        public function setDescription($text)
-        {
-                $this->description = $text;
-
-                return $this;
-        }
-
         public function getCreationdate(){
             $formattedDate = $this->creationdate->format("d/m/Y, H:i:s");
             return $formattedDate;
-        }
-
-        public function setCreationdate($date){
-            $this->creationdate = new \DateTime($date);
-            return $this;
         }
 
 
@@ -71,23 +46,14 @@
                 return $this->role;
         }
 
-        public function setRole($role)
-        {
-                $this->role = $role;
-
-                return $this;
-        }
-
 
         public function getProfileimage()
         {
                 return $this->profileimage;
         }
 
-        public function setProfileimage($profileimage)
+        public function getPassword()
         {
-                $this->profileimage = $profileimage;
-
-                return $this;
+                return $this->password;
         }
     }
