@@ -56,7 +56,7 @@ class SecurityController extends AbstractController implements ControllerInterfa
         $doesExist = $userManager->findUserByUsername($username);
 
         // On vérifie en plus que le nom d'utilisateur correspond.
-        if ($doesExist && $doesExist->getUsername() == $username) {
+        if ($doesExist && $doesExist->getUsername() == $username && $password) {
             // Cette variable correspond à l'utilisateur voulu
             $selectedUser = $doesExist;
 
@@ -116,7 +116,7 @@ class SecurityController extends AbstractController implements ControllerInterfa
 
 
             // on vérifie que le mot de passe et le mot de passe répété est le même,est que la longueur est suffisante
-            if ($password == $passwordRepeat && strlen($password) > $passwordMinChars) {
+            if ($password == $passwordRepeat && strlen($password) > $passwordMinChars && $password) {
 
                 // On récupère les données
                 $newUser = array(
