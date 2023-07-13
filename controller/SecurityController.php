@@ -24,6 +24,42 @@ class SecurityController extends AbstractController implements ControllerInterfa
         ];
     }
 
+    public function ConnectUser() {
+        $session = new Session();;
+        $userManager = new UserManager();
+
+        // On filtre les entrées
+        $password = filter_input(INPUT_POST,"connect-password",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $username = filter_input(INPUT_POST,"connect-username",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        // On vérifie que l'utilisateur existe pour ensuite aller chercher son objet
+        $doesExist = $userManager->findUserByUsername($username);
+
+        // On vérifie en plus que le nom d'utilisateur correspond.
+        if ($doesExist && $doesExist->getUsername() == $username) {
+            // Cette variable correspond à l'utilisateur voulu
+            $selectedUser = $doesExist;
+
+            if (password_verify($password, $selectedUser->getPassword())) {
+                // On sauvegarde l'objet de l'utilisateur dans la session pour pouvoir manipuler le site par la suite
+                $_SESSION["user"] = $selectedUser;
+
+                echo "mot de passe validé, bienvenue $username !";
+                die;
+            } else {
+                // Ici le mot de passe est incorrecte
+                // On redirige l'utilisateur vers la page de connection pour une nouvelle chance
+                header("location: index.php?ctrl=security&action=ConnectUserForm");
+                exit;
+            }
+        } else {
+            // Dans le cas où le nom d'utilisateur n'est pas reconnu
+            // On redirige l'utilisateur vers la page de connection pour une nouvelle chance
+            header("location: index.php?ctrl=security&action=ConnectUserForm");
+            exit;
+        }
+    }
+
     public function RegisterUserForm() {
 
         return [
@@ -42,7 +78,7 @@ class SecurityController extends AbstractController implements ControllerInterfa
         $username = filter_input(INPUT_POST, "newuser-username", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         // On vérifie que le nom d'utilisateur n'est pas déjà pris
-        $doesExist = $userManager->findAllByColumnAndValue($username, "username");
+        $doesExist = $userManager->findUserByUsername($username);
 
         if ($doesExist) {
             // on redirige vers la page de création de compte
