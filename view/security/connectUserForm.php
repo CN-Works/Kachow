@@ -6,11 +6,15 @@
         <?php 
             if (isset($_SESSION["user"])) {
                 ?>
-                <figure class="connection-userfig">
-                    <img class="connection-userimg" src="<?= $_SESSION["user"]->getProfileimage() ?>" alt="Image de profile">
-                </figure>
+                <div class="connection-showprofilezone">
+                    <figure class="connection-userfig">
+                        <img class="connection-userimg" src="<?= $_SESSION["user"]->getProfileimage() ?>" alt="Image de profile">
+                    </figure>
 
-                <h3><?= $_SESSION["user"]->getUsername() ?></h3>
+                    <h3 class="creation-form-title"><?= $_SESSION["user"]->getUsername() ?></h3>
+
+                    <a class="connectpage-button"  href="index.php?ctrl=security&action=Disconnect">Se déconnecter</a>
+                </div>
                 <?php 
             } else {
                 ?>
@@ -24,7 +28,7 @@
                     <input class="creation-form-inputtext" type="password" name="connect-password">
 
 
-                    <input class="creation-form-submitbutton" type="submit" value="Créer">
+                    <input class="creation-form-submitbutton" type="submit" value="Connexion">
 
                     <a class="connectpage-button"  href="index.php?ctrl=security&action=RegisterUserForm">Créer un compte</a>
                 </form>

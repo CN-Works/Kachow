@@ -17,6 +17,20 @@ class SecurityController extends AbstractController implements ControllerInterfa
 
     }
 
+    public function Disconnect() {
+        if ($_SESSION["user"]) {
+            // On retire l'objet user de la session
+            $_SESSION["user"] = null;
+
+            header("location: index.php?ctrl=security&action=ConnectUserForm");
+            exit;
+        } else {
+            // On redirige vers la page de connection
+            header("location: index.php?ctrl=security&action=ConnectUserForm");
+            exit;
+        }
+    }
+
     public function ConnectUserForm() {
         // Par défaut on présente la page de connection, mais on peut être redirigé vers la page de création d'utilisateur et vice versa.
         return [
