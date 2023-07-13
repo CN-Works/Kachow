@@ -1,6 +1,6 @@
 <div class="creation-form-main">
     <figure class="creation-form-imagefig">
-        <img class="creation-form-image" src="https://www.automobilesreview.com/img/2023-bmw-m3-touring/2023-bmw-m3-touring-07.jpg" alt="A cool Ferrari image">
+        <img class="creation-form-image" src="./public/img/banner_m3g80.jpg" alt="A cool Ferrari image">
     </figure>
     <div class="creation-form-right">
         <?php 

@@ -6,7 +6,7 @@ use App\DAO;
 
 <div class="creation-form-main">
     <figure class="creation-form-imagefig">
-        <img class="creation-form-image" src="https://www.hdcarwallpapers.com/walls/ferrari_499p_le_mans_hypercar_2022_4k-HD.jpg" alt="A cool Ferrari image">
+        <img class="creation-form-image" src="./public/img/banner_lemansferrari.jpg" alt="A cool Ferrari image">
     </figure>
     <div class="creation-form-right">
         <form class="creation-form" action="index.php?ctrl=forum&action=CreateCategory" method="post">

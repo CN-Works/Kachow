@@ -1,6 +1,6 @@
 <div class="creation-form-main">
     <figure class="creation-form-imagefig">
-        <img class="creation-form-image" src="https://www.automobile-magazine.fr/asset/cms/210921/config/158370/la-sf-23-la-monoplace-de-la-scuderia-ferrari-pour-la-saison-2023-du-championnat-du-monde-de-f1.jpeg" alt="A cool Ferrari image">
+        <img class="creation-form-image" src="./public/img/banner_sf23.jpeg" alt="A cool Ferrari image">
     </figure>
     <div class="creation-form-right">
         <?php 
