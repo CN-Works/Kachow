@@ -11,7 +11,7 @@
                         <img class="connection-userimg" src="<?= $_SESSION["user"]->getProfileimage() ?>" alt="Image de profile">
                     </figure>
 
-                    <h3 class="creation-form-title"><?= $_SESSION["user"]->getUsername() ?></h3>
+                    <a class="connection-usernamebox"  href="index.php?ctrl=security&action=Disconnect"><p class="connection-username"><?= $_SESSION["user"]->getUsername() ?></p></a>
 
                     <a class="connectpage-button"  href="index.php?ctrl=security&action=Disconnect">Se déconnecter</a>
                 </div>
