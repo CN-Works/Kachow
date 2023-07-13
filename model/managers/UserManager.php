@@ -15,5 +15,18 @@
             parent::connect();
         }
 
-
+        public function findUserByUsername($username) {
+            $sql = "SELECT 
+                        u.id_user,
+                        u.username,
+                        u.description,
+                        u.role,
+                        u.password,
+                        u.creationdate,
+                        u.profileimage
+                    FROM ".$this->tableName." u
+                    WHERE u.username = :username";
+                    
+            return $this->getOneOrNullResult(DAO::select($sql, ['username' => $username], false), $this->className);
+        }
     }
