@@ -106,8 +106,7 @@
             return false;
         }
 
-        // Un select classique mais avec un argument "id" et "table" pour la table voulue
-        // Le but principale étant d'aller chercher de la data avec l'id des clés étrangères.
+        // Un select classique mais avec un argument "value" et "table" pour la table voulu
         public function findAllByColumnAndValue($value,$column, $order = null){
             $orderQuery = ($order) ? "ORDER BY ".$order[0]. " ".$order[1] : "";
 
@@ -115,6 +114,20 @@
                     FROM ".$this->tableName." t
                     WHERE t.".$column." = :value
                     ".$orderQuery;
+
+            return $this->getMultipleResults(
+                DAO::select($sql, ['value' => $value]),
+                $this->className
+            );
+        }
+
+        public function findOneByColumnAndValue($value,$column, $order = null){
+            $orderQuery = ($order) ? "ORDER BY ".$order[0]. " ".$order[1] : "";
+
+            $sql = "SELECT *
+                    FROM ".$this->tableName." t
+                    WHERE t.".$column." = :value
+                    ".$orderQuery." LIMIT 1";
 
             return $this->getMultipleResults(
                 DAO::select($sql, ['value' => $value]),
