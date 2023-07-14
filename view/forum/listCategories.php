@@ -14,9 +14,16 @@ $card_count = 1;
         <p class="general-toppage-subtitle">
             Toutes les différentes catégories de topics disponible sur forum.
             Choissisez-en une pour découvrir le thème que vous voulez !
-            <br>
-            <br>
-            <a class="general-toppage-redactionlink unselectable" href="index.php?ctrl=forum&action=CreateCategoryForm">Nouvelle catégorie</a>
+            <?php
+            // Ici la fonctionnalité de création de catégorie est autorisé uniquement au admins
+            if (isset($_SESSION["user"]) && $_SESSION["user"]->getRole() == "admin") {
+                ?>
+                <br>
+                <br>
+                <a class="general-toppage-redactionlink unselectable" href="index.php?ctrl=forum&action=CreateCategoryForm">Nouvelle catégorie</a>
+                <?php
+            }
+            ?>
         </p>
     </div>
     <div class="allcategory-allcards">
