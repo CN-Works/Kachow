@@ -29,7 +29,7 @@
                     <!-- <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=ListRedactions"><p class="header-navbar-element-text">Rédaction</p></a> -->
                     <?php
                         // Vérifie si l'utilisateur est connecté ou non
-                        if($_SESSION["user"]){
+                        if(isset($_SESSION["user"])){
                             ?>
                             <a class="header-loginicon header" href="index.php?ctrl=security&action=ConnectUserForm">
                                 <img class="header-loginicon-image unselectable" src="./public/img/icon_user.png" alt="Person icon">
