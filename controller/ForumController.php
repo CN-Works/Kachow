@@ -265,17 +265,29 @@
 
             $topicId = filter_input(INPUT_GET, "wantedtopic", FILTER_VALIDATE_INT);
 
-            // Redirection vers le topic original
-            header('Location: index.php?ctrl=forum&action=topicDetails&id='.$topicId);
+            $topic = $topicManager->findOneById($topicId);
 
-            return [
-                "view" => VIEW_DIR."forum/topicDetails.php",
-                "data" => [
-                    "deletePost" => $postManager->delete($postId),
-                    "topicDetails" => $topicManager->findOneById($topicId),
-                    "topicPosts" =>  $postManager->findAllByColumnAndValue($topicId,"topic_id",["creationdate", "ASC"]),
-                ]
-           ];
+            if (isset($_SESSION["user"])) {
+
+                if (($_SESSION["user"]->getId() == $topic->getUser()->getId()) or $_SESSION["user"]->getRole() == "admin") {
+                    return [
+                        "view" => VIEW_DIR."forum/topicDetails.php",
+                        "data" => [
+                            "deletePost" => $postManager->delete($postId),
+                            "topicDetails" => $topicManager->findOneById($topicId),
+                            "topicPosts" =>  $postManager->findAllByColumnAndValue($topicId,"topic_id",["creationdate", "ASC"]),
+                        ]
+                    ];
+                } else {
+                    // Redirection vers le topic original
+                    header('Location: index.php?ctrl=forum&action=topicDetails&id='.$topicId);
+                    exit;
+                }
+            } else {
+                // Redirection vers le topic original
+                header('Location: index.php?ctrl=forum&action=topicDetails&id='.$topicId);
+                exit;
+            }
         }
 
         public function DeleteCategory($categoryId) {
