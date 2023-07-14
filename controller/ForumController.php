@@ -222,17 +222,32 @@
 
             $topicId = filter_var($topicId,FILTER_VALIDATE_INT);
 
+            $topic = $topicManager->findOneById($topicId);
 
-            //Redirection vers la liste des topics
-            header("Location: index.php?ctrl=forum&action=listTopics");
+            if (isset($topic) && isset($_SESSION["user"])) {
 
-            return [
-                "view" => VIEW_DIR."forum/listTopics.php",
-                "data" => [
-                    "deleteTopic" =>$topicManager->delete($topicId),
-                    "topics" => $topicManager->findAll(["creationdate", "DESC"])
-                ]
-            ];
+                if ($_SESSION["user"]->getId() == $topic->getUser()->getId() or $_SESSION["user"]->getRole() == "admin") {
+                    //Redirection vers la liste des topics
+                    header("Location: index.php?ctrl=forum&action=listTopics");
+
+                    return [
+                        "view" => VIEW_DIR."forum/listTopics.php",
+                        "data" => [
+                            "deleteTopic" =>$topicManager->delete($topicId),
+                            "topics" => $topicManager->findAll(["creationdate", "DESC"])
+                        ]
+                    ];
+                } else {
+                    // On redirige vers le topic
+                    header("location: index.php?ctrl=forum&action=topicDetails&id=".$topicId);
+                    exit;
+                }
+
+            } else {
+                // On redirige vers le topic
+                header("location: index.php?ctrl=forum&action=topicDetails&id=".$topicId);
+                exit;
+            }
         }
 
 
