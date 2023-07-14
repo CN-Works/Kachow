@@ -95,8 +95,16 @@ use App\DAO;
                                 }
                             ?>
                         </div>
-
-                        <a class="topicdetails-postbox-deletebutton" href="index.php?ctrl=forum&action=DeletePost&id=<?= $post->getId()?>&wantedtopic=<?= $topic->getId()?>"><img class="topicdetails-postbox-deletebuttonimage unselectable" src="./public/img/delete.png" alt="Delete icon"></a>
+                        <?php
+                        // On vérifie que l'utilisateur est connecté et qu'il est auteur du post ou admin
+                        if (isset($_SESSION["user"])) {
+                            if (($_SESSION["user"]->getId() == $post->getUser()->getId()) or $_SESSION["user"]->getRole() == "admin") {
+                                ?>
+                                <a class="topicdetails-postbox-deletebutton" href="index.php?ctrl=forum&action=DeletePost&id=<?= $post->getId()?>&wantedtopic=<?= $topic->getId()?>"><img class="topicdetails-postbox-deletebuttonimage unselectable" src="./public/img/delete.png" alt="Delete icon"></a>
+                                <?php
+                            }
+                        }
+                        ?>
                     </div>
                     <p class="topicdetails-postbox-text"><?= $post->getContent()?></p>
 
