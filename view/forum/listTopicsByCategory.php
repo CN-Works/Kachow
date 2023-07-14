@@ -13,16 +13,25 @@ use App\DAO;
             Tout les derniers articles rédigés par récemment, écrit par les membres de la communauté.
             <br>
             <?= $categoryInfo->getDescription() ?>
-            <br>
-            <br>
-            <!-- On va chercher le formulaire de création de topic en insérant l'id de catégorie actuelle, pour automatiser la création du topic en fonction de celle-ci. -->
-            <a class="general-toppage-redactionlink unselectable" href="index.php?ctrl=forum&action=CreateTopicForm&id=<?= $categoryInfo->getId() ?>">Nouveau topic</a>
-            <br>
-            <br>
-            <a class="general-toppage-delete unselectable" href="index.php?ctrl=forum&action=DeleteCategory&id=<?= $categoryInfo->getId() ?>">Supprimer</a>
-            <!-- <br>
-            <br>
-            <a class="general-toppage-redactionlink" href="index.php?ctrl=forum&action=CreateCategoryForm">Rédigez le vôtre !</a> -->
+            <?php
+                //On va chercher le formulaire de création de topic en insérant l'id de catégorie actuelle, pour automatiser la création du topic en fonction de celle-ci.
+                if (isset($_SESSION["user"])) {
+                    ?>
+                    <br>
+                    <br>
+                    <a class="general-toppage-redactionlink unselectable" href="index.php?ctrl=forum&action=CreateTopicForm&id=<?= $categoryInfo->getId() ?>">Nouveau topic</a>
+                    <?php
+
+                    // Button supprimer, admin only
+                    if ($_SESSION["user"]->getRole() == "admin") {
+                        ?>
+                        <br>
+                        <br>
+                        <a class="general-toppage-delete unselectable" href="index.php?ctrl=forum&action=DeleteCategory&id=<?= $categoryInfo->getId() ?>">Supprimer</a>
+                        <?php
+                    }
+                }
+            ?>
         </p>
     </div>
 

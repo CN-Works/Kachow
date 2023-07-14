@@ -83,16 +83,22 @@
             $userManager = new UserManager();
             $categoryManager = new CategoryManager();
 
-            // L'id étant l'id_category, aucune demande de catégorie sera nécessaire puisque déjà mentionné.
-            $wantedCategory = filter_var($wantedCategory,FILTER_VALIDATE_INT);
+            // Vérifie si l'utilisateur est connecté
+            if (isset($_SESSION["user"])) {
+                // L'id étant l'id_category, aucune demande de catégorie sera nécessaire puisque déjà mentionné.
+                $wantedCategory = filter_var($wantedCategory,FILTER_VALIDATE_INT);
 
-            return [
-                "view" => VIEW_DIR."forum/createTopic.php",
-                "data" => [
-                    "allUsers" => $userManager->findAll(["creationdate", "ASC"]),
-                    "category" => $categoryManager->findOneById($wantedCategory),
-                ]
-            ];
+                return [
+                    "view" => VIEW_DIR."forum/createTopic.php",
+                    "data" => [
+                        "allUsers" => $userManager->findAll(["creationdate", "ASC"]),
+                        "category" => $categoryManager->findOneById($wantedCategory),
+                    ]
+                ];
+            } else {
+                header("Location: index.php?ctrl=forum&action=TopicsByCategory&id=".$wantedCategory);
+                exit;
+            }
         }
 
         public function CreateTopic($idCategory) {
