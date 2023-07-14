@@ -41,9 +41,19 @@ use App\DAO;
                 <p>, crée le <?= $topic->getCreationdate()?></p>
             </div>
 
-            <div class="topicdetails-topdata-downpage-left">
-                <a class="topicdetails-topdata-downpage-deletebutton" href="index.php?ctrl=forum&action=DeleteTopic&id=<?= $topic->getId()?>"><img class="topicdetails-postbox-deletebuttonimage" src="./public/img/delete-2.png" alt="Delete icon"></a>
-            </div>
+            <?php
+                // On vérifie que l'utilisateur est connecté
+                if (isset($_SESSION["user"])) {
+                    // Soit l'utilisateur à écrit ce post, soit il est admin
+                    if (($_SESSION["user"]->getId() == $topic->getUser()->getId()) or $_SESSION["user"]->getRole() == "admin") {
+                        ?>
+                        <div class="topicdetails-topdata-downpage-left">
+                            <a class="topicdetails-topdata-downpage-deletebutton" href="index.php?ctrl=forum&action=DeleteTopic&id=<?= $topic->getId()?>"><img class="topicdetails-postbox-deletebuttonimage" src="./public/img/delete-2.png" alt="Delete icon"></a>
+                        </div>
+                        <?php
+                    }
+                }
+            ?>
         </div>
     </div>
 
