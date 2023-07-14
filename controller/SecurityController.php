@@ -126,7 +126,6 @@ class SecurityController extends AbstractController implements ControllerInterfa
                     "description" => "Pas de description.",
                     // Par défaut
                     "role" => "user",
-                    "creationdate" => date('Y-m-d H:i:s'),
                     "profileimage" => filter_input(INPUT_POST,"newuser-image",FILTER_VALIDATE_URL),
                 );
 

@@ -110,8 +110,6 @@
                     "banner" => filter_input(INPUT_POST,"newtopic-image",FILTER_VALIDATE_URL),
                     // Status par défaut
                     "status" => 0,
-                    // Récupère la date
-                    "creationdate" => date('Y-m-d H:i:s'),
                     // On vérifie l'id de l'auteur du Topic
                     "user_id" => $_SESSION["user"]->getId(),
                     // On renseigne la catégorie
@@ -147,8 +145,6 @@
                 "topic_id" => filter_var($topicId,FILTER_VALIDATE_INT),
                 // On vérifie que le texte est correcte.
                 "content" => filter_input(INPUT_POST, "comment-text", FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                // Récupère la date
-                "creationdate" => date('Y-m-d H:i:s'),
                 // Pour l'instant, l'utilisateur par défaut (qui écrit les commentaire) sera l'utilisateur "Vic-Thor".
                 "user_id" => filter_input(INPUT_POST, "comment-user", FILTER_VALIDATE_INT),
             );
