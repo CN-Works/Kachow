@@ -1,6 +1,6 @@
 <div class="creation-form-main">
     <figure class="creation-form-imagefig">
-        <img class="creation-form-image" src="./public/img/banner_sf23.jpeg" alt="A cool Ferrari image">
+        <img class="creation-form-image unselectable" src="./public/img/banner_sf23.jpeg" alt="A cool Ferrari image">
     </figure>
     <div class="creation-form-right">
         <?php 
@@ -8,7 +8,7 @@
                 ?>
                 <div class="connection-showprofilezone">
                     <figure class="connection-userfig">
-                        <img class="connection-userimg" src="<?= $_SESSION["user"]->getProfileimage() ?>" alt="Image de profile">
+                        <img class="connection-userimg unselectable" src="<?= $_SESSION["user"]->getProfileimage() ?>" alt="Image de profile">
                     </figure>
 
                     <a class="connection-usernamebox"  href="index.php?ctrl=security&action=Disconnect"><p class="connection-username"><?= $_SESSION["user"]->getUsername() ?></p></a>
