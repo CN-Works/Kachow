@@ -48,7 +48,7 @@ use App\DAO;
                     if (($_SESSION["user"]->getId() == $topic->getUser()->getId()) or $_SESSION["user"]->getRole() == "admin") {
                         ?>
                         <div class="topicdetails-topdata-downpage-left">
-                            <a class="topicdetails-topdata-downpage-deletebutton" href="index.php?ctrl=forum&action=DeleteTopic&id=<?= $topic->getId()?>"><img class="topicdetails-postbox-deletebuttonimage" src="./public/img/delete-2.png" alt="Delete icon"></a>
+                            <a class="topicdetails-topdata-downpage-deletebutton" href="index.php?ctrl=forum&action=DeleteTopic&id=<?= $topic->getId()?>"><img class="topicdetails-postbox-deletebuttonimage unselectable" src="./public/img/delete-2.png" alt="Delete icon"></a>
                         </div>
                         <?php
                     }
@@ -60,22 +60,18 @@ use App\DAO;
     <div class="topicdetails-postpart">
 
         <h3 class="topicdetails-postpart-headtitle">Commentaires</h3>
-
-        <form class="topicdetails-postpart-writer" action="index.php?ctrl=forum&action=CreatePost&id=<?= $topic->getId()?>" method="post">
-            <select class="topicdetails-postpart-writer-select" name="comment-user">
-                <?php
-                foreach($users as $user) {
+        
+        <?php
+            if (isset($_SESSION["user"])) {
                 ?>
-                    <option class="topicdetails-postpart-writer-selectoption" value="<?= $user->getId()?>"><?= $user->getUsername()?></option>
+                <form class="topicdetails-postpart-writer" action="index.php?ctrl=forum&action=CreatePost&id=<?= $topic->getId()?>" method="post">
+                    <textarea class="topicdetails-postpart-writer-text" name="comment-text" cols="10" rows="4" placeholder="écrivez un commentaire ici.."></textarea>
+
+                    <button class="topicdetails-postpart-writer-submit">Poster</button>
+                </form>
                 <?php
-                }
-                ?>
-            </select>
-
-            <textarea class="topicdetails-postpart-writer-text" name="comment-text" cols="10" rows="4" placeholder="écrivez un commentaire ici.."></textarea>
-
-            <button class="topicdetails-postpart-writer-submit">Poster</button>
-        </form>
+            }
+        ?>
 
         <?php
         
@@ -100,7 +96,7 @@ use App\DAO;
                             ?>
                         </div>
 
-                        <a class="topicdetails-postbox-deletebutton" href="index.php?ctrl=forum&action=DeletePost&id=<?= $post->getId()?>&wantedtopic=<?= $topic->getId()?>"><img class="topicdetails-postbox-deletebuttonimage" src="./public/img/delete.png" alt="Delete icon"></a>
+                        <a class="topicdetails-postbox-deletebutton" href="index.php?ctrl=forum&action=DeletePost&id=<?= $post->getId()?>&wantedtopic=<?= $topic->getId()?>"><img class="topicdetails-postbox-deletebuttonimage unselectable" src="./public/img/delete.png" alt="Delete icon"></a>
                     </div>
                     <p class="topicdetails-postbox-text"><?= $post->getContent()?></p>
 
