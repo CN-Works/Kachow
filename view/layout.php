@@ -22,6 +22,16 @@
 
                 <nav class="header-navbar">
 
+                    <?php
+                        if (isset($_SESSION["user"])) {
+                            if ($_SESSION["user"]->getRole() == "admin") {
+                                ?>
+                                <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=listUsers"><p class="header-navbar-element-text">Utilisateurs</p></a>
+                                <?php
+                            }
+                        }
+                    ?>
+
                     <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=listTopics"><p class="header-navbar-element-text">Topics</p></a>
 
                     <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=AllCategories"><p class="header-navbar-element-text">Catégories</p></a>
