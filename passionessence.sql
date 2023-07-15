@@ -40,7 +40,7 @@ INSERT INTO `category` (`id_category`, `label`, `description`, `image`) VALUES
 CREATE TABLE IF NOT EXISTS `post` (
   `id_post` int NOT NULL AUTO_INCREMENT,
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `creationdate` datetime NOT NULL,
+  `creationdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int DEFAULT NULL,
   `topic_id` int DEFAULT NULL,
   PRIMARY KEY (`id_post`) USING BTREE,
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   KEY `user_id` (`user_id`) USING BTREE,
   CONSTRAINT `topic_id` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id_topic`),
   CONSTRAINT `users_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.post : ~46 rows (environ)
 INSERT INTO `post` (`id_post`, `content`, `creationdate`, `user_id`, `topic_id`) VALUES
@@ -97,7 +97,10 @@ INSERT INTO `post` (`id_post`, `content`, `creationdate`, `user_id`, `topic_id`)
 	(51, 'C&#039;est le voiture avec DRS ?', '2023-07-12 07:00:59', 6, 14),
 	(52, 'C&#039;est &ccedil;a, elle a un syst&egrave;me de DRS sur l&#039;aileron arri&egrave;re qui peut &ecirc;tre activ&eacute; en ligne droite pour gagner en performance en ligne droite.', '2023-07-12 07:02:00', 5, 14),
 	(55, 'Je sais pas mais je pense pas', '2023-07-13 07:49:32', 3, 16),
-	(56, 'Pas certain, oui', '2023-07-13 07:49:46', 1, 16);
+	(56, 'Pas certain, oui', '2023-07-13 07:49:46', 1, 16),
+	(57, 'Si y&#039;a cool dans alcool, c&#039;est parce que c&#039;est cool !', '2023-07-14 16:33:16', 2, 7),
+	(58, 'Je suis d&#039;accord avec Quentin, il faut appuyer et &ccedil;a marche', '2023-07-14 16:37:12', 3, 7),
+	(61, 'J&#039;ai vu &agrave; la t&eacute;l&eacute; !', '2023-07-15 15:11:31', 4, 16);
 
 -- Listage de la structure de table passionessence. topic
 CREATE TABLE IF NOT EXISTS `topic` (
@@ -106,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `topic` (
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `banner` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `status` tinyint NOT NULL DEFAULT '0',
-  `creationdate` datetime NOT NULL,
+  `creationdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int NOT NULL,
   `category_id` int NOT NULL,
   PRIMARY KEY (`id_topic`) USING BTREE,
@@ -114,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `topic` (
   KEY `user_id` (`user_id`) USING BTREE,
   CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`id_category`),
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Listage des données de la table passionessence.topic : ~13 rows (environ)
 INSERT INTO `topic` (`id_topic`, `title`, `description`, `banner`, `status`, `creationdate`, `user_id`, `category_id`) VALUES
@@ -148,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Listage des données de la table passionessence.user : ~10 rows (environ)
 INSERT INTO `user` (`id_user`, `username`, `password`, `description`, `role`, `creationdate`, `profileimage`) VALUES
 	(1, 'Quentin12', '$2y$10$gjAKSCN5AmWpXBh6hoJeIOFTn.uWoxV37kmTkw3Ar9RCA4CeuvPti', 'J\'aime les animaux surtout mon chat', 'user', '2023-06-28 09:39:51', 'https://avatars.githubusercontent.com/u/68738931'),
-	(2, 'Maxoms68', '$2y$10$gjAKSCN5AmWpXBh6hoJeIOFTn.uWoxV37kmTkw3Ar9RCA4CeuvPti', 'J\'aime voyager, possède une clio 3 phase 2', 'user', '2023-06-28 09:41:23', 'https://media.discordapp.net/attachments/891954403861491713/1127945550692622377/image.png'),
+	(2, 'Maxoms68', '$2y$10$gjAKSCN5AmWpXBh6hoJeIOFTn.uWoxV37kmTkw3Ar9RCA4CeuvPti', 'J\'aime voyager, possède une clio 3 phase 2', 'admin', '2023-06-28 09:41:23', 'https://media.discordapp.net/attachments/891954403861491713/1127945550692622377/image.png'),
 	(3, 'ArnodePHP', '$2y$10$gjAKSCN5AmWpXBh6hoJeIOFTn.uWoxV37kmTkw3Ar9RCA4CeuvPti', 'Je fais du coivoiturage, mais attention c\'est pas gratuit', 'user', '2023-06-28 09:41:48', 'https://media.licdn.com/dms/image/D4D03AQErVCoqVYpyhQ/profile-displayphoto-shrink_400_400/0/1678805462857?e=1694044800&v=beta&t=JzRc_v8x9I576BA-oLBVdk9w6D2YfSKMyKc2HUeuHWw'),
 	(4, 'Madinax', '$2y$10$gjAKSCN5AmWpXBh6hoJeIOFTn.uWoxV37kmTkw3Ar9RCA4CeuvPti', 'Je parle russe', 'user', '2023-06-28 09:42:55', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Vladimir_Putin_September_5%2C_2022_%28cropped%29.jpg/330px-Vladimir_Putin_September_5%2C_2022_%28cropped%29.jpg'),
 	(5, 'Vic-Thor', '$2y$10$gjAKSCN5AmWpXBh6hoJeIOFTn.uWoxV37kmTkw3Ar9RCA4CeuvPti', 'J\'aime bien les bmw, mais je préfère dacia.', 'admin', '2023-06-29 11:35:49', 'https://avatars.githubusercontent.com/u/92865037'),
