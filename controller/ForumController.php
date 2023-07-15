@@ -176,10 +176,17 @@
         public function CreateCategoryForm() {
             $categoryManager = new CategoryManager();
 
-            if (isset($_SESSION["user"]) && $_SESSION["user"]->getRole() == "admin") {
-                return [
-                    "view" => VIEW_DIR."forum/createCategories.php",
-                ];
+            if (isset($_SESSION["user"])) {
+
+                if ($_SESSION["user"]->getRole() == "admin") {
+                    return [
+                        "view" => VIEW_DIR."forum/createCategories.php",
+                    ];
+                } else {
+                    // On redirige vers la page des catégories si l'utilisateur n'est pas admin
+                    header("location: index.php?ctrl=forum&action=AllCategories");
+                    exit;
+                }
             } else {
                 // On redirige vers la page des catégories si l'utilisateur n'est pas admin
                 header("location: index.php?ctrl=forum&action=AllCategories");
