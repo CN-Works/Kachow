@@ -259,7 +259,6 @@ footer {
 .topiclist-allcards {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
 
     width: 100%;
 }
@@ -276,10 +275,10 @@ footer {
     background-color: #ffffff;
 
     min-width: 350px;
-    width: 27%;
+    width: calc((100% / 4) - 30px);
     height: 450px;
 
-    margin: 15px 3%;
+    margin: 15px 15px;
 
     color: #0c0c0c;
 
