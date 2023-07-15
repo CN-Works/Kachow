@@ -258,9 +258,7 @@ footer {
 
 .topiclist-allcards {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
 
     width: 100%;
 }
