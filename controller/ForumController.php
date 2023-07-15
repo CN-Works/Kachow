@@ -191,29 +191,35 @@
             $categoryManager = new CategoryManager();
 
             // Si l'utilisateur est admin, on autorise la creation de catégorie
-            if (isset($_SESSION["user"]) && $_SESSION["user"]->getRole() == "admin") {
-                $categoryName = filter_input(INPUT_POST, 'category-name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                $categoryDescription = filter_input(INPUT_POST, 'category-description', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                // Ici le l'image est un lien
-                $categoryImage = filter_input(INPUT_POST,"category-image",FILTER_VALIDATE_URL);
+            if (isset($_SESSION["user"])) {
 
-                // Redirection vers la liste des catégories
-                header('Location: index.php?ctrl=forum&action=AllCategories');
+                if ($_SESSION["user"]->getRole() == "admin") {
+                    $categoryName = filter_input(INPUT_POST, 'category-name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                    $categoryDescription = filter_input(INPUT_POST, 'category-description', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                    // Ici le l'image est un lien
+                    $categoryImage = filter_input(INPUT_POST,"category-image",FILTER_VALIDATE_URL);
 
-                // Integration des valeurs dans un tableau pour l'exporter dans la fonction du manager
-                $newCategory = array(
-                    "label" => $categoryName, 
-                    "description" => $categoryDescription, 
-                    "image" => $categoryImage,
-                );
+                    // Redirection vers la liste des catégories
+                    header('Location: index.php?ctrl=forum&action=AllCategories');
 
-                return [
-                    "view" => VIEW_DIR."forum/listCategories.php",
-                    "data" => [
-                        "newcategory" => $categoryManager->add($newCategory),
-                        "categories" => $categoryManager->findAll()
-                        ]
-                ];
+                    // Integration des valeurs dans un tableau pour l'exporter dans la fonction du manager
+                    $newCategory = array(
+                        "label" => $categoryName, 
+                        "description" => $categoryDescription, 
+                        "image" => $categoryImage,
+                    );
+
+                    return [
+                        "view" => VIEW_DIR."forum/listCategories.php",
+                        "data" => [
+                            "newcategory" => $categoryManager->add($newCategory),
+                            "categories" => $categoryManager->findAll()
+                            ]
+                    ];
+                } else {
+                    header("location: index.php?ctrl=forum&action=AllCategories");
+                    exit;
+                }
             } else {
                 header("location: index.php?ctrl=forum&action=AllCategories");
                 exit;
