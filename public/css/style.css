@@ -1046,3 +1046,47 @@ video {
 
     text-transform: uppercase;
 }
+
+/* Liste utilisateurs */
+
+.listUsers-main {
+    min-height: 90svh;
+    background-color: var(--grey-background);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 30px 2.5%;
+}
+
+.listUsers-cards {
+    width: 100%;
+
+    display: flex;
+    flex-flow: row wrap;
+    
+}
+
+.listUsers-card {
+    width: calc((100% / 2) - 30px);
+    margin: 15px;
+}
+
+.listUsers-card-profilefig {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    height: 100px;
+    width: 100px;
+
+    border-radius: 50%;
+}
+
+.listUsers-card-profileimage {
+    height: 100%;
+}
