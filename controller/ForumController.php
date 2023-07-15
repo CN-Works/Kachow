@@ -36,7 +36,7 @@
                     return [
                         "view" => VIEW_DIR."forum/listUsers.php",
                         "data" => [
-                            "AllUsers" => $topicManager->findAll(["creationdate", "DESC"]),
+                            "AllUsers" => $userManager->findAll(["creationdate", "DESC"]),
                         ]
                     ];
                 } else {
