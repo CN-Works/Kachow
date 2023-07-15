@@ -296,15 +296,22 @@
             // On vérifie si l'id de la catégorie est bien un entier
             $categoryId = filter_var($categoryId,FILTER_VALIDATE_INT);
 
-            // Redirection vers la list des catégories
-            header("Location: index.php?ctrl=forum&action=AllCategories");
-
-            return [
-                "view" => VIEW_DIR."forum/listCategories.php",
-                "data" => [
-                    "DeleteCategory" => $categoryManager->delete($categoryId),
-                    "categories" => $categoryManager->findAll()
-                ]
-            ];
+            if (isset($_SESSION["user"])) {
+                if ($_SESSION["user"]->getRole() == "admin") {
+                    return [
+                        "view" => VIEW_DIR."forum/listCategories.php",
+                        "data" => [
+                            "DeleteCategory" => $categoryManager->delete($categoryId),
+                            "categories" => $categoryManager->findAll()
+                        ]
+                    ];
+                } else {
+                    // Redirection vers la list des catégories
+                    header("Location: index.php?ctrl=forum&action=AllCategories");
+                }
+            } else {
+                // Redirection vers la list des catégories
+                header("Location: index.php?ctrl=forum&action=AllCategories");
+            }
         }
     }
