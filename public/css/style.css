@@ -1186,12 +1186,14 @@ video {
 .listUsers-card-profile {
     height: 100%;
 
-    width: 20%;
+    width: 250px;
 
     display: flex;
     align-items: center;
 
     gap: 10px;
+
+    overflow: hidden;
 }
 
 .listUsers-card-profilefig {
@@ -1232,7 +1234,7 @@ video {
 
 .listUsers-card-element {
     height: 100%;
-    width: 15%;
+    width: 150px;
 
     display: flex;
     flex-direction: column;
@@ -1240,6 +1242,7 @@ video {
     justify-content: center;
 
     gap: 10px;
+    overflow: hidden;
 }
 
 .listUsers-card-element-title {
