@@ -1124,31 +1124,61 @@ video {
     
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     margin: 20px 0;
 }
 
 .listUsers-head-title {
-    color: var(--dark-blue);
-    font-size: 1.5rem;
+    color: var(--admin-red);
+    font-size: 1.6rem;
+    font-weight: 700;
 }
 
 .listUsers-head-subtitle {
     color: var(--dark-lighter);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .listUsers-cards {
     width: 100%;
 
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 10px;
     
 }
 
 .listUsers-card {
-    width: calc((100% / 5) - 30px);
+    height: 200px;
+    width: 100%;
+
+    outline: 1px solid #c5c5d2;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 5px;
+
     margin: 15px;
+    overflow: hidden;
+
+    padding: 5px 15px;
+}
+
+.listUsers-card-profile {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
 }
 
 .listUsers-card-profilefig {
@@ -1158,12 +1188,31 @@ video {
 
     overflow: hidden;
 
-    height: 75px;
-    width: 75px;
+    aspect-ratio: 1/1;
+    height: 45%;
 
     border-radius: 50%;
+    outline: 1px solid #c5c5d2;
+    background-color: #ffffff;
 }
 
 .listUsers-card-profileimage {
     height: 100%;
+
+    transition: all, 0.5s;
+}
+
+.listUsers-card-profileimage:hover {
+    transform: scale(120%);
+}
+
+.listUsers-card-username {
+    color: var(--dark-blue);
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.listUsers-card-adminshield {
+    height: 12.5%;
+    aspect-ratio: 1/1;
 }

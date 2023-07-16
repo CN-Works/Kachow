@@ -16,11 +16,22 @@ use App\DAO;
             foreach($allUsers as $user) {
                 ?>
                 <div class="listUsers-card">
-                    <figure class="listUsers-card-profilefig">
-                        <img class="listUsers-card-profileimage" src="<?= $user->getProfileimage() ?>" alt="Profile picture of <?= $user->getUsername() ?>">
-                    </figure>
-                    <h3><?= $user->getUsername() ?></h3>
-                    <p><?= $user->getDescription() ?></p>
+                    <div class="listUsers-card-profile" >
+                        <figure class="listUsers-card-profilefig">
+                            <img class="listUsers-card-profileimage" src="<?= $user->getProfileimage() ?>" alt="Profile picture of <?= $user->getUsername() ?>">
+                        </figure>
+
+                        <h3 class="listUsers-card-username"><?= $user->getUsername() ?></h3>
+
+                        <?php
+                            if ($user->getRole() == "admin") {
+                                ?>
+                                <img class="listUsers-card-adminshield" src="./public/img/shield.png" alt="Admin icon">
+                                <?php
+                            }
+                        ?>
+
+                    </div>
                 </div>
                 <?php
             }
