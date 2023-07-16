@@ -26,32 +26,6 @@
         
         }
 
-        public function listUsers() {
-            $userManager = new UserManager();
-
-            if (isset($_SESSION["user"])) {
-                // C'est une fonctionnalité admin donc on vérifie le role
-                if ($_SESSION["user"]->getRole() == "admin") {
-                    // On récupère les utilisateurs du site
-                    return [
-                        "view" => VIEW_DIR."forum/listUsers.php",
-                        "data" => [
-                            "AllUsers" => $userManager->findAll(["creationdate", "DESC"]),
-                        ]
-                    ];
-                } else {
-                    // On redirige l'utilisateur non-admin
-                    header("Location: index.php");
-                    exit;
-                }
-
-            } else {
-                // On redirige l'utilisateur non-connecté sur la page d'acceuil
-                header("Location: index.php");
-                exit;
-            }
-        }
-
         public function TopicsByCategory($idCategory) {
             // Vérification de l'id
             $idCategory = filter_var($idCategory,FILTER_VALIDATE_INT);
