@@ -1182,6 +1182,8 @@ video {
 .listUsers-card-profile {
     height: 100%;
 
+    width: 20%;
+
     display: flex;
     align-items: center;
 
@@ -1220,20 +1222,28 @@ video {
 }
 
 .listUsers-card-adminshield {
-    height: 12.5%;
+    height: 20px;
     aspect-ratio: 1/1;
 }
 
 .listUsers-card-element {
     height: 100%;
-
     width: 15%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
 }
 
 .listUsers-card-element-title {
-
+    color: var(--dark-blue);
+    font-weight: 700;
 }
 
 .listUsers-card-element-value {
-
+    color: var(--dark-lighter);
+    font-weight: 500;
 }
