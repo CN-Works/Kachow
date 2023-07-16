@@ -11,7 +11,7 @@
     --dark-blue : #2e333e;
     --light-blue:  #B6C8E0;
     --cream: #CCA589;
-    --cream-dark: #b6947b;
+    --cream-dark: #8d807d;
     --grey-white: #D8DADE;
     --grey-light: #AFB4BD;
     --grey-background: #fdfdfd;
@@ -99,6 +99,33 @@ header {
     font-weight: 600;
 }
 
+.header-navbar-element-admin {
+    height: 100%;
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    padding: 0 5px;
+
+    background-color: #E84855;
+
+    transition: all, 0.5s;
+}
+
+.header-navbar-element-admin:visited {
+    color: #ffffff;
+}
+
+.header-navbar-element-text-admin {
+    color: #ffffff;
+    text-decoration: none;
+
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
 .header-loginicon {
     display: flex;
     justify-content: center;
@@ -124,6 +151,43 @@ body:has(.header-loginicon:hover) .header-loginicon-image {
     border-radius: 50%;
 
     max-width: 40px;
+
+    transition: all, 0.5s;
+}
+
+.header-loginicon-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+    min-width: 150px;
+
+    overflow: hidden;
+}
+
+.header-loginicon-userfig {
+    height: 60%;
+    aspect-ratio: 1/1;
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    outline: 2px solid var(--dark-lighter);
+}
+
+body:has(.header-loginicon-userfig:hover) .header-loginicon-user-image{
+    height: 120%;
+}
+
+.header-loginicon-user-image {
+    height: 100%;
 
     transition: all, 0.5s;
 }
@@ -203,7 +267,7 @@ footer {
 
 .general-toppage-title {
     color: var(--dark);
-    font-size: 2.7rem;
+    font-size: 2.45rem;
     text-transform: uppercase;
 
     font-weight: 800;
@@ -229,7 +293,7 @@ footer {
 }
 
 .general-toppage-redactionlink:hover {
-    background-color: var(--cream);
+    background-color: var(--cream-dark);
 }
 
 .general-toppage-redactionlink:visited {
@@ -592,7 +656,7 @@ video {
     display: flex;
     align-items: center;
 
-    background-color: var(--cream);
+    background-color: var(--cream-dark);
     color: #ffffff;
     padding: 10px;
     border-radius: 5px;
@@ -1017,7 +1081,7 @@ video {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: var(--cream);
+    color: var(--cream-dark);
 
     border-radius: 5px;
 
@@ -1033,7 +1097,7 @@ video {
 
 .connection-usernamebox:visited {
     text-decoration: none;
-    color: var(--cream);
+    color: var(--cream-dark);
 }
 
 .connection-username {
@@ -1061,6 +1125,25 @@ video {
     padding: 30px 2.5%;
 }
 
+.listUsers-head {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+
+    margin: 20px 0;
+}
+
+.listUsers-head-title {
+    color: var(--dark-blue);
+    font-size: 1.5rem;
+}
+
+.listUsers-head-subtitle {
+    color: var(--dark-lighter);
+    font-size: 1.1rem;
+}
+
 .listUsers-cards {
     width: 100%;
 
@@ -1070,7 +1153,7 @@ video {
 }
 
 .listUsers-card {
-    width: calc((100% / 2) - 30px);
+    width: calc((100% / 3) - 30px);
     margin: 15px;
 }
 
@@ -1081,8 +1164,8 @@ video {
 
     overflow: hidden;
 
-    height: 100px;
-    width: 100px;
+    height: 75px;
+    width: 75px;
 
     border-radius: 50%;
 }

@@ -7,8 +7,8 @@ use App\DAO;
 
 <div class="listUsers-main">
     <div class="listUsers-head">
-        <h2>Gestion des utilisateurs</h2>
-        <p>Une liste de tout les utilisateurs du forum PassionEssence.</p>
+        <h2 class="listUsers-head-title" >Gestion des utilisateurs</h2>
+        <p class="listUsers-head-subtitle">Une liste de tout les utilisateurs du forum PassionEssence.</p>
     </div>
 
     <div class="listUsers-cards">

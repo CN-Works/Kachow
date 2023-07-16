@@ -22,27 +22,28 @@
 
                 <nav class="header-navbar">
 
-                    <?php
-                        if (isset($_SESSION["user"])) {
-                            if ($_SESSION["user"]->getRole() == "admin") {
-                                ?>
-                                <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=listUsers"><p class="header-navbar-element-text">Utilisateurs</p></a>
-                                <?php
-                            }
-                        }
-                    ?>
-
                     <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=listTopics"><p class="header-navbar-element-text">Topics</p></a>
 
                     <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=AllCategories"><p class="header-navbar-element-text">Catégories</p></a>
 
                     <!-- <a class="header-navbar-element unselectable" href="index.php?ctrl=forum&action=ListRedactions"><p class="header-navbar-element-text">Rédaction</p></a> -->
                     <?php
+                        // Boutton liste utilisateur
+                        if (isset($_SESSION["user"])) {
+                            if ($_SESSION["user"]->getRole() == "admin") {
+                                ?>
+                                <a class="header-navbar-element-admin unselectable" href="index.php?ctrl=forum&action=listUsers"><p class="header-navbar-element-text-admin">Utilisateurs</p></a>
+                                <?php
+                            }
+                        }
+
                         // Vérifie si l'utilisateur est connecté ou non
                         if(isset($_SESSION["user"])){
                             ?>
-                            <a class="header-loginicon header" href="index.php?ctrl=security&action=ConnectUserForm">
-                                <img class="header-loginicon-image unselectable" src="./public/img/icon_user.png" alt="Person icon">
+                            <a class="header-loginicon-user header" href="index.php?ctrl=security&action=ConnectUserForm">
+                                <figure class="header-loginicon-userfig">
+                                    <img class="header-loginicon-user-image unselectable" src="<?= $_SESSION["user"]->getProfileimage() ?>" alt="<?= $_SESSION["user"]->getUsername() ?> 's Personal icon">
+                                </figure>
                             </a>
                             <!-- <a href="./view/security/login.php">Connexion</a>
                             <a href="/security/register.html">Inscription</a>
