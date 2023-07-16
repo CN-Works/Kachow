@@ -56,7 +56,7 @@
             $doesExist = $userManager->findUserByUsername($username);
 
             // On vérifie en plus que le nom d'utilisateur correspond.
-            if ($doesExist && $doesExist->getUsername() == $username && $password) {
+            if ($doesExist && $password) {
                 // Cette variable correspond à l'utilisateur voulu
                 $selectedUser = $doesExist;
 
@@ -103,6 +103,8 @@
 
             $username = filter_input(INPUT_POST, "newuser-username", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+            $image = filter_input(INPUT_POST,"newuser-image",FILTER_VALIDATE_URL);
+
             // On vérifie que le nom d'utilisateur n'est pas déjà pris
             $doesExist = $userManager->findUserByUsername($username);
 
@@ -126,7 +128,7 @@
                         "description" => "Pas de description.",
                         // Par défaut
                         "role" => "user",
-                        "profileimage" => filter_input(INPUT_POST,"newuser-image",FILTER_VALIDATE_URL),
+                        "profileimage" => $image,
                     );
 
                     // On crée un nouveau utilisateur
@@ -151,7 +153,7 @@
                 if ($_SESSION["user"]->getRole() == "admin") {
                     // On récupère les utilisateurs du site
                     return [
-                        "view" => VIEW_DIR."forum/listUsers.php",
+                        "view" => VIEW_DIR."security/listUsers.php",
                         "data" => [
                             "AllUsers" => $userManager->findAll(["creationdate", "DESC"]),
                             "AllTopics" => $topicManager->findAll(["creationdate", "DESC"]),
