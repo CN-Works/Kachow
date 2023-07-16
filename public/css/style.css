@@ -376,14 +376,18 @@ footer {
 .topiclist-card-title {
     margin: 5px 0;
     text-align: center;
-    color: var(--dark);
-    font-size: 1.4rem;
+    color: var(--dark-blue);
+    font-size: 1.3rem;
+
+    line-clamp: 1;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: horizontal;
+    overflow: hidden;
 
     text-align: left;
 
     min-height: 40px;
-
-    overflow-y: auto;
 
     width: 100%;
 
