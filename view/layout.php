@@ -32,7 +32,7 @@
                         if (isset($_SESSION["user"])) {
                             if ($_SESSION["user"]->getRole() == "admin") {
                                 ?>
-                                <a class="header-navbar-element-admin unselectable" href="index.php?ctrl=forum&action=listUsers"><p class="header-navbar-element-text-admin">Utilisateurs</p></a>
+                                <a class="header-navbar-element-admin unselectable" href="index.php?ctrl=security&action=listUsers"><p class="header-navbar-element-text-admin">Utilisateurs</p></a>
                                 <?php
                             }
                         }
