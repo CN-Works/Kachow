@@ -18,6 +18,7 @@
     --brown-red: #4B2423;
     --brown-light: #857070;
     --green-validate: #44CF6C;
+    --admin-red: #E84855;
 }
 
 /* Scrollbar */
@@ -109,7 +110,7 @@ header {
 
     padding: 0 5px;
 
-    background-color: #E84855;
+    background-color: var(--admin-red);
 
     transition: all, 0.5s;
 }
@@ -1086,13 +1087,6 @@ video {
     border-radius: 5px;
 
     text-decoration: none;
-
-    transition: all, 0.5s;
-}
-
-.connection-usernamebox:hover {
-    text-decoration: none;
-    background-color: var(--dark-blue);
 }
 
 .connection-usernamebox:visited {
@@ -1153,7 +1147,7 @@ video {
 }
 
 .listUsers-card {
-    width: calc((100% / 3) - 30px);
+    width: calc((100% / 5) - 30px);
     margin: 15px;
 }
 
