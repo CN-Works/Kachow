@@ -169,7 +169,7 @@ body:has(.header-loginicon:hover) .header-loginicon-image {
 }
 
 .header-loginicon-userfig {
-    height: 60%;
+    height: 50%;
     aspect-ratio: 1/1;
     
 
@@ -179,16 +179,23 @@ body:has(.header-loginicon:hover) .header-loginicon-image {
 
     border-radius: 50%;
     overflow: hidden;
+}
 
-    outline: 2px solid var(--dark-lighter);
+.header-icon-outline-user {
+    outline: 2px solid var(--green-validate);
+}
+
+.header-icon-outline-admin {
+    outline: 2px solid var(--admin-red);
 }
 
 body:has(.header-loginicon-userfig:hover) .header-loginicon-user-image{
-    height: 120%;
+    transform: scale(120%);
 }
 
 .header-loginicon-user-image {
     height: 100%;
+    width: 100%;
 
     transition: all, 0.5s;
 }
@@ -1215,4 +1222,18 @@ video {
 .listUsers-card-adminshield {
     height: 12.5%;
     aspect-ratio: 1/1;
+}
+
+.listUsers-card-element {
+    height: 100%;
+
+    width: 15%;
+}
+
+.listUsers-card-element-title {
+
+}
+
+.listUsers-card-element-value {
+
 }

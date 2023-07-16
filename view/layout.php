@@ -39,16 +39,24 @@
 
                         // Vérifie si l'utilisateur est connecté ou non
                         if(isset($_SESSION["user"])){
-                            ?>
-                            <a class="header-loginicon-user header" href="index.php?ctrl=security&action=ConnectUserForm">
-                                <figure class="header-loginicon-userfig">
-                                    <img class="header-loginicon-user-image unselectable" src="<?= $_SESSION["user"]->getProfileimage() ?>" alt="<?= $_SESSION["user"]->getUsername() ?> 's Personal icon">
-                                </figure>
-                            </a>
-                            <!-- <a href="./view/security/login.php">Connexion</a>
-                            <a href="/security/register.html">Inscription</a>
-                            <a href="index.php?ctrl=forum&action=listTopics">Tout les topics</a> -->
-                            <?php
+                            if ($_SESSION["user"]->getRole() == "admin") {
+                                ?>
+                                <a class="header-loginicon-user header" href="index.php?ctrl=security&action=ConnectUserForm">
+                                    <figure class="header-loginicon-userfig header-icon-outline-admin">
+                                        <img class="header-loginicon-user-image unselectable" src="<?= $_SESSION["user"]->getProfileimage() ?>" alt="<?= $_SESSION["user"]->getUsername() ?> 's Personal icon">
+                                    </figure>
+                                </a>
+                                <?php
+                            } else {
+                                ?>
+                                <a class="header-loginicon-user header" href="index.php?ctrl=security&action=ConnectUserForm">
+                                    <figure class="header-loginicon-userfig header-icon-outline-user">
+                                        <img class="header-loginicon-user-image unselectable" src="<?= $_SESSION["user"]->getProfileimage() ?>" alt="<?= $_SESSION["user"]->getUsername() ?> 's Personal icon">
+                                    </figure>
+                                </a>
+                                <?php
+                            }
+
                         }
                             else {
                             ?>
