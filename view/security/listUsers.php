@@ -96,6 +96,10 @@ foreach ($allPosts as $post) {
                             ?>
                         </p>
                     </div>
+
+                    <a class="listUsers-card-elementbutton-search" href="">
+                        <img class="listUsers-card-element-search" src="./public/img/loupe.png" alt="">
+                    </a>
                 </div>
                 <?php
             }
