@@ -1254,3 +1254,27 @@ video {
     color: var(--dark-lighter);
     font-weight: 500;
 }
+
+.listUsers-card-elementbutton-search {
+    height: 100%;
+    width: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.listUsers-card-elementbutton-search:hover {
+    background-color: var(#82DDF0);
+}
+
+.listUsers-card-elementbutton-search:visited {
+    text-decoration: none;
+}
+
+.listUsers-card-element-search {
+    height: 35%;
+}
