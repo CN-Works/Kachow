@@ -17,7 +17,7 @@
 
         }
 
-        public function Disconnect() {
+        public function disconnect() {
             if ($_SESSION["user"]) {
                 // On retire l'objet user de la session
                 $_SESSION["user"] = null;
@@ -31,14 +31,14 @@
             }
         }
 
-        public function ConnectUserForm() {
+        public function connectUserForm() {
             // Par défaut on présente la page de connection, mais on peut être redirigé vers la page de création d'utilisateur et vice versa.
             return [
                 "view" => VIEW_DIR."security/connectUserForm.php"
             ];
         }
 
-        public function ConnectUser() {
+        public function connectUser() {
             $session = new Session();
             $userManager = new UserManager();
 
@@ -80,7 +80,7 @@
             }
         }
 
-        public function RegisterUserForm() {
+        public function registerUserForm() {
 
             return [
                 "view" => VIEW_DIR."security/registerUserForm.php"
@@ -88,7 +88,7 @@
 
         }
 
-        public function RegisterUser() {
+        public function registerUser() {
             $userManager = new UserManager();
 
             // Si l'utilisateur est connecté, il ne peut pas créer un autre compte

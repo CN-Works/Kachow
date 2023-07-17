@@ -26,7 +26,7 @@
         
         }
 
-        public function TopicsByCategory($idCategory) {
+        public function topicsByCategory($idCategory) {
             // Vérification de l'id
             $idCategory = filter_var($idCategory,FILTER_VALIDATE_INT);
 
@@ -43,7 +43,7 @@
             ];
         }
 
-        public function TopicDetails($topicId){
+        public function topicDetails($topicId){
             // J'utilise le 1er paramère en Id comme expliqué dans l'index, on doit donc utiliser le filter_var
             $topicId = filter_var($topicId,FILTER_VALIDATE_INT);
 
@@ -65,7 +65,7 @@
 
         // List
 
-        public function AllCategories() {
+        public function allCategories() {
 
             $categoryManager = new CategoryManager();
 
@@ -79,7 +79,7 @@
 
         // Create
 
-        public function CreateTopicForm($wantedCategory) {
+        public function createTopicForm($wantedCategory) {
             $userManager = new UserManager();
             $categoryManager = new CategoryManager();
 
@@ -101,7 +101,7 @@
             }
         }
 
-        public function CreateTopic($idCategory) {
+        public function createTopic($idCategory) {
             $topicManager = new TopicManager();
             $categoryManager = new CategoryManager();
 
@@ -142,7 +142,7 @@
             }
         }
 
-        public function CreatePost($topicId) {
+        public function createPost($topicId) {
             $topicManager = new TopicManager();
             $postManager = new PostManager();
 
@@ -173,7 +173,7 @@
             }
         }
 
-        public function CreateCategoryForm() {
+        public function createCategoryForm() {
             $categoryManager = new CategoryManager();
 
             if (isset($_SESSION["user"])) {
@@ -194,7 +194,7 @@
             }
         }
 
-        public function CreateCategory() {
+        public function createCategory() {
             $categoryManager = new CategoryManager();
 
             // Si l'utilisateur est admin, on autorise la creation de catégorie
@@ -235,7 +235,7 @@
 
         // Delete
 
-        public function DeleteTopic($topicId) {
+        public function deleteTopic($topicId) {
             $topicManager = new TopicManager();
 
             $topicId = filter_var($topicId,FILTER_VALIDATE_INT);
@@ -269,7 +269,7 @@
         }
 
 
-        public function DeletePost($postId) {
+        public function deletePost($postId) {
             $topicManager = new TopicManager();
             $postManager = new PostManager();
 
@@ -303,7 +303,7 @@
             }
         }
 
-        public function DeleteCategory($categoryId) {
+        public function deleteCategory($categoryId) {
             $categoryManager = new CategoryManager();
 
             // On vérifie si l'id de la catégorie est bien un entier
