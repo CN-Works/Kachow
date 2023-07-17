@@ -64,7 +64,7 @@ foreach ($allPosts as $post) {
                 <div class="listUsers-card">
                     <div class="listUsers-card-profile" >
                         <figure class="listUsers-card-profilefig">
-                            <img class="listUsers-card-profileimage" src="<?= $user->getProfileimage() ?>" alt="Profile picture of <?= $user->getUsername() ?>">
+                            <img class="listUsers-card-profileimage unselectable" src="<?= $user->getProfileimage() ?>" alt="Profile picture of <?= $user->getUsername() ?>">
                         </figure>
 
                         <h3 class="listUsers-card-username"><?= $user->getUsername() ?></h3>
@@ -97,8 +97,8 @@ foreach ($allPosts as $post) {
                         </p>
                     </div>
 
-                    <a class="listUsers-card-elementbutton-search" href="">
-                        <img class="listUsers-card-element-search" src="./public/img/loupe.png" alt="">
+                    <a class="listUsers-card-elementbutton-search" href="#">
+                        <img class="listUsers-card-element-search unselectable" src="./public/img/loupe.png" alt="">
                     </a>
                 </div>
                 <?php

@@ -155,7 +155,7 @@
                     return [
                         "view" => VIEW_DIR."security/listUsers.php",
                         "data" => [
-                            "AllUsers" => $userManager->findAll(["creationdate", "DESC"]),
+                            "AllUsers" => $userManager->findAll(["creationdate", "ASC"]),
                             "AllTopics" => $topicManager->findAll(["creationdate", "DESC"]),
                             "AllPosts" => $postManager->findAll(["creationdate", "DESC"]),
                         ]
