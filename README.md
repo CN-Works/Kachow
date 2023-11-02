@@ -13,9 +13,6 @@ An automobile forum made for school
 - Delete comments (Admin)
 - Creating/Deleting categories (Admin)
 
-# Todo
-- Responsive for small devices (desktop only for now)
-
 <div align='left'><h1>Home page</h1>
 </div>
 <img src="https://github.com/CN-Works/PassionEssence/assets/92865037/f934acb6-6087-4a9c-8cd6-87bb30dfc3aa"/>
